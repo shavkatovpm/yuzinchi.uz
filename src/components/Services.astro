@@ -14,63 +14,81 @@ const telegramIcon = `<path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 1
 // Google icon
 const googleIcon = `<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>`;
 
+// YouTube icon
+const youtubeIcon = `<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>`;
+
 const services = [
-  // Instagram Row
+  // Instagram Row (3 items)
   {
     icon: instagramIcon,
     title: t('services.instagram.target.title'),
     description: t('services.instagram.target.desc'),
     href: urls.instagram,
-    gradient: 'from-pink-500 to-purple-500',
-    platform: 'instagram'
+    gradient: 'from-pink-500 to-purple-500'
   },
   {
     icon: instagramIcon,
     title: t('services.instagram.reels.title'),
     description: t('services.instagram.reels.desc'),
     href: urls.instagram,
-    gradient: 'from-purple-500 to-pink-500',
-    platform: 'instagram'
+    gradient: 'from-purple-500 to-pink-500'
   },
-  // Telegram Row
+  {
+    icon: instagramIcon,
+    title: t('services.instagram.stories.title'),
+    description: t('services.instagram.stories.desc'),
+    href: urls.instagram,
+    gradient: 'from-orange-500 to-pink-500'
+  },
+  // Telegram Row (3 items)
   {
     icon: telegramIcon,
     title: t('services.telegram.ads.title'),
     description: t('services.telegram.ads.desc'),
     href: urls.telegram,
-    gradient: 'from-blue-400 to-blue-600',
-    platform: 'telegram'
+    gradient: 'from-blue-400 to-blue-600'
   },
   {
     icon: telegramIcon,
     title: t('services.telegram.channels.title'),
     description: t('services.telegram.channels.desc'),
     href: urls.telegram,
-    gradient: 'from-blue-500 to-cyan-500',
-    platform: 'telegram'
+    gradient: 'from-blue-500 to-cyan-500'
   },
-  // Google Row
+  {
+    icon: telegramIcon,
+    title: t('services.telegram.bots.title'),
+    description: t('services.telegram.bots.desc'),
+    href: urls.telegram,
+    gradient: 'from-cyan-500 to-blue-500'
+  },
+  // Google Row (3 items)
   {
     icon: googleIcon,
     title: t('services.google.search.title'),
     description: t('services.google.search.desc'),
     href: urls.google,
-    gradient: 'from-green-400 to-blue-500',
-    platform: 'google'
+    gradient: 'from-green-400 to-blue-500'
   },
   {
     icon: googleIcon,
     title: t('services.google.display.title'),
     description: t('services.google.display.desc'),
     href: urls.google,
-    gradient: 'from-yellow-400 to-red-500',
-    platform: 'google'
+    gradient: 'from-yellow-400 to-red-500'
+  },
+  {
+    icon: youtubeIcon,
+    title: t('services.google.youtube.title'),
+    description: t('services.google.youtube.desc'),
+    href: urls.google,
+    gradient: 'from-red-500 to-red-600'
   }
 ];
 ---
 
 <section class="section-padding">
-  <div class="container-custom">
+  <div class="mx-auto max-w-[95%] px-2 sm:px-4">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="text-3xl font-bold text-dark dark:text-light md:text-4xl">
         {t('services.title')}
@@ -80,32 +98,32 @@ const services = [
       </p>
     </div>
 
-    <!-- Services grid with green border -->
-    <div class="mt-12 rounded-3xl border-2 border-accent p-6 md:p-8">
-      <div class="grid gap-6 md:grid-cols-2">
-        {services.map((service, index) => (
+    <!-- Services grid with green border - almost full width -->
+    <div class="mt-12 rounded-3xl border-2 border-accent p-4 sm:p-6 md:p-8">
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+        {services.map((service) => (
           <a
             href={service.href}
-            class="group relative overflow-hidden rounded-2xl border border-dark/5 bg-light p-6 transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/10 dark:border-light/5 dark:bg-dark/50"
+            class="group relative overflow-hidden rounded-2xl border border-dark/5 bg-light p-5 transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/10 dark:border-light/5 dark:bg-dark/50"
           >
             <!-- Gradient background on hover -->
             <div class={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity group-hover:opacity-5`}></div>
 
             <div class="relative">
-              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                <svg class="h-6 w-6 text-accent" fill="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+              <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
+                <svg class="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
               </div>
 
-              <h3 class="text-lg font-semibold text-dark dark:text-light md:text-xl">
+              <h3 class="text-base font-semibold text-dark dark:text-light md:text-lg">
                 {service.title}
               </h3>
-              <p class="mt-2 text-sm text-dark/60 dark:text-light/60 md:text-base">
+              <p class="mt-1.5 text-sm text-dark/60 dark:text-light/60">
                 {service.description}
               </p>
 
-              <div class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent">
+              <div class="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
                 {t('services.learnMore')}
-                <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </div>
