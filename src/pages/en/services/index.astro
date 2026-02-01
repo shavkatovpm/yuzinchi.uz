@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Services from '../../../components/Services.astro';
+import CTA from '../../../components/CTA.astro';
+---
+
+<BaseLayout
+  title="Services - Yuzinchi Marketing Agency"
+  description="Professional advertising services through Instagram, Telegram and Google Ads. We choose the most effective advertising channels for your business."
+>
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-dark dark:text-light md:text-5xl">
+          Our Services
+        </h1>
+        <p class="mt-4 text-lg text-dark/60 dark:text-light/60">
+          We choose the most effective advertising channels for your business and manage them professionally
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Services />
+  <CTA />
+</BaseLayout>

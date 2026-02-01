@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations, pageUrls } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const urls = pageUrls[lang];
+---
+
+<section class="section-padding">
+  <div class="container-custom">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent to-accent/80 px-6 py-16 text-center md:px-12 md:py-24">
+      <!-- Background decoration -->
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute -left-20 -top-20 h-60 w-60 rounded-full bg-white/10 blur-3xl"></div>
+        <div class="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-white/10 blur-3xl"></div>
+      </div>
+
+      <!-- Grid pattern -->
+      <div class="absolute inset-0 -z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiLz48cGF0aCBkPSJNNDAgMEgwdjQwaDQwVjB6TTEgMWgzOHYzOEgxVjF6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48L2c+PC9zdmc+')] opacity-20"></div>
+
+      <div class="relative mx-auto max-w-2xl">
+        <h2 class="text-3xl font-bold text-light md:text-4xl lg:text-5xl">
+          {t('cta.title')}
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-light/80">
+          {t('cta.subtitle')}
+        </p>
+        <div class="mt-8">
+          <a
+            href={urls.contact}
+            class="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-light px-8 text-lg font-semibold text-accent shadow-lg transition-all hover:bg-light/90 hover:shadow-xl"
+          >
+            {t('cta.button')}
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

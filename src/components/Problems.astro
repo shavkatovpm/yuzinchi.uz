@@ -1,0 +1,53 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const problems = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+    title: t('problem.item1.title'),
+    description: t('problem.item1.desc')
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />`,
+    title: t('problem.item2.title'),
+    description: t('problem.item2.desc')
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+    title: t('problem.item3.title'),
+    description: t('problem.item3.desc')
+  }
+];
+---
+
+<section class="section-padding bg-dark/[0.02] dark:bg-light/[0.02]">
+  <div class="container-custom">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl font-bold text-dark dark:text-light md:text-4xl">
+        {t('problem.title')}
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
+      {problems.map((problem, index) => (
+        <div
+          class="group relative rounded-2xl border border-dark/5 bg-light p-6 transition-all hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 dark:border-light/5 dark:bg-dark md:p-8"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-light">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" set:html={problem.icon} />
+          </div>
+          <h3 class="text-lg font-semibold text-dark dark:text-light">
+            {problem.title}
+          </h3>
+          <p class="mt-2 text-dark/60 dark:text-light/60">
+            {problem.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

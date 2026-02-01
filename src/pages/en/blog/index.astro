@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const allPosts = await getCollection('blog', ({ id, data }) => {
+  return id.startsWith('en/') && !data.draft;
+});
+
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Blog - Yuzinchi Marketing Agency"
+  description="Useful articles and tips on digital marketing, Instagram, Telegram and Google advertising."
+>
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-dark dark:text-light md:text-5xl">{t('blog.title')}</h1>
+        <p class="mt-4 text-lg text-dark/60 dark:text-light/60">{t('blog.subtitle')}</p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.slug.replace('en/', '')}
+              heroImage={post.data.heroImage}
+              tags={post.data.tags}
+              lang={lang}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="mt-12 text-center">
+          <p class="text-dark/60 dark:text-light/60">No articles yet. Coming soon!</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,173 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const businessTypes = [
+  { value: 'ecommerce', label: t('contact.business.ecommerce') },
+  { value: 'services', label: t('contact.business.services') },
+  { value: 'horeca', label: t('contact.business.horeca') },
+  { value: 'education', label: t('contact.business.education') },
+  { value: 'other', label: t('contact.business.other') }
+];
+---
+
+<form id="contact-form" class="space-y-6">
+  <div class="grid gap-6 sm:grid-cols-2">
+    <!-- Name -->
+    <div>
+      <label for="name" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+        {t('contact.name')} <span class="text-accent">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder-dark/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light dark:placeholder-light/40"
+        placeholder={lang === 'uz' ? 'Ismingizni kiriting' : lang === 'ru' ? 'Введите ваше имя' : 'Enter your name'}
+      />
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <label for="phone" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+        {t('contact.phone')} <span class="text-accent">*</span>
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        class="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder-dark/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light dark:placeholder-light/40"
+        placeholder="+998 90 123 45 67"
+      />
+    </div>
+  </div>
+
+  <!-- Business Type -->
+  <div>
+    <label for="business" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+      {t('contact.business')} <span class="text-accent">*</span>
+    </label>
+    <select
+      id="business"
+      name="business"
+      required
+      class="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light"
+    >
+      <option value="" disabled selected>
+        {lang === 'uz' ? 'Tanlang...' : lang === 'ru' ? 'Выберите...' : 'Select...'}
+      </option>
+      {businessTypes.map((type) => (
+        <option value={type.value}>{type.label}</option>
+      ))}
+    </select>
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+      {t('contact.message')}
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      class="w-full resize-none rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder-dark/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light dark:placeholder-light/40"
+      placeholder={lang === 'uz' ? 'Xabaringizni yozing...' : lang === 'ru' ? 'Напишите ваше сообщение...' : 'Write your message...'}
+    ></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    class="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-8 text-base font-semibold text-light shadow-lg shadow-accent/25 transition-all hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/30 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+  >
+    <span id="submit-text">{t('contact.submit')}</span>
+    <svg id="submit-spinner" class="hidden h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+  </button>
+
+  <!-- Success Message -->
+  <div id="success-message" class="hidden rounded-lg bg-green-100 p-4 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+    {lang === 'uz' ? '✓ Xabaringiz yuborildi! Tez orada siz bilan bog\'lanamiz.' : lang === 'ru' ? '✓ Сообщение отправлено! Мы скоро свяжемся с вами.' : '✓ Message sent! We will contact you soon.'}
+  </div>
+
+  <!-- Error Message -->
+  <div id="error-message" class="hidden rounded-lg bg-red-100 p-4 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+    {lang === 'uz' ? '✗ Xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.' : lang === 'ru' ? '✗ Произошла ошибка. Пожалуйста, попробуйте снова.' : '✗ An error occurred. Please try again.'}
+  </div>
+</form>
+
+<script>
+  // Google Apps Script Web App URL (to be replaced with actual URL)
+  const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+  function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const submitText = document.getElementById('submit-text');
+    const submitSpinner = document.getElementById('submit-spinner');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Reset messages
+      successMessage?.classList.add('hidden');
+      errorMessage?.classList.add('hidden');
+
+      // Show loading state
+      submitText?.classList.add('hidden');
+      submitSpinner?.classList.remove('hidden');
+
+      const formData = new FormData(form as HTMLFormElement);
+      const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        business: formData.get('business'),
+        message: formData.get('message') || '',
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        // If Google Script URL is not set, show success (for demo)
+        if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+          // Demo mode - just show success
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          successMessage?.classList.remove('hidden');
+          (form as HTMLFormElement).reset();
+        } else {
+          // Send to Google Apps Script
+          const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+
+          successMessage?.classList.remove('hidden');
+          (form as HTMLFormElement).reset();
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        errorMessage?.classList.remove('hidden');
+      } finally {
+        // Hide loading state
+        submitText?.classList.remove('hidden');
+        submitSpinner?.classList.add('hidden');
+      }
+    });
+  }
+
+  initContactForm();
+  document.addEventListener('astro:after-swap', initContactForm);
+</script>

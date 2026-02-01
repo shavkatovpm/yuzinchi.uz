@@ -1,0 +1,79 @@
+---
+import { getLangFromUrl, useTranslations, pageUrls } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const urls = pageUrls[lang];
+---
+
+<section class="relative overflow-hidden bg-light dark:bg-dark">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full bg-accent/5 blur-3xl"></div>
+  </div>
+
+  <div class="container-custom py-20 md:py-28 lg:py-36">
+    <div class="mx-auto max-w-4xl text-center">
+      <!-- Badge -->
+      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+        </span>
+        Instagram • Telegram • Google Ads
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-4xl font-bold tracking-tight text-dark dark:text-light sm:text-5xl md:text-6xl lg:text-7xl">
+        {lang === 'uz' ? "Yuzingizni yerga qaratmaydigan agentlik" : lang === 'ru' ? "Агентство, которое не подведёт" : "The agency that delivers results"}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-dark/70 dark:text-light/70 md:text-xl">
+        {t('hero.subtitle')}
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href={urls.contact}
+          class="inline-flex h-12 items-center justify-center rounded-lg bg-accent px-8 text-base font-semibold text-light shadow-lg shadow-accent/25 transition-all hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/30"
+        >
+          {t('hero.cta')}
+        </a>
+        <a
+          href={urls.services}
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-dark/10 bg-light px-8 text-base font-semibold text-dark transition-colors hover:bg-dark/5 dark:border-light/10 dark:bg-dark dark:text-light dark:hover:bg-light/5"
+        >
+          {t('hero.cta.secondary')}
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-16 grid grid-cols-3 gap-8 border-t border-dark/5 pt-12 dark:border-light/5">
+        <div>
+          <div class="text-3xl font-bold text-accent md:text-4xl">50+</div>
+          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+            {lang === 'uz' ? 'Muvaffaqiyatli loyihalar' : lang === 'ru' ? 'Успешных проектов' : 'Successful projects'}
+          </div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-accent md:text-4xl">3+</div>
+          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+            {lang === 'uz' ? 'Yillik tajriba' : lang === 'ru' ? 'Лет опыта' : 'Years of experience'}
+          </div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-accent md:text-4xl">98%</div>
+          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+            {lang === 'uz' ? 'Mijozlar mamnuniyati' : lang === 'ru' ? 'Довольных клиентов' : 'Client satisfaction'}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

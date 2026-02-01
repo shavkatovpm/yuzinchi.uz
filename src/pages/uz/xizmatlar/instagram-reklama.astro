@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+
+const features = [
+  {
+    title: "Aniq maqsadlash",
+    description: "Yoshga, jinsga, joylashuvga, qiziqishlarga va xatti-harakatlarga qarab auditoriyani aniq tanlash"
+  },
+  {
+    title: "Kreativ kontent",
+    description: "E'tiborni tortadigan va konversiyani oshiradigan reklama kreativlari"
+  },
+  {
+    title: "A/B testlash",
+    description: "Turli xil reklamalarni sinab, eng samaralisini topish"
+  },
+  {
+    title: "Retargeting",
+    description: "Saytingizga tashrif buyurgan yoki mahsulotlaringizga qiziqgan odamlarga qayta reklama"
+  },
+  {
+    title: "Story va Reels reklama",
+    description: "Eng ko'p ko'riladigan formatlarda reklama joylashtirish"
+  },
+  {
+    title: "Haftalik hisobot",
+    description: "Natijalar va tahlillar bilan shaffof hisobot"
+  }
+];
+---
+
+<BaseLayout
+  title="Instagram Reklama - Yuzinchi Marketing Agency"
+  description="Instagram target reklama orqali potensial mijozlaringizga to'g'ridan-to'g'ri yetib boramiz. Professional Instagram marketing xizmatlari."
+>
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-4xl">
+        <!-- Header -->
+        <div class="text-center">
+          <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-purple-500">
+            <svg class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <h1 class="text-4xl font-bold text-dark dark:text-light md:text-5xl">
+            Instagram Reklama
+          </h1>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-dark/60 dark:text-light/60">
+            Target reklama orqali potensial mijozlaringizga to'g'ridan-to'g'ri yetib boramiz. O'zbekistonda eng mashhur ijtimoiy tarmoqda biznesingizni rivojlantiring.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-12 grid grid-cols-3 gap-6 rounded-2xl border border-dark/5 bg-dark/[0.02] p-6 dark:border-light/5 dark:bg-light/[0.02] md:p-8">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-accent md:text-4xl">10M+</div>
+            <div class="mt-1 text-sm text-dark/60 dark:text-light/60">Foydalanuvchilar (O'zbekiston)</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-accent md:text-4xl">2-5x</div>
+            <div class="mt-1 text-sm text-dark/60 dark:text-light/60">O'rtacha ROI</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-accent md:text-4xl">18-45</div>
+            <div class="mt-1 text-sm text-dark/60 dark:text-light/60">Yosh oralig'i</div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-dark dark:text-light md:text-3xl">
+            Nimalar qilamiz?
+          </h2>
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            {features.map((feature) => (
+              <div class="rounded-xl border border-dark/5 bg-light p-6 dark:border-light/5 dark:bg-dark">
+                <h3 class="font-semibold text-dark dark:text-light">{feature.title}</h3>
+                <p class="mt-2 text-sm text-dark/60 dark:text-light/60">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-dark dark:text-light md:text-3xl">
+            Ishlash jarayoni
+          </h2>
+          <div class="mt-8 space-y-4">
+            <div class="flex gap-4 rounded-xl border border-dark/5 bg-light p-6 dark:border-light/5 dark:bg-dark">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">1</div>
+              <div>
+                <h3 class="font-semibold text-dark dark:text-light">Strategiya tuzish</h3>
+                <p class="mt-1 text-sm text-dark/60 dark:text-light/60">Biznesingizni o'rganib, maqsadli auditoriyani aniqlaymiz</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-xl border border-dark/5 bg-light p-6 dark:border-light/5 dark:bg-dark">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">2</div>
+              <div>
+                <h3 class="font-semibold text-dark dark:text-light">Kreativ tayyorlash</h3>
+                <p class="mt-1 text-sm text-dark/60 dark:text-light/60">E'tiborni tortadigan reklama materiallari yaratamiz</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-xl border border-dark/5 bg-light p-6 dark:border-light/5 dark:bg-dark">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">3</div>
+              <div>
+                <h3 class="font-semibold text-dark dark:text-light">Test va optimizatsiya</h3>
+                <p class="mt-1 text-sm text-dark/60 dark:text-light/60">Turli auditoriya va kreativlarni sinab, eng samaralisini topamiz</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-xl border border-dark/5 bg-light p-6 dark:border-light/5 dark:bg-dark">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">4</div>
+              <div>
+                <h3 class="font-semibold text-dark dark:text-light">Kengaytirish</h3>
+                <p class="mt-1 text-sm text-dark/60 dark:text-light/60">Muvaffaqiyatli kampaniyalarni kengaytirib, natijalarni oshiramiz</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>
