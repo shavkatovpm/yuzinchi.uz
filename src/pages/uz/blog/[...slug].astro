@@ -32,13 +32,13 @@ const formattedDate = post.data.pubDate.toLocaleDateString('uz-UZ', {
       <div class="mx-auto max-w-3xl">
         <!-- Header -->
         <header class="text-center">
-          <time class="text-sm text-dark/50 dark:text-light/50">
+          <time class="text-sm text-light/50">
             {formattedDate}
           </time>
-          <h1 class="mt-4 text-3xl font-bold text-dark dark:text-light md:text-4xl lg:text-5xl">
+          <h1 class="mt-4 text-3xl font-bold text-light md:text-4xl lg:text-5xl">
             {post.data.title}
           </h1>
-          <p class="mt-4 text-lg text-dark/60 dark:text-light/60">
+          <p class="mt-4 text-lg text-light/60">
             {post.data.description}
           </p>
           {post.data.tags && post.data.tags.length > 0 && (
@@ -64,20 +64,20 @@ const formattedDate = post.data.pubDate.toLocaleDateString('uz-UZ', {
         )}
 
         <!-- Content -->
-        <div class="prose prose-lg mx-auto mt-12 max-w-none dark:prose-invert prose-headings:text-dark prose-a:text-accent prose-strong:text-dark dark:prose-headings:text-light dark:prose-strong:text-light">
+        <div class="prose prose-lg prose-invert mx-auto mt-12 max-w-none prose-headings:text-light prose-a:text-accent prose-strong:text-light">
           <Content />
         </div>
 
         <!-- Author -->
-        <div class="mt-12 flex items-center justify-center gap-4 rounded-2xl border border-dark/5 bg-dark/[0.02] p-6 dark:border-light/5 dark:bg-light/[0.02]">
+        <div class="mt-12 flex items-center justify-center gap-4 rounded-2xl border border-light/5 bg-light/[0.02] p-6">
           <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-light">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </div>
           <div>
-            <p class="font-semibold text-dark dark:text-light">{post.data.author}</p>
-            <p class="text-sm text-dark/60 dark:text-light/60">Yuzinchi Marketing</p>
+            <p class="font-semibold text-light">{post.data.author}</p>
+            <p class="text-sm text-light/60">Yuzinchi Marketing</p>
           </div>
         </div>
 

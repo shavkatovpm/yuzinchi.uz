@@ -17,7 +17,7 @@ const businessTypes = [
   <div class="grid gap-6 sm:grid-cols-2">
     <!-- Name -->
     <div>
-      <label for="name" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+      <label for="name" class="mb-2 block text-sm font-medium text-light">
         {t('contact.name')} <span class="text-accent">*</span>
       </label>
       <input
@@ -25,14 +25,14 @@ const businessTypes = [
         id="name"
         name="name"
         required
-        class="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder-dark/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light dark:placeholder-light/40"
+        class="w-full rounded-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
         placeholder={lang === 'uz' ? 'Ismingizni kiriting' : lang === 'ru' ? 'Введите ваше имя' : 'Enter your name'}
       />
     </div>
 
     <!-- Phone -->
     <div>
-      <label for="phone" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+      <label for="phone" class="mb-2 block text-sm font-medium text-light">
         {t('contact.phone')} <span class="text-accent">*</span>
       </label>
       <input
@@ -40,7 +40,7 @@ const businessTypes = [
         id="phone"
         name="phone"
         required
-        class="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder-dark/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light dark:placeholder-light/40"
+        class="w-full rounded-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
         placeholder="+998 90 123 45 67"
       />
     </div>
@@ -48,14 +48,14 @@ const businessTypes = [
 
   <!-- Business Type -->
   <div>
-    <label for="business" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+    <label for="business" class="mb-2 block text-sm font-medium text-light">
       {t('contact.business')} <span class="text-accent">*</span>
     </label>
     <select
       id="business"
       name="business"
       required
-      class="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light"
+      class="w-full rounded-lg border border-light/10 bg-dark px-4 py-3 text-light transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
     >
       <option value="" disabled selected>
         {lang === 'uz' ? 'Tanlang...' : lang === 'ru' ? 'Выберите...' : 'Select...'}
@@ -68,14 +68,14 @@ const businessTypes = [
 
   <!-- Message -->
   <div>
-    <label for="message" class="mb-2 block text-sm font-medium text-dark dark:text-light">
+    <label for="message" class="mb-2 block text-sm font-medium text-light">
       {t('contact.message')}
     </label>
     <textarea
       id="message"
       name="message"
       rows="4"
-      class="w-full resize-none rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder-dark/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 dark:border-light/10 dark:bg-dark dark:text-light dark:placeholder-light/40"
+      class="w-full resize-none rounded-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
       placeholder={lang === 'uz' ? 'Xabaringizni yozing...' : lang === 'ru' ? 'Напишите ваше сообщение...' : 'Write your message...'}
     ></textarea>
   </div>
@@ -93,12 +93,12 @@ const businessTypes = [
   </button>
 
   <!-- Success Message -->
-  <div id="success-message" class="hidden rounded-lg bg-green-100 p-4 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+  <div id="success-message" class="hidden rounded-lg bg-green-900/30 p-4 text-green-400">
     {lang === 'uz' ? '✓ Xabaringiz yuborildi! Tez orada siz bilan bog\'lanamiz.' : lang === 'ru' ? '✓ Сообщение отправлено! Мы скоро свяжемся с вами.' : '✓ Message sent! We will contact you soon.'}
   </div>
 
   <!-- Error Message -->
-  <div id="error-message" class="hidden rounded-lg bg-red-100 p-4 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+  <div id="error-message" class="hidden rounded-lg bg-red-900/30 p-4 text-red-400">
     {lang === 'uz' ? '✗ Xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.' : lang === 'ru' ? '✗ Произошла ошибка. Пожалуйста, попробуйте снова.' : '✗ An error occurred. Please try again.'}
   </div>
 </form>

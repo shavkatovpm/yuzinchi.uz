@@ -6,7 +6,7 @@ const t = useTranslations(lang);
 const urls = pageUrls[lang];
 ---
 
-<section class="relative overflow-hidden bg-light dark:bg-dark">
+<section class="relative overflow-hidden bg-dark">
   <!-- Background decoration -->
   <div class="absolute inset-0 -z-10">
     <div class="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"></div>
@@ -31,12 +31,12 @@ const urls = pageUrls[lang];
       </div>
 
       <!-- Subtitle -->
-      <p class="mx-auto mb-6 whitespace-nowrap text-sm text-dark/70 dark:text-light/70 sm:text-lg md:mb-8 md:text-xl lg:text-2xl">
+      <p class="mx-auto mb-6 whitespace-nowrap text-sm text-light/70 sm:text-lg md:mb-8 md:text-xl lg:text-2xl">
         {lang === 'uz' ? "Yuzingizni yerga qaratmaydigan agentlik" : lang === 'ru' ? "Агентство, которое не подведёт" : "The agency that delivers results"}
       </p>
 
       <!-- Heading - Animated text -->
-      <h1 class="text-3xl font-bold tracking-tight text-dark dark:text-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+      <h1 class="text-3xl font-bold tracking-tight text-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
         <span id="animated-heading" class="transition-opacity duration-500">
           {lang === 'uz' ? "Instagram target orqali sotib oladigan mijozlarni olib kelamiz" : lang === 'ru' ? "Привлекаем покупающих клиентов через Instagram таргет" : "We bring buying customers through Instagram targeting"}
         </span>
@@ -52,7 +52,7 @@ const urls = pageUrls[lang];
         </a>
         <a
           href={urls.services}
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-dark/10 bg-light px-8 text-base font-semibold text-dark transition-colors hover:bg-dark/5 dark:border-light/10 dark:bg-dark dark:text-light dark:hover:bg-light/5"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-light/10 bg-dark px-8 text-base font-semibold text-light transition-colors hover:bg-light/5"
         >
           {t('hero.cta.secondary')}
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -62,22 +62,22 @@ const urls = pageUrls[lang];
       </div>
 
       <!-- Stats -->
-      <div class="mt-16 grid grid-cols-3 gap-8 border-t border-dark/5 pt-12 dark:border-light/5">
+      <div class="mt-16 grid grid-cols-3 gap-8 border-t border-light/5 pt-12">
         <div>
           <div class="text-3xl font-bold text-accent md:text-4xl">2+</div>
-          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+          <div class="mt-1 text-sm text-light/60">
             {lang === 'uz' ? 'Yillik tajriba' : lang === 'ru' ? 'Лет опыта' : 'Years of experience'}
           </div>
         </div>
         <div>
           <div class="text-3xl font-bold text-accent md:text-4xl">97%</div>
-          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+          <div class="mt-1 text-sm text-light/60">
             {lang === 'uz' ? 'Mamnun mijozlar' : lang === 'ru' ? 'Довольных клиентов' : 'Satisfied clients'}
           </div>
         </div>
         <div>
           <div class="text-3xl font-bold text-accent md:text-4xl">10+</div>
-          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+          <div class="mt-1 text-sm text-light/60">
             {lang === 'uz' ? 'Muvaffaqiyatli loyihalar' : lang === 'ru' ? 'Успешных проектов' : 'Successful projects'}
           </div>
         </div>

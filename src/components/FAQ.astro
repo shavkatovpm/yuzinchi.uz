@@ -15,7 +15,7 @@ const faqs = [
 <section class="section-padding">
   <div class="container-custom">
     <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-3xl font-bold text-dark dark:text-light md:text-4xl">
+      <h2 class="text-3xl font-bold text-light md:text-4xl">
         {t('faq.title')}
       </h2>
     </div>
@@ -24,7 +24,7 @@ const faqs = [
       <div class="space-y-4">
         {faqs.map((faq, index) => (
           <div
-            class="group rounded-2xl border border-dark/5 bg-light transition-all hover:border-accent/20 dark:border-light/5 dark:bg-dark"
+            class="group rounded-2xl border border-light/5 bg-dark transition-all duration-300 hover:border-accent/20"
             data-faq-item
           >
             <button
@@ -33,11 +33,11 @@ const faqs = [
               aria-expanded="false"
               data-faq-trigger
             >
-              <span class="text-lg font-medium text-dark dark:text-light">
+              <span class="text-lg font-medium text-light">
                 {faq.question}
               </span>
               <svg
-                class="h-5 w-5 shrink-0 text-accent transition-transform duration-200"
+                class="h-5 w-5 shrink-0 text-accent transition-transform duration-300 ease-out"
                 data-faq-icon
                 fill="none"
                 viewBox="0 0 24 24"
@@ -48,12 +48,14 @@ const faqs = [
               </svg>
             </button>
             <div
-              class="hidden px-6 pb-6"
+              class="grid grid-rows-[0fr] transition-all duration-300 ease-out"
               data-faq-content
             >
-              <p class="text-dark/60 dark:text-light/60">
-                {faq.answer}
-              </p>
+              <div class="overflow-hidden">
+                <p class="px-6 pb-6 text-light/60">
+                  {faq.answer}
+                </p>
+              </div>
             </div>
           </div>
         ))}

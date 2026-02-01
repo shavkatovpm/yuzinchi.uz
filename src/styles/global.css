@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Enable dark mode with class strategy */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* Yuzinchi Brand Colors */
 @theme {
   --color-dark: #262626;
@@ -21,14 +18,14 @@
   }
 
   body {
-    @apply bg-light text-dark antialiased dark:bg-dark dark:text-light;
+    @apply bg-dark text-light antialiased;
     font-family: var(--font-sans);
   }
 
   /* Headings */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply font-bold text-dark dark:text-light;
+    @apply font-bold text-light;
   }
 
   /* Links */

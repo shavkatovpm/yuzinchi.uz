@@ -4,6 +4,7 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LoadingScreen from '../components/LoadingScreen.astro';
+import SplashCursor from '../components/SplashCursor.astro';
 import { getLangFromUrl, useTranslations, type Lang } from '../i18n/utils';
 
 interface Props {
@@ -66,7 +67,8 @@ const langCodes: Record<Lang, string> = {
 
   </head>
 
-  <body class="flex min-h-screen flex-col bg-light text-dark antialiased dark:bg-dark dark:text-light">
+  <body class="flex min-h-screen flex-col bg-dark text-light antialiased">
+    <SplashCursor />
     <LoadingScreen />
     <Header />
 

@@ -8,7 +8,7 @@ const alternateLinks = getAlternateLinks(Astro.url);
 <div class="relative" id="lang-switcher">
   <button
     type="button"
-    class="flex items-center gap-1.5 rounded-lg border border-dark/10 bg-light px-3 py-2 text-sm font-medium text-dark transition-colors hover:bg-dark/5 dark:border-light/10 dark:bg-dark dark:text-light dark:hover:bg-light/5"
+    class="flex items-center gap-1.5 rounded-lg border border-light/10 bg-dark px-3 py-2 text-sm font-medium text-light transition-colors hover:bg-light/5"
     aria-expanded="false"
     aria-haspopup="true"
   >
@@ -19,7 +19,7 @@ const alternateLinks = getAlternateLinks(Astro.url);
   </button>
 
   <div
-    class="absolute right-0 top-full z-50 mt-2 hidden min-w-[120px] overflow-hidden rounded-lg border border-dark/10 bg-light shadow-lg dark:border-light/10 dark:bg-dark"
+    class="absolute right-0 top-full z-50 mt-2 hidden min-w-[120px] overflow-hidden rounded-lg border border-light/10 bg-dark shadow-lg"
     id="lang-dropdown"
   >
     {alternateLinks.map(({ lang, url }) => (
@@ -29,11 +29,11 @@ const alternateLinks = getAlternateLinks(Astro.url);
           'flex items-center gap-2 px-4 py-2.5 text-sm transition-colors',
           lang === currentLang
             ? 'bg-accent/10 text-accent'
-            : 'text-dark hover:bg-dark/5 dark:text-light dark:hover:bg-light/5'
+            : 'text-light hover:bg-light/5'
         ]}
       >
         <span class="uppercase font-medium">{lang}</span>
-        <span class="text-dark/60 dark:text-light/60">{languages[lang]}</span>
+        <span class="text-light/60">{languages[lang]}</span>
       </a>
     ))}
   </div>

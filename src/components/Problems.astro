@@ -23,10 +23,10 @@ const problems = [
 ];
 ---
 
-<section class="section-padding bg-light dark:bg-dark">
+<section class="section-padding bg-dark">
   <div class="container-custom">
     <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-3xl font-bold text-dark dark:text-light md:text-4xl">
+      <h2 class="text-3xl font-bold text-light md:text-4xl">
         {t('problem.title')}
       </h2>
     </div>
@@ -34,16 +34,16 @@ const problems = [
     <div class="mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
       {problems.map((problem, index) => (
         <div
-          class="group relative rounded-2xl border border-dark/5 bg-light p-6 transition-all hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 dark:border-light/5 dark:bg-dark md:p-8"
+          class="group relative rounded-2xl border border-light/5 bg-dark p-6 transition-all hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 md:p-8"
           style={`animation-delay: ${index * 100}ms`}
         >
           <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-light">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" set:html={problem.icon} />
           </div>
-          <h3 class="text-lg font-semibold text-dark dark:text-light">
+          <h3 class="text-lg font-semibold text-light">
             {problem.title}
           </h3>
-          <p class="mt-2 text-dark/60 dark:text-light/60">
+          <p class="mt-2 text-light/60">
             {problem.description}
           </p>
         </div>

@@ -21,10 +21,10 @@ const blogUrl = `/${lang}/blog/${slug}`;
 ---
 
 <article class="group">
-  <a href={blogUrl} class="block overflow-hidden rounded-2xl border border-dark/5 bg-light transition-all hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 dark:border-light/5 dark:bg-dark">
+  <a href={blogUrl} class="block overflow-hidden rounded-2xl border border-light/5 bg-dark transition-all hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5">
     <!-- Image -->
     {heroImage ? (
-      <div class="aspect-video overflow-hidden bg-dark/5 dark:bg-light/5">
+      <div class="aspect-video overflow-hidden bg-light/5">
         <img
           src={heroImage}
           alt={title}
@@ -41,17 +41,17 @@ const blogUrl = `/${lang}/blog/${slug}`;
 
     <div class="p-6">
       <!-- Date -->
-      <time class="text-sm text-dark/50 dark:text-light/50">
+      <time class="text-sm text-light/50">
         {formattedDate}
       </time>
 
       <!-- Title -->
-      <h2 class="mt-2 text-xl font-semibold text-dark transition-colors group-hover:text-accent dark:text-light">
+      <h2 class="mt-2 text-xl font-semibold text-light transition-colors group-hover:text-accent">
         {title}
       </h2>
 
       <!-- Description -->
-      <p class="mt-2 line-clamp-2 text-dark/60 dark:text-light/60">
+      <p class="mt-2 line-clamp-2 text-light/60">
         {description}
       </p>
 

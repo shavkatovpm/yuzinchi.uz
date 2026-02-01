@@ -35,18 +35,18 @@ const socialLinks = [
 ];
 ---
 
-<footer class="border-t border-dark/5 bg-light dark:border-light/5 dark:bg-dark">
+<footer class="border-t border-light/5 bg-dark">
   <div class="container-custom py-12 md:py-16">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
       <!-- Brand -->
       <div class="lg:col-span-1">
-        <a href={urls.home} class="flex items-center gap-2 text-xl font-bold text-dark dark:text-light">
+        <a href={urls.home} class="flex items-center gap-2 text-xl font-bold text-light">
           <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-dark text-lg font-black text-accent">
             100
           </span>
           <span>Yuzinchi</span>
         </a>
-        <p class="mt-4 text-sm text-dark/60 dark:text-light/60">
+        <p class="mt-4 text-sm text-light/60">
           {t('footer.description')}
         </p>
         <div class="mt-6 flex gap-4">
@@ -55,7 +55,7 @@ const socialLinks = [
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="flex h-10 w-10 items-center justify-center rounded-lg border border-dark/10 text-dark/60 transition-colors hover:border-accent hover:text-accent dark:border-light/10 dark:text-light/60 dark:hover:border-accent dark:hover:text-accent"
+              class="flex h-10 w-10 items-center justify-center rounded-lg border border-light/10 text-light/60 transition-colors hover:border-accent hover:text-accent"
               aria-label={link.name}
             >
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" set:html={link.icon} />
@@ -66,7 +66,7 @@ const socialLinks = [
 
       <!-- Services -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-dark dark:text-light">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-light">
           {t('footer.services')}
         </h3>
         <ul class="mt-4 space-y-3">
@@ -74,7 +74,7 @@ const socialLinks = [
             <li>
               <a
                 href={link.href}
-                class="text-sm text-dark/60 transition-colors hover:text-accent dark:text-light/60 dark:hover:text-accent"
+                class="text-sm text-light/60 transition-colors hover:text-accent"
               >
                 {link.name}
               </a>
@@ -85,7 +85,7 @@ const socialLinks = [
 
       <!-- Company -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-dark dark:text-light">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-light">
           {t('footer.company')}
         </h3>
         <ul class="mt-4 space-y-3">
@@ -93,7 +93,7 @@ const socialLinks = [
             <li>
               <a
                 href={link.href}
-                class="text-sm text-dark/60 transition-colors hover:text-accent dark:text-light/60 dark:hover:text-accent"
+                class="text-sm text-light/60 transition-colors hover:text-accent"
               >
                 {link.name}
               </a>
@@ -104,14 +104,14 @@ const socialLinks = [
 
       <!-- Contact -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-dark dark:text-light">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-light">
           {t('footer.contact')}
         </h3>
         <ul class="mt-4 space-y-3">
           <li>
             <a
               href="tel:+998901234567"
-              class="text-sm text-dark/60 transition-colors hover:text-accent dark:text-light/60 dark:hover:text-accent"
+              class="text-sm text-light/60 transition-colors hover:text-accent"
             >
               +998 90 123 45 67
             </a>
@@ -119,13 +119,13 @@ const socialLinks = [
           <li>
             <a
               href="mailto:info@yuzinchi.uz"
-              class="text-sm text-dark/60 transition-colors hover:text-accent dark:text-light/60 dark:hover:text-accent"
+              class="text-sm text-light/60 transition-colors hover:text-accent"
             >
               info@yuzinchi.uz
             </a>
           </li>
           <li>
-            <span class="text-sm text-dark/60 dark:text-light/60">
+            <span class="text-sm text-light/60">
               Toshkent, O'zbekiston
             </span>
           </li>
@@ -134,8 +134,8 @@ const socialLinks = [
     </div>
 
     <!-- Bottom bar -->
-    <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-dark/5 pt-8 dark:border-light/5 sm:flex-row">
-      <p class="text-sm text-dark/60 dark:text-light/60">
+    <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-light/5 pt-8 sm:flex-row">
+      <p class="text-sm text-light/60">
         &copy; {currentYear} Yuzinchi. {t('footer.rights')}.
       </p>
     </div>
