@@ -5,27 +5,66 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const urls = serviceUrls[lang];
 
+// Instagram icon
+const instagramIcon = `<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>`;
+
+// Telegram icon
+const telegramIcon = `<path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>`;
+
+// Google icon
+const googleIcon = `<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>`;
+
 const services = [
+  // Instagram Row
   {
-    icon: `<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>`,
-    title: t('services.instagram.title'),
-    description: t('services.instagram.desc'),
+    icon: instagramIcon,
+    title: t('services.instagram.target.title'),
+    description: t('services.instagram.target.desc'),
     href: urls.instagram,
-    gradient: 'from-pink-500 to-purple-500'
+    gradient: 'from-pink-500 to-purple-500',
+    platform: 'instagram'
   },
   {
-    icon: `<path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>`,
-    title: t('services.telegram.title'),
-    description: t('services.telegram.desc'),
+    icon: instagramIcon,
+    title: t('services.instagram.reels.title'),
+    description: t('services.instagram.reels.desc'),
+    href: urls.instagram,
+    gradient: 'from-purple-500 to-pink-500',
+    platform: 'instagram'
+  },
+  // Telegram Row
+  {
+    icon: telegramIcon,
+    title: t('services.telegram.ads.title'),
+    description: t('services.telegram.ads.desc'),
     href: urls.telegram,
-    gradient: 'from-blue-400 to-blue-600'
+    gradient: 'from-blue-400 to-blue-600',
+    platform: 'telegram'
   },
   {
-    icon: `<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>`,
-    title: t('services.google.title'),
-    description: t('services.google.desc'),
+    icon: telegramIcon,
+    title: t('services.telegram.channels.title'),
+    description: t('services.telegram.channels.desc'),
+    href: urls.telegram,
+    gradient: 'from-blue-500 to-cyan-500',
+    platform: 'telegram'
+  },
+  // Google Row
+  {
+    icon: googleIcon,
+    title: t('services.google.search.title'),
+    description: t('services.google.search.desc'),
     href: urls.google,
-    gradient: 'from-green-400 to-blue-500'
+    gradient: 'from-green-400 to-blue-500',
+    platform: 'google'
+  },
+  {
+    icon: googleIcon,
+    title: t('services.google.display.title'),
+    description: t('services.google.display.desc'),
+    href: urls.google,
+    gradient: 'from-yellow-400 to-red-500',
+    platform: 'google'
   }
 ];
 ---
@@ -41,36 +80,39 @@ const services = [
       </p>
     </div>
 
-    <div class="mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
-      {services.map((service, index) => (
-        <a
-          href={service.href}
-          class="group relative overflow-hidden rounded-2xl border border-dark/5 bg-light p-6 transition-all hover:border-accent/20 hover:shadow-xl hover:shadow-accent/10 dark:border-light/5 dark:bg-dark md:p-8"
-        >
-          <!-- Gradient background on hover -->
-          <div class={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity group-hover:opacity-5`}></div>
+    <!-- Services grid with green border -->
+    <div class="mt-12 rounded-3xl border-2 border-accent p-6 md:p-8">
+      <div class="grid gap-6 md:grid-cols-2">
+        {services.map((service, index) => (
+          <a
+            href={service.href}
+            class="group relative overflow-hidden rounded-2xl border border-dark/5 bg-light p-6 transition-all hover:border-accent/30 hover:shadow-xl hover:shadow-accent/10 dark:border-light/5 dark:bg-dark/50"
+          >
+            <!-- Gradient background on hover -->
+            <div class={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity group-hover:opacity-5`}></div>
 
-          <div class="relative">
-            <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
-              <svg class="h-7 w-7 text-accent" fill="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+            <div class="relative">
+              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
+                <svg class="h-6 w-6 text-accent" fill="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+              </div>
+
+              <h3 class="text-lg font-semibold text-dark dark:text-light md:text-xl">
+                {service.title}
+              </h3>
+              <p class="mt-2 text-sm text-dark/60 dark:text-light/60 md:text-base">
+                {service.description}
+              </p>
+
+              <div class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                {t('services.learnMore')}
+                <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
-
-            <h3 class="text-xl font-semibold text-dark dark:text-light">
-              {service.title}
-            </h3>
-            <p class="mt-3 text-dark/60 dark:text-light/60">
-              {service.description}
-            </p>
-
-            <div class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent">
-              {t('services.learnMore')}
-              <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </section>
