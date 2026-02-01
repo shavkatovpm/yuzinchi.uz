@@ -9,7 +9,7 @@ export const defaultLang = 'uz';
 export const ui = {
   uz: {
     // Navigation
-    'nav.home': 'Bosh sahifa',
+    'nav.home': 'Asosiy',
     'nav.services': 'Xizmatlar',
     'nav.about': 'Biz haqimizda',
     'nav.blog': 'Blog',
