@@ -11,7 +11,6 @@ export const ui = {
     // Navigation
     'nav.home': 'Asosiy',
     'nav.services': 'Xizmatlar',
-    'nav.about': 'Biz haqimizda',
     'nav.blog': 'Blog',
     'nav.contact': 'Aloqa',
 
@@ -125,7 +124,6 @@ export const ui = {
     // Navigation
     'nav.home': 'Home',
     'nav.services': 'Services',
-    'nav.about': 'About Us',
     'nav.blog': 'Blog',
     'nav.contact': 'Contact',
 
@@ -239,7 +237,6 @@ export const ui = {
     // Navigation
     'nav.home': 'Главная',
     'nav.services': 'Услуги',
-    'nav.about': 'О нас',
     'nav.blog': 'Блог',
     'nav.contact': 'Контакты',
 
@@ -377,21 +374,18 @@ export const pageUrls = {
   uz: {
     home: '/',
     services: '/uz/xizmatlar',
-    about: '/uz/biz-haqimizda',
     blog: '/uz/blog',
     contact: '/uz/aloqa'
   },
   en: {
     home: '/en',
     services: '/en/services',
-    about: '/en/about',
     blog: '/en/blog',
     contact: '/en/contact'
   },
   ru: {
     home: '/ru',
     services: '/ru/uslugi',
-    about: '/ru/o-nas',
     blog: '/ru/blog',
     contact: '/ru/kontakty'
   }

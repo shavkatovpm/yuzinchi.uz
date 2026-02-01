@@ -16,22 +16,34 @@ const urls = pageUrls[lang];
   <div class="container-custom py-20 md:py-28 lg:py-36">
     <div class="mx-auto max-w-4xl text-center">
       <!-- Badge -->
-      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
-        <span class="relative flex h-2 w-2">
+      <div class="mb-6 inline-flex items-center gap-3 rounded-full border border-accent/20 bg-accent/10 px-6 py-2.5 text-base font-medium text-accent md:text-lg">
+        <span class="relative flex h-2.5 w-2.5">
           <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
-          <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
         </span>
-        Instagram • Telegram • Google Ads
+        <span>Instagram Target</span>
+        <span class="text-accent/50">-</span>
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+        </span>
+        <span>Telegram Ads</span>
+        <span class="text-accent/50">-</span>
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+        </span>
+        <span>Google Ads</span>
       </div>
 
       <!-- Heading -->
-      <h1 class="text-4xl font-bold tracking-tight text-dark dark:text-light sm:text-5xl md:text-6xl lg:text-7xl">
+      <h1 class="text-5xl font-bold tracking-tight text-dark dark:text-light sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
         {lang === 'uz' ? "Yuzingizni yerga qaratmaydigan agentlik" : lang === 'ru' ? "Агентство, которое не подведёт" : "The agency that delivers results"}
       </h1>
 
       <!-- Subtitle -->
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-dark/70 dark:text-light/70 md:text-xl">
-        {t('hero.subtitle')}
+      <p class="mx-auto mt-6 max-w-3xl whitespace-nowrap text-lg text-dark/70 dark:text-light/70 md:text-xl lg:text-2xl">
+        {lang === 'uz' ? "Maqsadimiz: sotib oladigan mijozlar oqimini olib kelishga qaratilgan." : lang === 'ru' ? "Наша цель: привлечь поток покупающих клиентов." : "Our goal: to bring a flow of buying customers."}
       </p>
 
       <!-- CTAs -->
@@ -56,21 +68,21 @@ const urls = pageUrls[lang];
       <!-- Stats -->
       <div class="mt-16 grid grid-cols-3 gap-8 border-t border-dark/5 pt-12 dark:border-light/5">
         <div>
-          <div class="text-3xl font-bold text-accent md:text-4xl">50+</div>
-          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
-            {lang === 'uz' ? 'Muvaffaqiyatli loyihalar' : lang === 'ru' ? 'Успешных проектов' : 'Successful projects'}
-          </div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-accent md:text-4xl">3+</div>
+          <div class="text-3xl font-bold text-accent md:text-4xl">2+</div>
           <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
             {lang === 'uz' ? 'Yillik tajriba' : lang === 'ru' ? 'Лет опыта' : 'Years of experience'}
           </div>
         </div>
         <div>
-          <div class="text-3xl font-bold text-accent md:text-4xl">98%</div>
+          <div class="text-3xl font-bold text-accent md:text-4xl">97%</div>
           <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
-            {lang === 'uz' ? 'Mijozlar mamnuniyati' : lang === 'ru' ? 'Довольных клиентов' : 'Client satisfaction'}
+            {lang === 'uz' ? 'Mamnun mijozlar' : lang === 'ru' ? 'Довольных клиентов' : 'Satisfied clients'}
+          </div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-accent md:text-4xl">10+</div>
+          <div class="mt-1 text-sm text-dark/60 dark:text-light/60">
+            {lang === 'uz' ? 'Muvaffaqiyatli loyihalar' : lang === 'ru' ? 'Успешных проектов' : 'Successful projects'}
           </div>
         </div>
       </div>
