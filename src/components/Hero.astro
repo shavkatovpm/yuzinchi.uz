@@ -34,14 +34,16 @@ const urls = pageUrls[lang];
         <span>Google Ads</span>
       </div>
 
-      <!-- Heading -->
+      <!-- Heading - Animated text -->
       <h1 class="text-3xl font-bold tracking-tight text-dark dark:text-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-        {lang === 'uz' ? "Yuzingizni yerga qaratmaydigan agentlik" : lang === 'ru' ? "Агентство, которое не подведёт" : "The agency that delivers results"}
+        <span id="animated-heading" class="transition-opacity duration-500">
+          {lang === 'uz' ? "Instagram target orqali sotib oladigan mijozlarni olib kelamiz" : lang === 'ru' ? "Привлекаем покупающих клиентов через Instagram таргет" : "We bring buying customers through Instagram targeting"}
+        </span>
       </h1>
 
       <!-- Subtitle -->
-      <p class="mx-auto mt-10 max-w-3xl whitespace-nowrap text-lg text-dark/70 dark:text-light/70 md:mt-12 md:text-xl lg:text-2xl">
-        {lang === 'uz' ? "Maqsadimiz: sotib oladigan mijozlar oqimini olib kelishga qaratilgan." : lang === 'ru' ? "Наша цель: привлечь поток покупающих клиентов." : "Our goal: to bring a flow of buying customers."}
+      <p class="mx-auto mt-10 max-w-3xl text-lg text-dark/70 dark:text-light/70 md:mt-12 md:text-xl lg:text-2xl">
+        {lang === 'uz' ? "Yuzingizni yerga qaratmaydigan agentlik" : lang === 'ru' ? "Агентство, которое не подведёт" : "The agency that delivers results"}
       </p>
 
       <!-- CTAs -->
@@ -87,3 +89,44 @@ const urls = pageUrls[lang];
     </div>
   </div>
 </section>
+
+<script define:vars={{ lang }}>
+  const headingTexts = {
+    uz: [
+      "Instagram target orqali sotib oladigan mijozlarni olib kelamiz",
+      "Telegram ads bilan ishonchli trafik, o'lchanadigan natija ko'rsatamiz",
+      "Google ads orqali sizni izlayotgan mijozlarni ushlab qolamiz"
+    ],
+    ru: [
+      "Привлекаем покупающих клиентов через Instagram таргет",
+      "Telegram Ads — надёжный трафик и измеримые результаты",
+      "Google Ads — ловим клиентов, которые ищут вас"
+    ],
+    en: [
+      "We bring buying customers through Instagram targeting",
+      "Telegram Ads for reliable traffic and measurable results",
+      "Google Ads to catch customers searching for you"
+    ]
+  };
+
+  function initHeadingAnimation() {
+    const heading = document.getElementById('animated-heading');
+    if (!heading) return;
+
+    const texts = headingTexts[lang] || headingTexts.uz;
+    let currentIndex = 0;
+
+    setInterval(() => {
+      heading.style.opacity = '0';
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % texts.length;
+        heading.textContent = texts[currentIndex];
+        heading.style.opacity = '1';
+      }, 500);
+    }, 4000);
+  }
+
+  initHeadingAnimation();
+  document.addEventListener('astro:after-swap', initHeadingAnimation);
+</script>
