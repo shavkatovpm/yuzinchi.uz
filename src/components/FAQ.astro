@@ -70,20 +70,24 @@ const faqs = [
 
     items.forEach((item) => {
       const trigger = item.querySelector('[data-faq-trigger]');
-      const content = item.querySelector('[data-faq-content]');
-      const icon = item.querySelector('[data-faq-icon]');
+      const content = item.querySelector('[data-faq-content]') as HTMLElement;
+      const icon = item.querySelector('[data-faq-icon]') as HTMLElement;
 
       if (!trigger || !content || !icon) return;
 
-      trigger.addEventListener('click', () => {
-        const isOpen = content.classList.toggle('hidden');
-        trigger.setAttribute('aria-expanded', String(!isOpen));
+      let isOpen = false;
 
-        // Change icon
-        if (!isOpen) {
-          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />';
+      trigger.addEventListener('click', () => {
+        isOpen = !isOpen;
+        trigger.setAttribute('aria-expanded', String(isOpen));
+
+        // Animate content with grid-rows
+        if (isOpen) {
+          content.style.gridTemplateRows = '1fr';
+          icon.style.transform = 'rotate(45deg)';
         } else {
-          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />';
+          content.style.gridTemplateRows = '0fr';
+          icon.style.transform = 'rotate(0deg)';
         }
       });
     });
