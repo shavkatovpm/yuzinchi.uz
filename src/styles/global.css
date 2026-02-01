@@ -21,14 +21,14 @@
   }
 
   body {
-    @apply bg-dark text-light antialiased;
+    @apply bg-light text-dark antialiased dark:bg-dark dark:text-light;
     font-family: var(--font-sans);
   }
 
   /* Headings */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply font-bold text-light;
+    @apply font-bold text-dark dark:text-light;
   }
 
   /* Links */

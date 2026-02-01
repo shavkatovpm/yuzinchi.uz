@@ -34,7 +34,7 @@ const langCodes: Record<Lang, string> = {
 ---
 
 <!doctype html>
-<html lang={langCodes[lang]} class="scroll-smooth dark">
+<html lang={langCodes[lang]} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -65,7 +65,7 @@ const langCodes: Record<Lang, string> = {
 
   </head>
 
-  <body class="flex min-h-screen flex-col bg-dark text-light antialiased">
+  <body class="flex min-h-screen flex-col bg-light text-dark antialiased dark:bg-dark dark:text-light">
     <Header />
 
     <main class="flex-1">
