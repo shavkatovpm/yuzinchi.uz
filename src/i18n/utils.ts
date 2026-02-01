@@ -69,14 +69,23 @@ export function translatePath(path: string, targetLang: Lang): string {
 }
 
 export function getAlternateLinks(currentUrl: URL): Array<{ lang: Lang; url: string }> {
-  const currentLang = getLangFromUrl(currentUrl);
+  const pathname = currentUrl.pathname;
   const route = getRouteFromUrl(currentUrl);
+
+  // If we're on the root URL, return home pages for each language
+  if (pathname === '/' || pathname === '') {
+    return [
+      { lang: 'uz', url: '/' },
+      { lang: 'en', url: '/en' },
+      { lang: 'ru', url: '/ru' }
+    ];
+  }
 
   return Object.keys(languages).map((lang) => {
     const translatedPath = translatePath(route, lang as Lang);
     return {
       lang: lang as Lang,
-      url: `/${lang}${translatedPath}`
+      url: lang === 'uz' && translatedPath === '' ? '/' : `/${lang}${translatedPath}`
     };
   });
 }

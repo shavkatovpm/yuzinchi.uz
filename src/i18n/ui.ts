@@ -375,7 +375,7 @@ export const serviceUrls = {
 // Page URLs per language
 export const pageUrls = {
   uz: {
-    home: '/uz',
+    home: '/',
     services: '/uz/xizmatlar',
     about: '/uz/biz-haqimizda',
     blog: '/uz/blog',
