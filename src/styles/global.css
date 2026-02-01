@@ -56,9 +56,9 @@
     @apply text-accent;
   }
 
-  /* Section spacing - full viewport height on desktop */
+  /* Section spacing */
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32 lg:min-h-screen lg:flex lg:flex-col lg:justify-center;
+    @apply py-16 md:py-24 lg:py-32;
   }
 }
 

@@ -1,6 +1,7 @@
 ---
 // Loading Screen Component
-// Shows 0-100% counter, then reveals "ishonch" text
+// Shows 0-100% counter, then reveals "ishonch" text with blur effect
+// Uses Space Grotesk font (same as hero section)
 ---
 
 <div id="loading-screen" class="loading-screen">
@@ -47,35 +48,37 @@
   }
 
   .counter {
-    font-size: clamp(4rem, 15vw, 10rem);
+    font-size: clamp(5rem, 20vw, 14rem);
     font-weight: 700;
-    color: #ececec;
+    color: #628141;
     line-height: 1;
     letter-spacing: -0.02em;
   }
 
   .percent {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 600;
     color: #628141;
-    margin-left: 0.1em;
+    margin-left: 0.05em;
   }
 
   .ishonch-text {
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: clamp(1.5rem, 5vw, 3rem);
-    font-weight: 600;
+    font-size: clamp(5rem, 20vw, 14rem);
+    font-weight: 700;
     color: #628141;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
     opacity: 0;
+    filter: blur(20px);
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
     margin-top: 0.5rem;
   }
 
   .ishonch-text.visible {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
   }
 </style>
@@ -88,26 +91,20 @@
 
     if (!counter || !ishonchText || !loadingScreen) return;
 
-    // Check if already visited in this session
-    const hasVisited = sessionStorage.getItem('hasVisitedYuzinchi');
+    // Faqat birinchi kirishda ko'rsatish
+    const hasVisited = sessionStorage.getItem('yuzinchi_visited');
 
     if (hasVisited) {
-      // Skip animation for returning visitors in same session
-      loadingScreen.classList.add('fade-out');
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 100);
+      // Allaqachon kirgan - loadingni yashirish
+      loadingScreen.style.display = 'none';
       return;
     }
 
     let count = 0;
     const targetCount = 100;
-    const duration = 1500; // 1.5 seconds for counting
-    const frameRate = 60;
-    const totalFrames = (duration / 1000) * frameRate;
-    const increment = targetCount / totalFrames;
+    const duration = 1200; // 1.2 seconds for counting - fast and dramatic
 
-    // Easing function for smooth acceleration
+    // Easing function for smooth acceleration then slow at end
     const easeOutQuart = (t: number): number => {
       return 1 - Math.pow(1 - t, 4);
     };
@@ -138,15 +135,15 @@
           setTimeout(() => {
             loadingScreen.classList.add('fade-out');
 
-            // Mark as visited
-            sessionStorage.setItem('hasVisitedYuzinchi', 'true');
+            // Tashrif buyurganini belgilash
+            sessionStorage.setItem('yuzinchi_visited', 'true');
 
             // Remove from DOM after animation
             setTimeout(() => {
               loadingScreen.style.display = 'none';
             }, 500);
-          }, 800); // Show "ishonch" for 0.8 seconds
-        }, 200); // Small delay before showing "ishonch"
+          }, 700); // Show "ishonch" for 0.7 seconds
+        }, 150); // Small delay before showing "ishonch"
       }
     };
 
