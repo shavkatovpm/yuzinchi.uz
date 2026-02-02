@@ -33,6 +33,8 @@
     justify-content: center;
     z-index: 9999;
     overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.3s ease-out, filter 0.3s ease-out;
   }
 
   #loading-content {
@@ -65,7 +67,7 @@
     }
   }
 
-  /* MUHIM: Boshlang'ich holat - CSS bilan yashirilgan */
+  /* Boshlang'ich holat - yashirin */
   .text-line {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-weight: 700;
@@ -77,6 +79,7 @@
     opacity: 0;
     filter: blur(20px);
     transform: translateY(20px);
+    transition: opacity 0.3s ease-out, filter 0.3s ease-out, transform 0.3s ease-out;
   }
 
   .mobile-text .text-line {
@@ -124,12 +127,12 @@
 
     var lines = loadingScreen.querySelectorAll('.text-line');
 
-    // Transition qo'shish
+    // Kirish animatsiyasi uchun transition
     for (var i = 0; i < lines.length; i++) {
-      lines[i].style.transition = 'opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease';
+      lines[i].style.transition = 'opacity 0.5s ease-out, filter 0.5s ease-out, transform 0.5s ease-out';
     }
 
-    // Har bir qatorni ketma-ket ko'rsatish (blur dan tiniq)
+    // Har bir qatorni ketma-ket ko'rsatish
     for (var i = 0; i < lines.length; i++) {
       (function(index) {
         setTimeout(function() {
@@ -140,25 +143,31 @@
       })(i);
     }
 
-    // 2.7 soniyada chiqish animatsiyasi boshlanadi
+    // 2.7 soniyada chiqish animatsiyasi boshlanadi (0.3s davom etadi)
     setTimeout(function() {
-      // Text blur bo'ladi
+      // Text uchun chiqish transition
       for (var i = 0; i < lines.length; i++) {
-        lines[i].style.transition = 'opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease';
-        lines[i].style.opacity = '0';
-        lines[i].style.filter = 'blur(20px)';
-        lines[i].style.transform = 'translateY(-10px)';
+        lines[i].style.transition = 'opacity 0.3s ease-out, filter 0.3s ease-out, transform 0.3s ease-out';
       }
 
-      // Background ham blur bo'ladi
-      loadingScreen.style.transition = 'opacity 0.3s ease, filter 0.3s ease';
-      loadingScreen.style.filter = 'blur(20px)';
-      loadingScreen.style.opacity = '0';
+      // Biroz kutib, keyin fade out
+      requestAnimationFrame(function() {
+        // Textlar blur bo'ladi
+        for (var i = 0; i < lines.length; i++) {
+          lines[i].style.opacity = '0';
+          lines[i].style.filter = 'blur(20px)';
+          lines[i].style.transform = 'translateY(-10px)';
+        }
+
+        // Background fade out
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.filter = 'blur(10px)';
+      });
 
       sessionStorage.setItem('yuzinchi_visited', 'true');
       document.body.classList.remove('no-scroll');
 
-      // 3 soniyada to'liq yoqoladi
+      // 3 soniyada to'liq yoqoladi (0.3s keyin)
       setTimeout(function() {
         loadingScreen.style.display = 'none';
       }, 300);
