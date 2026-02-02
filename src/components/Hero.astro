@@ -32,7 +32,7 @@ const urls = pageUrls[lang];
 
       <!-- Heading - Animated text -->
       <h1 class="text-3xl font-bold tracking-tight text-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-        <span id="animated-heading" class="transition-opacity duration-500">
+        <span id="animated-heading" class="inline-block transition-all duration-500" style="filter: blur(0px);">
           {lang === 'uz' ? "Instagram target orqali sotib oladigan mijozlarni olib kelamiz" : lang === 'ru' ? "Привлекаем покупающих клиентов через Instagram таргет" : "We bring buying customers through Instagram targeting"}
         </span>
       </h1>
@@ -108,12 +108,16 @@ const urls = pageUrls[lang];
     let currentIndex = 0;
 
     setInterval(() => {
+      // Blur out
       heading.style.opacity = '0';
+      heading.style.filter = 'blur(10px)';
 
       setTimeout(() => {
         currentIndex = (currentIndex + 1) % texts.length;
         heading.textContent = texts[currentIndex];
+        // Blur in
         heading.style.opacity = '1';
+        heading.style.filter = 'blur(0px)';
       }, 500);
     }, 4000);
   }
