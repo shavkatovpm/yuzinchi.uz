@@ -90,7 +90,7 @@ export const ui = {
 
     // CTA Section
     'cta.title': 'Mijozlar oqimiga tayyormisiz?',
-    'cta.subtitle': 'Ariza qoldiring va biznesingiz uchun eng yaxshi strategiyani aniqlaymiz.',
+    'cta.subtitle': 'Ariza qoldiring va strategiyani aniqlaymiz',
     'cta.button': 'Ariza qoldirish',
 
     // Contact
@@ -211,7 +211,7 @@ export const ui = {
 
     // CTA Section
     'cta.title': 'Ready for a flow of customers?',
-    'cta.subtitle': 'Leave a request and we will determine the best strategy for your business.',
+    'cta.subtitle': 'Leave a request and we\'ll determine the strategy',
     'cta.button': 'Leave a Request',
 
     // Contact
@@ -332,7 +332,7 @@ export const ui = {
 
     // CTA Section
     'cta.title': 'Готовы к потоку клиентов?',
-    'cta.subtitle': 'Оставьте заявку, и мы определим лучшую стратегию для вашего бизнеса.',
+    'cta.subtitle': 'Оставьте заявку и определим стратегию',
     'cta.button': 'Оставить заявку',
 
     // Contact
