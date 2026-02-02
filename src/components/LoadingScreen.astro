@@ -1,17 +1,17 @@
 ---
 // Loading Screen Component
-// Mobile: 4 lines, Desktop: 2 lines
+// Mobile: 4 lines (equal width), Desktop: 2 lines
 // Prevents scroll during animation
 ---
 
 <div id="loading-screen" class="loading-screen">
   <div class="loading-content">
-    <!-- Mobile: 4 qator -->
+    <!-- Mobile: 4 qator - bir xil kenglikda -->
     <div class="mobile-text">
-      <div class="text-line" data-line="1">Yuzinchi</div>
-      <div class="text-line" data-line="2">bosqichga</div>
-      <div class="text-line" data-line="3">chiqishga</div>
-      <div class="text-line" data-line="4">tayyormisiz?</div>
+      <div class="text-line line-1" data-line="1">Yuzinchi</div>
+      <div class="text-line line-2" data-line="2">bosqichga</div>
+      <div class="text-line line-3" data-line="3">chiqishga</div>
+      <div class="text-line line-4" data-line="4">tayyormisiz?</div>
     </div>
 
     <!-- Desktop: 2 qator -->
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0;
   }
 
   /* Desktop text - 2 qator */
@@ -87,12 +87,22 @@
     filter: blur(20px);
     transform: translateY(20px);
     transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+    line-height: 1.05;
   }
 
-  /* Mobile sizes - ekran kengligiga qarab */
-  .mobile-text .text-line {
-    font-size: 15vw;
-    line-height: 1.1;
+  /* Mobile - har bir qator uchun alohida size (bir xil kenglik uchun) */
+  /* tayyormisiz? = 12 harf - eng uzun, shunga moslashtiramiz */
+  .mobile-text .line-1 {
+    font-size: 19vw;  /* Yuzinchi = 8 harf - eng katta */
+  }
+  .mobile-text .line-2 {
+    font-size: 17vw;  /* bosqichga = 9 harf */
+  }
+  .mobile-text .line-3 {
+    font-size: 17vw;  /* chiqishga = 9 harf */
+  }
+  .mobile-text .line-4 {
+    font-size: 13vw;  /* tayyormisiz? = 12 harf - eng kichik */
   }
 
   /* Desktop sizes */
