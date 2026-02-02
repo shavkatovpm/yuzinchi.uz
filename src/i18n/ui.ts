@@ -22,12 +22,12 @@ export const ui = {
 
     // Problem Section
     'problem.title': 'Tanish muammolar',
-    'problem.item1.title': 'Reklama sarflayapsiz, natija yo\'q',
-    'problem.item1.desc': 'Pullar ketayapti, lekin mijozlar kelmayapti',
-    'problem.item2.title': 'Qayerga reklama qilishni bilmaysiz',
-    'problem.item2.desc': 'Instagram, Telegram yoki Google - qaysi biri yaxshiroq?',
-    'problem.item3.title': 'Vaqtingiz yo\'q',
-    'problem.item3.desc': 'Biznesingizga e\'tibor berishingiz kerak, reklamaga emas',
+    'problem.item1.title': 'Reklamaga pul sarflaysiz, natija yo\'q',
+    'problem.item1.desc': 'Biz faqat natija uchun harakat qilamiz',
+    'problem.item2.title': 'Qaysi reklama turi ishlashini bilmaysiz',
+    'problem.item2.desc': 'Reklamalarni test qilib, to\'g\'ri oqimni aniqlaymiz',
+    'problem.item3.title': 'Vaqtingiz yoki tajribangiz yo\'q',
+    'problem.item3.desc': 'Marketing bo\'yicha mas\'uliyatni o\'z zimmamizga olamiz',
 
     // Services Section
     'services.title': 'Xizmatlarimiz',
@@ -144,11 +144,11 @@ export const ui = {
     // Problem Section
     'problem.title': 'Familiar problems',
     'problem.item1.title': 'Spending on ads, no results',
-    'problem.item1.desc': 'Money is going out, but customers aren\'t coming in',
-    'problem.item2.title': 'Don\'t know where to advertise',
-    'problem.item2.desc': 'Instagram, Telegram or Google - which one is better?',
-    'problem.item3.title': 'No time',
-    'problem.item3.desc': 'You need to focus on your business, not on advertising',
+    'problem.item1.desc': 'We work only for results',
+    'problem.item2.title': 'Don\'t know which ad type works',
+    'problem.item2.desc': 'We test ads and find the right approach',
+    'problem.item3.title': 'No time or experience',
+    'problem.item3.desc': 'We take full responsibility for marketing',
 
     // Services Section
     'services.title': 'Our Services',
@@ -265,11 +265,11 @@ export const ui = {
     // Problem Section
     'problem.title': 'Знакомые проблемы',
     'problem.item1.title': 'Тратите на рекламу, результата нет',
-    'problem.item1.desc': 'Деньги уходят, а клиенты не приходят',
-    'problem.item2.title': 'Не знаете где рекламировать',
-    'problem.item2.desc': 'Instagram, Telegram или Google - что лучше?',
-    'problem.item3.title': 'Нет времени',
-    'problem.item3.desc': 'Вам нужно заниматься бизнесом, а не рекламой',
+    'problem.item1.desc': 'Мы работаем только на результат',
+    'problem.item2.title': 'Не знаете какой тип рекламы работает',
+    'problem.item2.desc': 'Тестируем рекламу и находим правильный подход',
+    'problem.item3.title': 'Нет времени или опыта',
+    'problem.item3.desc': 'Берём ответственность за маркетинг на себя',
 
     // Services Section
     'services.title': 'Наши услуги',
