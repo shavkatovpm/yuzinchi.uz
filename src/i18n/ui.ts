@@ -89,9 +89,9 @@ export const ui = {
     'faq.a4': 'Avval biznesingiz haqida tanishuv suhbatini o\'tkazamiz va tahlil qilib chiqamiz, keyin kelishuv asosida shartnoma qilamiz va ishni boshlaymiz.',
 
     // CTA Section
-    'cta.title': 'Biznesingizni o\'stirishga tayyormisiz?',
-    'cta.subtitle': 'Bepul maslahat oling va biznesingiz uchun eng yaxshi strategiyani birgalikda tuzamiz',
-    'cta.button': 'Bepul maslahat olish',
+    'cta.title': 'Mijozlar oqimiga tayyormisiz?',
+    'cta.subtitle': 'Ariza qoldiring va biznesingiz uchun eng yaxshi strategiyani aniqlaymiz.',
+    'cta.button': 'Ariza qoldirish',
 
     // Contact
     'contact.title': 'Bog\'lanish',
@@ -210,9 +210,9 @@ export const ui = {
     'faq.a4': 'First, we have an introductory meeting about your business and analyze it, then we sign a contract based on agreement and start working.',
 
     // CTA Section
-    'cta.title': 'Ready to grow your business?',
-    'cta.subtitle': 'Get a free consultation and let\'s create the best strategy for your business together',
-    'cta.button': 'Get Free Consultation',
+    'cta.title': 'Ready for a flow of customers?',
+    'cta.subtitle': 'Leave a request and we will determine the best strategy for your business.',
+    'cta.button': 'Leave a Request',
 
     // Contact
     'contact.title': 'Contact Us',
@@ -331,9 +331,9 @@ export const ui = {
     'faq.a4': 'Сначала проводим ознакомительную беседу о вашем бизнесе и анализируем его, затем на основе договорённости заключаем контракт и начинаем работу.',
 
     // CTA Section
-    'cta.title': 'Готовы развивать свой бизнес?',
-    'cta.subtitle': 'Получите бесплатную консультацию, и мы вместе создадим лучшую стратегию для вашего бизнеса',
-    'cta.button': 'Получить бесплатную консультацию',
+    'cta.title': 'Готовы к потоку клиентов?',
+    'cta.subtitle': 'Оставьте заявку, и мы определим лучшую стратегию для вашего бизнеса.',
+    'cta.button': 'Оставить заявку',
 
     // Contact
     'contact.title': 'Связаться с нами',
