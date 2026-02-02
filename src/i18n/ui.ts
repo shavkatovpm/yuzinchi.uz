@@ -60,7 +60,7 @@ export const ui = {
     'process.step4.desc': 'Eng yaxshi natija beradigan reklamalarni kengaytiramiz',
 
     // Target Audience
-    'audience.title': 'Kimlar uchun?',
+    'audience.title': 'Kimlar bilan ishlaymiz?',
     'audience.item1': 'Kichik va o\'rta biznes egalari',
     'audience.item2': 'Onlayn do\'kon egalari',
     'audience.item3': 'Xizmat ko\'rsatuvchi kompaniyalar',
@@ -80,13 +80,13 @@ export const ui = {
     // FAQ
     'faq.title': 'Ko\'p beriladigan savollar',
     'faq.q1': 'Minimal byudjet qancha?',
-    'faq.a1': 'Minimal reklama byudjeti oyiga 500 000 so\'mdan boshlanadi. Lekin samarali natija uchun kamida 1-2 million so\'m tavsiya etamiz.',
+    'faq.a1': 'Reklama uchun minimal byudjet 300$/oy bo\'lishi kerak. Lekin boshlanishiga test uchun 100$ dan boshlashimiz mumkin.',
     'faq.q2': 'Qancha vaqtda natija ko\'raman?',
-    'faq.a2': 'Odatda birinchi natijalar 1-2 hafta ichida ko\'rinadi. Barqaror natijalar uchun 1-2 oy kerak bo\'ladi.',
+    'faq.a2': 'Odatda birinchi natijalar 2 hafta ichida ko\'rinadi. Barqaror natijalar uchun 2-3 oy kerak bo\'ladi.',
     'faq.q3': 'Qaysi platforma yaxshiroq?',
     'faq.a3': 'Bu biznesingiz turiga bog\'liq. Biz tahlil qilib, sizga eng mos platformani tavsiya qilamiz.',
-    'faq.q4': 'Shartnoma tuzasizlarmi?',
-    'faq.a4': 'Ha, rasmiy shartnoma tuzamiz. Bu sizning va bizning huquqlarimizni himoya qiladi.',
+    'faq.q4': 'Nimadan boshlaymiz?',
+    'faq.a4': 'Avval biznesingiz haqida tanishuv suhbatini o\'tkazamiz va tahlil qilib chiqamiz, keyin kelishuv asosida shartnoma qilamiz va ishni boshlaymiz.',
 
     // CTA Section
     'cta.title': 'Biznesingizni o\'stirishga tayyormisiz?',
@@ -181,7 +181,7 @@ export const ui = {
     'process.step4.desc': 'We scale the ads that deliver the best results',
 
     // Target Audience
-    'audience.title': 'Who is it for?',
+    'audience.title': 'Who we work with?',
     'audience.item1': 'Small and medium business owners',
     'audience.item2': 'Online store owners',
     'audience.item3': 'Service companies',
@@ -201,13 +201,13 @@ export const ui = {
     // FAQ
     'faq.title': 'Frequently Asked Questions',
     'faq.q1': 'What is the minimum budget?',
-    'faq.a1': 'The minimum advertising budget starts from 500,000 UZS per month. However, we recommend at least 1-2 million UZS for effective results.',
+    'faq.a1': 'The minimum advertising budget should be $300/month. However, we can start with $100 for initial testing.',
     'faq.q2': 'When will I see results?',
-    'faq.a2': 'Usually, the first results are visible within 1-2 weeks. Stable results take 1-2 months.',
+    'faq.a2': 'Usually, the first results are visible within 2 weeks. Stable results take 2-3 months.',
     'faq.q3': 'Which platform is better?',
     'faq.a3': 'It depends on your business type. We analyze and recommend the most suitable platform for you.',
-    'faq.q4': 'Do you sign contracts?',
-    'faq.a4': 'Yes, we sign official contracts. This protects your and our rights.',
+    'faq.q4': 'How do we start?',
+    'faq.a4': 'First, we have an introductory meeting about your business and analyze it, then we sign a contract based on agreement and start working.',
 
     // CTA Section
     'cta.title': 'Ready to grow your business?',
@@ -302,7 +302,7 @@ export const ui = {
     'process.step4.desc': 'Масштабируем рекламу с лучшими результатами',
 
     // Target Audience
-    'audience.title': 'Для кого?',
+    'audience.title': 'С кем мы работаем?',
     'audience.item1': 'Владельцы малого и среднего бизнеса',
     'audience.item2': 'Владельцы интернет-магазинов',
     'audience.item3': 'Сервисные компании',
@@ -322,13 +322,13 @@ export const ui = {
     // FAQ
     'faq.title': 'Часто задаваемые вопросы',
     'faq.q1': 'Какой минимальный бюджет?',
-    'faq.a1': 'Минимальный рекламный бюджет начинается от 500 000 сум в месяц. Однако для эффективных результатов рекомендуем минимум 1-2 миллиона сум.',
+    'faq.a1': 'Минимальный рекламный бюджет должен составлять $300/месяц. Однако для начала можем протестировать с $100.',
     'faq.q2': 'Когда я увижу результаты?',
-    'faq.a2': 'Обычно первые результаты видны в течение 1-2 недель. Стабильные результаты занимают 1-2 месяца.',
+    'faq.a2': 'Обычно первые результаты видны в течение 2 недель. Стабильные результаты занимают 2-3 месяца.',
     'faq.q3': 'Какая платформа лучше?',
     'faq.a3': 'Это зависит от типа вашего бизнеса. Мы анализируем и рекомендуем наиболее подходящую платформу для вас.',
-    'faq.q4': 'Заключаете ли вы контракты?',
-    'faq.a4': 'Да, мы заключаем официальные контракты. Это защищает ваши и наши права.',
+    'faq.q4': 'С чего начинаем?',
+    'faq.a4': 'Сначала проводим ознакомительную беседу о вашем бизнесе и анализируем его, затем на основе договорённости заключаем контракт и начинаем работу.',
 
     // CTA Section
     'cta.title': 'Готовы развивать свой бизнес?',
