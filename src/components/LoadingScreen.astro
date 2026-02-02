@@ -1,8 +1,103 @@
 ---
 // Loading Screen Component
-// Uses React LoadingAnimation with BlurText effect
-// Shows "Yuzinchi bosqichga chiqishga tayyormisiz?" on first visit
-import LoadingAnimation from './LoadingAnimation';
+// Simple opacity + blur animation for "Yuzinchi bosqichga chiqishga tayyormisiz?"
 ---
 
-<LoadingAnimation client:load />
+<div id="loading-screen" class="loading-screen">
+  <div class="loading-content">
+    <div class="text-line" id="line1">Yuzinchi bosqichga</div>
+    <div class="text-line" id="line2">chiqishga tayyormisiz?</div>
+  </div>
+</div>
+
+<style>
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+  }
+
+  .loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .text-line {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 700;
+    color: #628141;
+    letter-spacing: -0.02em;
+    text-align: center;
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+  }
+
+  .text-line.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+
+    if (!loadingScreen || !line1 || !line2) return;
+
+    // Faqat birinchi kirishda ko'rsatish
+    const hasVisited = sessionStorage.getItem('yuzinchi_visited');
+
+    if (hasVisited) {
+      loadingScreen.style.display = 'none';
+      return;
+    }
+
+    // Animatsiyani boshlash - birinchi qator
+    setTimeout(() => {
+      line1.classList.add('visible');
+    }, 100);
+
+    // Ikkinchi qator - biroz kechroq
+    setTimeout(() => {
+      line2.classList.add('visible');
+    }, 400);
+
+    // Fade out va yashirish
+    setTimeout(() => {
+      loadingScreen.classList.add('fade-out');
+      sessionStorage.setItem('yuzinchi_visited', 'true');
+
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500);
+    }, 2500);
+  }
+
+  // DOM tayyor bo'lganda ishga tushirish
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLoadingScreen);
+  } else {
+    initLoadingScreen();
+  }
+</script>
