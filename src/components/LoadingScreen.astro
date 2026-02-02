@@ -1,12 +1,11 @@
 ---
 // Loading Screen Component
-// Mobile: 4 lines (equal width), Desktop: 2 lines
 ---
 
-<div id="loading-screen" class="loading-screen">
-  <div class="loading-content">
+<div id="loading-screen">
+  <div id="loading-content">
     <!-- Mobile: 4 qator -->
-    <div class="mobile-text" id="mobile-text">
+    <div class="mobile-text">
       <div class="text-line">Yuzinchi</div>
       <div class="text-line">bosqichga</div>
       <div class="text-line">chiqishga</div>
@@ -22,7 +21,7 @@
 </div>
 
 <style>
-  .loading-screen {
+  #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,31 +32,14 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.8s ease, filter 0.8s ease;
     overflow: hidden;
   }
 
-  .loading-screen.fade-out {
-    opacity: 0;
-    filter: blur(20px);
-    pointer-events: none;
-  }
-
-  .loading-screen.hidden {
-    display: none;
-  }
-
-  .loading-content {
+  #loading-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 90%;
-    transition: filter 0.6s ease, transform 0.6s ease;
-  }
-
-  .loading-screen.fade-out .loading-content {
-    filter: blur(15px);
-    transform: scale(1.05);
   }
 
   .mobile-text {
@@ -89,16 +71,11 @@
     color: #628141;
     letter-spacing: -0.02em;
     text-align: center;
-    opacity: 0;
-    filter: blur(20px);
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
     line-height: 1.1;
     white-space: nowrap;
   }
 
   .mobile-text .text-line {
-    font-size: 15vw;
     width: 100%;
   }
 
@@ -117,19 +94,6 @@
     }
   }
 
-  .text-line.visible {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
-
-  /* Chiqish animatsiyasi - text ham blur bo'ladi */
-  .loading-screen.fade-out .text-line {
-    filter: blur(15px);
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
   body.no-scroll {
     overflow: hidden;
     position: fixed;
@@ -139,15 +103,16 @@
 </style>
 
 <script>
-  function initLoadingScreen() {
+  (function() {
     var loadingScreen = document.getElementById('loading-screen');
-    if (!loadingScreen) return;
+    var loadingContent = document.getElementById('loading-content');
+    if (!loadingScreen || !loadingContent) return;
 
     // Faqat birinchi kirishda ko'rsatish
     var hasVisited = sessionStorage.getItem('yuzinchi_visited');
 
     if (hasVisited) {
-      loadingScreen.classList.add('hidden');
+      loadingScreen.style.display = 'none';
       return;
     }
 
@@ -156,31 +121,45 @@
 
     var lines = loadingScreen.querySelectorAll('.text-line');
 
-    // Har bir qatorni ketma-ket animate qilish
+    // Boshlang'ich holat - blur va invisible
+    for (var i = 0; i < lines.length; i++) {
+      lines[i].style.opacity = '0';
+      lines[i].style.filter = 'blur(20px)';
+      lines[i].style.transform = 'translateY(20px)';
+      lines[i].style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+    }
+
+    // Har bir qatorni ketma-ket ko'rsatish
     for (var i = 0; i < lines.length; i++) {
       (function(index) {
         setTimeout(function() {
-          lines[index].classList.add('visible');
+          lines[index].style.opacity = '1';
+          lines[index].style.filter = 'blur(0px)';
+          lines[index].style.transform = 'translateY(0)';
         }, 100 + (index * 200));
       })(i);
     }
 
-    // Fade out - 4 soniya kutish (o'qishga vaqt)
+    // 3 soniyadan keyin chiqish animatsiyasi
     setTimeout(function() {
-      loadingScreen.classList.add('fade-out');
+      // Text blur bo'ladi
+      for (var i = 0; i < lines.length; i++) {
+        lines[i].style.opacity = '0';
+        lines[i].style.filter = 'blur(20px)';
+        lines[i].style.transform = 'translateY(-10px)';
+      }
+
+      // Background ham blur bo'ladi
+      loadingScreen.style.transition = 'opacity 0.8s ease, filter 0.8s ease';
+      loadingScreen.style.filter = 'blur(20px)';
+      loadingScreen.style.opacity = '0';
+
       sessionStorage.setItem('yuzinchi_visited', 'true');
       document.body.classList.remove('no-scroll');
 
       setTimeout(function() {
-        loadingScreen.classList.add('hidden');
+        loadingScreen.style.display = 'none';
       }, 800);
-    }, 4000);
-  }
-
-  // DOM tayyor bo'lganda
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLoadingScreen);
-  } else {
-    initLoadingScreen();
-  }
+    }, 3000);
+  })();
 </script>
