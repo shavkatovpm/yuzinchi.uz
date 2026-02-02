@@ -68,26 +68,59 @@ const faqs = [
   function initFAQ() {
     const items = document.querySelectorAll('[data-faq-item]');
 
-    items.forEach((item) => {
+    // Track which item is currently open
+    let currentlyOpen: Element | null = null;
+
+    // Close a specific FAQ item
+    const closeItem = (item: Element) => {
       const trigger = item.querySelector('[data-faq-trigger]');
       const content = item.querySelector('[data-faq-content]') as HTMLElement;
       const icon = item.querySelector('[data-faq-icon]') as HTMLElement;
 
       if (!trigger || !content || !icon) return;
 
-      let isOpen = false;
+      trigger.setAttribute('aria-expanded', 'false');
+      content.style.gridTemplateRows = '0fr';
+      icon.style.transform = 'rotate(0deg)';
+      item.classList.remove('border-accent/20');
+      item.classList.add('border-light/5');
+    };
+
+    // Open a specific FAQ item
+    const openItem = (item: Element) => {
+      const trigger = item.querySelector('[data-faq-trigger]');
+      const content = item.querySelector('[data-faq-content]') as HTMLElement;
+      const icon = item.querySelector('[data-faq-icon]') as HTMLElement;
+
+      if (!trigger || !content || !icon) return;
+
+      trigger.setAttribute('aria-expanded', 'true');
+      content.style.gridTemplateRows = '1fr';
+      icon.style.transform = 'rotate(45deg)';
+      item.classList.remove('border-light/5');
+      item.classList.add('border-accent/20');
+    };
+
+    items.forEach((item) => {
+      const trigger = item.querySelector('[data-faq-trigger]');
+
+      if (!trigger) return;
 
       trigger.addEventListener('click', () => {
-        isOpen = !isOpen;
-        trigger.setAttribute('aria-expanded', String(isOpen));
+        const isCurrentlyOpen = currentlyOpen === item;
 
-        // Animate content with grid-rows
-        if (isOpen) {
-          content.style.gridTemplateRows = '1fr';
-          icon.style.transform = 'rotate(45deg)';
+        // Close the currently open item (if any)
+        if (currentlyOpen) {
+          closeItem(currentlyOpen);
+        }
+
+        // If clicking on a different item, open it
+        if (!isCurrentlyOpen) {
+          openItem(item);
+          currentlyOpen = item;
         } else {
-          content.style.gridTemplateRows = '0fr';
-          icon.style.transform = 'rotate(0deg)';
+          // Clicking on the same item that's open - just close it
+          currentlyOpen = null;
         }
       });
     });
