@@ -33,12 +33,13 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.8s ease, filter 0.8s ease;
     overflow: hidden;
   }
 
   .loading-screen.fade-out {
     opacity: 0;
+    filter: blur(20px);
     pointer-events: none;
   }
 
@@ -51,6 +52,12 @@
     flex-direction: column;
     align-items: center;
     width: 90%;
+    transition: filter 0.6s ease, transform 0.6s ease;
+  }
+
+  .loading-screen.fade-out .loading-content {
+    filter: blur(15px);
+    transform: scale(1.05);
   }
 
   .mobile-text {
@@ -116,6 +123,13 @@
     transform: translateY(0);
   }
 
+  /* Chiqish animatsiyasi - text ham blur bo'ladi */
+  .loading-screen.fade-out .text-line {
+    filter: blur(15px);
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
   body.no-scroll {
     overflow: hidden;
     position: fixed;
@@ -147,11 +161,11 @@
       (function(index) {
         setTimeout(function() {
           lines[index].classList.add('visible');
-        }, 100 + (index * 150));
+        }, 100 + (index * 200));
       })(i);
     }
 
-    // Fade out
+    // Fade out - 4 soniya kutish (o'qishga vaqt)
     setTimeout(function() {
       loadingScreen.classList.add('fade-out');
       sessionStorage.setItem('yuzinchi_visited', 'true');
@@ -159,8 +173,8 @@
 
       setTimeout(function() {
         loadingScreen.classList.add('hidden');
-      }, 500);
-    }, 2500);
+      }, 800);
+    }, 4000);
   }
 
   // DOM tayyor bo'lganda
