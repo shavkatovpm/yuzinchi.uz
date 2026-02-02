@@ -21,7 +21,7 @@ export const ui = {
     'hero.cta.secondary': 'Xizmatlarni ko\'rish',
 
     // Problem Section
-    'problem.title': 'Tanish muammolar',
+    'problem.title': 'Muammolarga yechim',
     'problem.item1.title': 'Reklamaga pul sarflaysiz, natija yo\'q',
     'problem.item1.desc': 'Biz faqat natija uchun harakat qilamiz',
     'problem.item2.title': 'Qaysi reklama turi ishlashini bilmaysiz',
@@ -142,7 +142,7 @@ export const ui = {
     'hero.cta.secondary': 'View Services',
 
     // Problem Section
-    'problem.title': 'Familiar problems',
+    'problem.title': 'Solutions to problems',
     'problem.item1.title': 'Spending on ads, no results',
     'problem.item1.desc': 'We work only for results',
     'problem.item2.title': 'Don\'t know which ad type works',
@@ -263,7 +263,7 @@ export const ui = {
     'hero.cta.secondary': 'Смотреть услуги',
 
     // Problem Section
-    'problem.title': 'Знакомые проблемы',
+    'problem.title': 'Решения проблем',
     'problem.item1.title': 'Тратите на рекламу, результата нет',
     'problem.item1.desc': 'Мы работаем только на результат',
     'problem.item2.title': 'Не знаете какой тип рекламы работает',
