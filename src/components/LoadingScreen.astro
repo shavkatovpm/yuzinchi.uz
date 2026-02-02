@@ -1,23 +1,22 @@
 ---
 // Loading Screen Component
-// Mobile: 4 lines (equal width via JS), Desktop: 2 lines
-// Prevents scroll during animation
+// Mobile: 4 lines (equal width), Desktop: 2 lines
 ---
 
 <div id="loading-screen" class="loading-screen">
   <div class="loading-content">
-    <!-- Mobile: 4 qator - bir xil kenglikda -->
+    <!-- Mobile: 4 qator -->
     <div class="mobile-text" id="mobile-text">
-      <div class="text-line" data-line="1">Yuzinchi</div>
-      <div class="text-line" data-line="2">bosqichga</div>
-      <div class="text-line" data-line="3">chiqishga</div>
-      <div class="text-line" data-line="4">tayyormisiz?</div>
+      <div class="text-line">Yuzinchi</div>
+      <div class="text-line">bosqichga</div>
+      <div class="text-line">chiqishga</div>
+      <div class="text-line">tayyormisiz?</div>
     </div>
 
     <!-- Desktop: 2 qator -->
     <div class="desktop-text">
-      <div class="text-line" data-line="1">Yuzinchi bosqichga</div>
-      <div class="text-line" data-line="2">chiqishga tayyormisiz?</div>
+      <div class="text-line">Yuzinchi bosqichga</div>
+      <div class="text-line">chiqishga tayyormisiz?</div>
     </div>
   </div>
 </div>
@@ -43,15 +42,17 @@
     pointer-events: none;
   }
 
+  .loading-screen.hidden {
+    display: none;
+  }
+
   .loading-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 90%;
-    max-width: 600px;
   }
 
-  /* Mobile text - 4 qator */
   .mobile-text {
     display: flex;
     flex-direction: column;
@@ -59,7 +60,6 @@
     width: 100%;
   }
 
-  /* Desktop text - 2 qator */
   .desktop-text {
     display: none;
     flex-direction: column;
@@ -67,16 +67,12 @@
     gap: 0.5rem;
   }
 
-  /* Desktop uchun */
   @media (min-width: 768px) {
     .mobile-text {
       display: none;
     }
     .desktop-text {
       display: flex;
-    }
-    .loading-content {
-      max-width: 1200px;
     }
   }
 
@@ -94,19 +90,20 @@
     white-space: nowrap;
   }
 
-  /* Mobile - boshlang'ich size (JS o'zgartiradi) */
   .mobile-text .text-line {
-    font-size: 10vw;
+    font-size: 15vw;
     width: 100%;
   }
 
-  /* Desktop sizes */
+  .mobile-text .text-line:nth-child(1) { font-size: 20vw; }
+  .mobile-text .text-line:nth-child(2) { font-size: 17vw; }
+  .mobile-text .text-line:nth-child(3) { font-size: 17vw; }
+  .mobile-text .text-line:nth-child(4) { font-size: 13vw; }
+
   .desktop-text .text-line {
     font-size: 8vw;
-    line-height: 1.1;
   }
 
-  /* Katta ekranlar uchun max size */
   @media (min-width: 1400px) {
     .desktop-text .text-line {
       font-size: 7rem;
@@ -119,7 +116,6 @@
     transform: translateY(0);
   }
 
-  /* Scroll blocker */
   body.no-scroll {
     overflow: hidden;
     position: fixed;
@@ -130,80 +126,44 @@
 
 <script>
   function initLoadingScreen() {
-    const loadingScreen = document.getElementById('loading-screen');
-    const mobileText = document.getElementById('mobile-text');
+    var loadingScreen = document.getElementById('loading-screen');
     if (!loadingScreen) return;
 
     // Faqat birinchi kirishda ko'rsatish
-    const hasVisited = sessionStorage.getItem('yuzinchi_visited');
+    var hasVisited = sessionStorage.getItem('yuzinchi_visited');
 
     if (hasVisited) {
-      loadingScreen.style.display = 'none';
+      loadingScreen.classList.add('hidden');
       return;
     }
 
     // Scroll ni bloklash
     document.body.classList.add('no-scroll');
 
-    // Mobile uchun - har bir qatorni bir xil kenglikka moslashtirish
-    if (mobileText && window.innerWidth < 768) {
-      const lines = mobileText.querySelectorAll('.text-line');
-      const containerWidth = mobileText.offsetWidth;
-
-      lines.forEach((line) => {
-        const lineElement = line as HTMLElement;
-        // Vaqtincha ko'rsatish (o'lchash uchun)
-        lineElement.style.opacity = '0';
-        lineElement.style.filter = 'none';
-        lineElement.style.transform = 'none';
-
-        // Hozirgi kenglikni o'lchash
-        let fontSize = 10; // vw dan boshlaymiz
-        lineElement.style.fontSize = `${fontSize}vw`;
-
-        // Font-sizeni oshirib, container kengligiga moslashtirish
-        while (lineElement.scrollWidth < containerWidth * 0.95 && fontSize < 30) {
-          fontSize += 0.5;
-          lineElement.style.fontSize = `${fontSize}vw`;
-        }
-
-        // Biroz kamaytirish (to'liq sig'ishi uchun)
-        while (lineElement.scrollWidth > containerWidth && fontSize > 5) {
-          fontSize -= 0.2;
-          lineElement.style.fontSize = `${fontSize}vw`;
-        }
-
-        // Animatsiya uchun qayta yashirish
-        lineElement.style.opacity = '0';
-        lineElement.style.filter = 'blur(20px)';
-        lineElement.style.transform = 'translateY(20px)';
-      });
-    }
-
-    const lines = loadingScreen.querySelectorAll('.text-line');
+    var lines = loadingScreen.querySelectorAll('.text-line');
 
     // Har bir qatorni ketma-ket animate qilish
-    lines.forEach((line, index) => {
-      setTimeout(() => {
-        line.classList.add('visible');
-      }, 100 + (index * 150));
-    });
+    for (var i = 0; i < lines.length; i++) {
+      (function(index) {
+        setTimeout(function() {
+          lines[index].classList.add('visible');
+        }, 100 + (index * 150));
+      })(i);
+    }
 
-    // Fade out va scroll ni qaytarish
-    setTimeout(() => {
+    // Fade out
+    setTimeout(function() {
       loadingScreen.classList.add('fade-out');
       sessionStorage.setItem('yuzinchi_visited', 'true');
-
-      // Scroll ni qaytarish
       document.body.classList.remove('no-scroll');
 
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
+      setTimeout(function() {
+        loadingScreen.classList.add('hidden');
       }, 500);
     }, 2500);
   }
 
-  // DOM tayyor bo'lganda ishga tushirish
+  // DOM tayyor bo'lganda
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initLoadingScreen);
   } else {
