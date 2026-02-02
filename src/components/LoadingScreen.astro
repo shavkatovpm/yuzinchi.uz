@@ -65,6 +65,7 @@
     }
   }
 
+  /* MUHIM: Boshlang'ich holat - CSS bilan yashirilgan */
   .text-line {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-weight: 700;
@@ -73,6 +74,9 @@
     text-align: center;
     line-height: 1.1;
     white-space: nowrap;
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(20px);
   }
 
   .mobile-text .text-line {
@@ -105,8 +109,7 @@
 <script>
   (function() {
     var loadingScreen = document.getElementById('loading-screen');
-    var loadingContent = document.getElementById('loading-content');
-    if (!loadingScreen || !loadingContent) return;
+    if (!loadingScreen) return;
 
     // Faqat birinchi kirishda ko'rsatish
     var hasVisited = sessionStorage.getItem('yuzinchi_visited');
@@ -121,45 +124,44 @@
 
     var lines = loadingScreen.querySelectorAll('.text-line');
 
-    // Boshlang'ich holat - blur va invisible
+    // Transition qo'shish
     for (var i = 0; i < lines.length; i++) {
-      lines[i].style.opacity = '0';
-      lines[i].style.filter = 'blur(20px)';
-      lines[i].style.transform = 'translateY(20px)';
-      lines[i].style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+      lines[i].style.transition = 'opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease';
     }
 
-    // Har bir qatorni ketma-ket ko'rsatish
+    // Har bir qatorni ketma-ket ko'rsatish (blur dan tiniq)
     for (var i = 0; i < lines.length; i++) {
       (function(index) {
         setTimeout(function() {
           lines[index].style.opacity = '1';
           lines[index].style.filter = 'blur(0px)';
           lines[index].style.transform = 'translateY(0)';
-        }, 100 + (index * 200));
+        }, 100 + (index * 180));
       })(i);
     }
 
-    // 3 soniyadan keyin chiqish animatsiyasi
+    // 2.7 soniyada chiqish animatsiyasi boshlanadi
     setTimeout(function() {
       // Text blur bo'ladi
       for (var i = 0; i < lines.length; i++) {
+        lines[i].style.transition = 'opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease';
         lines[i].style.opacity = '0';
         lines[i].style.filter = 'blur(20px)';
         lines[i].style.transform = 'translateY(-10px)';
       }
 
       // Background ham blur bo'ladi
-      loadingScreen.style.transition = 'opacity 0.8s ease, filter 0.8s ease';
+      loadingScreen.style.transition = 'opacity 0.3s ease, filter 0.3s ease';
       loadingScreen.style.filter = 'blur(20px)';
       loadingScreen.style.opacity = '0';
 
       sessionStorage.setItem('yuzinchi_visited', 'true');
       document.body.classList.remove('no-scroll');
 
+      // 3 soniyada to'liq yoqoladi
       setTimeout(function() {
         loadingScreen.style.display = 'none';
-      }, 800);
-    }, 3000);
+      }, 300);
+    }, 2700);
   })();
 </script>
