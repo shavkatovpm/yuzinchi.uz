@@ -1,17 +1,17 @@
 ---
 // Loading Screen Component
-// Mobile: 4 lines (equal width), Desktop: 2 lines
+// Mobile: 4 lines (equal width via JS), Desktop: 2 lines
 // Prevents scroll during animation
 ---
 
 <div id="loading-screen" class="loading-screen">
   <div class="loading-content">
     <!-- Mobile: 4 qator - bir xil kenglikda -->
-    <div class="mobile-text">
-      <div class="text-line line-1" data-line="1">Yuzinchi</div>
-      <div class="text-line line-2" data-line="2">bosqichga</div>
-      <div class="text-line line-3" data-line="3">chiqishga</div>
-      <div class="text-line line-4" data-line="4">tayyormisiz?</div>
+    <div class="mobile-text" id="mobile-text">
+      <div class="text-line" data-line="1">Yuzinchi</div>
+      <div class="text-line" data-line="2">bosqichga</div>
+      <div class="text-line" data-line="3">chiqishga</div>
+      <div class="text-line" data-line="4">tayyormisiz?</div>
     </div>
 
     <!-- Desktop: 2 qator -->
@@ -47,8 +47,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 0 1rem;
+    width: 90%;
+    max-width: 600px;
   }
 
   /* Mobile text - 4 qator */
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
+    width: 100%;
   }
 
   /* Desktop text - 2 qator */
@@ -75,6 +75,9 @@
     .desktop-text {
       display: flex;
     }
+    .loading-content {
+      max-width: 1200px;
+    }
   }
 
   .text-line {
@@ -87,22 +90,14 @@
     filter: blur(20px);
     transform: translateY(20px);
     transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
-    line-height: 1.05;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
-  /* Mobile - har bir qator uchun alohida size (bir xil kenglik uchun) */
-  /* tayyormisiz? = 12 harf - eng uzun, shunga moslashtiramiz */
-  .mobile-text .line-1 {
-    font-size: 19vw;  /* Yuzinchi = 8 harf - eng katta */
-  }
-  .mobile-text .line-2 {
-    font-size: 17vw;  /* bosqichga = 9 harf */
-  }
-  .mobile-text .line-3 {
-    font-size: 17vw;  /* chiqishga = 9 harf */
-  }
-  .mobile-text .line-4 {
-    font-size: 13vw;  /* tayyormisiz? = 12 harf - eng kichik */
+  /* Mobile - boshlang'ich size (JS o'zgartiradi) */
+  .mobile-text .text-line {
+    font-size: 10vw;
+    width: 100%;
   }
 
   /* Desktop sizes */
@@ -136,6 +131,7 @@
 <script>
   function initLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
+    const mobileText = document.getElementById('mobile-text');
     if (!loadingScreen) return;
 
     // Faqat birinchi kirishda ko'rsatish
@@ -148,6 +144,41 @@
 
     // Scroll ni bloklash
     document.body.classList.add('no-scroll');
+
+    // Mobile uchun - har bir qatorni bir xil kenglikka moslashtirish
+    if (mobileText && window.innerWidth < 768) {
+      const lines = mobileText.querySelectorAll('.text-line');
+      const containerWidth = mobileText.offsetWidth;
+
+      lines.forEach((line) => {
+        const lineElement = line as HTMLElement;
+        // Vaqtincha ko'rsatish (o'lchash uchun)
+        lineElement.style.opacity = '0';
+        lineElement.style.filter = 'none';
+        lineElement.style.transform = 'none';
+
+        // Hozirgi kenglikni o'lchash
+        let fontSize = 10; // vw dan boshlaymiz
+        lineElement.style.fontSize = `${fontSize}vw`;
+
+        // Font-sizeni oshirib, container kengligiga moslashtirish
+        while (lineElement.scrollWidth < containerWidth * 0.95 && fontSize < 30) {
+          fontSize += 0.5;
+          lineElement.style.fontSize = `${fontSize}vw`;
+        }
+
+        // Biroz kamaytirish (to'liq sig'ishi uchun)
+        while (lineElement.scrollWidth > containerWidth && fontSize > 5) {
+          fontSize -= 0.2;
+          lineElement.style.fontSize = `${fontSize}vw`;
+        }
+
+        // Animatsiya uchun qayta yashirish
+        lineElement.style.opacity = '0';
+        lineElement.style.filter = 'blur(20px)';
+        lineElement.style.transform = 'translateY(20px)';
+      });
+    }
 
     const lines = loadingScreen.querySelectorAll('.text-line');
 
