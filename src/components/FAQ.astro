@@ -48,7 +48,7 @@ const faqs = [
               </svg>
             </button>
             <div
-              class="grid grid-rows-[0fr] transition-all duration-300 ease-out"
+              class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out will-change-[grid-template-rows]"
               data-faq-content
             >
               <div class="overflow-hidden">
@@ -80,8 +80,10 @@ const faqs = [
       if (!trigger || !content || !icon) return;
 
       trigger.setAttribute('aria-expanded', 'false');
-      content.style.gridTemplateRows = '0fr';
-      icon.style.transform = 'rotate(0deg)';
+      requestAnimationFrame(() => {
+        content.style.gridTemplateRows = '0fr';
+        icon.style.transform = 'rotate(0deg)';
+      });
       item.classList.remove('border-accent/20');
       item.classList.add('border-light/5');
     };
@@ -95,8 +97,10 @@ const faqs = [
       if (!trigger || !content || !icon) return;
 
       trigger.setAttribute('aria-expanded', 'true');
-      content.style.gridTemplateRows = '1fr';
-      icon.style.transform = 'rotate(45deg)';
+      requestAnimationFrame(() => {
+        content.style.gridTemplateRows = '1fr';
+        icon.style.transform = 'rotate(45deg)';
+      });
       item.classList.remove('border-light/5');
       item.classList.add('border-accent/20');
     };
