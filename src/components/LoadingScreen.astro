@@ -1,12 +1,24 @@
 ---
 // Loading Screen Component
-// Simple opacity + blur animation for "Yuzinchi bosqichga chiqishga tayyormisiz?"
+// Mobile: 4 lines, Desktop: 2 lines
+// Prevents scroll during animation
 ---
 
 <div id="loading-screen" class="loading-screen">
   <div class="loading-content">
-    <div class="text-line" id="line1">Yuzinchi bosqichga</div>
-    <div class="text-line" id="line2">chiqishga tayyormisiz?</div>
+    <!-- Mobile: 4 qator -->
+    <div class="mobile-text">
+      <div class="text-line" data-line="1">Yuzinchi</div>
+      <div class="text-line" data-line="2">bosqichga</div>
+      <div class="text-line" data-line="3">chiqishga</div>
+      <div class="text-line" data-line="4">tayyormisiz?</div>
+    </div>
+
+    <!-- Desktop: 2 qator -->
+    <div class="desktop-text">
+      <div class="text-line" data-line="1">Yuzinchi bosqichga</div>
+      <div class="text-line" data-line="2">chiqishga tayyormisiz?</div>
+    </div>
   </div>
 </div>
 
@@ -23,6 +35,7 @@
     justify-content: center;
     z-index: 9999;
     transition: opacity 0.5s ease;
+    overflow: hidden;
   }
 
   .loading-screen.fade-out {
@@ -34,12 +47,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Mobile text - 4 qator */
+  .mobile-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* Desktop text - 2 qator */
+  .desktop-text {
+    display: none;
+    flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
+  }
+
+  /* Desktop uchun */
+  @media (min-width: 768px) {
+    .mobile-text {
+      display: none;
+    }
+    .desktop-text {
+      display: flex;
+    }
   }
 
   .text-line {
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: clamp(2rem, 8vw, 5rem);
     font-weight: 700;
     color: #628141;
     letter-spacing: -0.02em;
@@ -50,20 +89,44 @@
     transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
   }
 
+  /* Mobile sizes - ekran kengligiga qarab */
+  .mobile-text .text-line {
+    font-size: 15vw;
+    line-height: 1.1;
+  }
+
+  /* Desktop sizes */
+  .desktop-text .text-line {
+    font-size: 8vw;
+    line-height: 1.1;
+  }
+
+  /* Katta ekranlar uchun max size */
+  @media (min-width: 1400px) {
+    .desktop-text .text-line {
+      font-size: 7rem;
+    }
+  }
+
   .text-line.visible {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+
+  /* Scroll blocker */
+  body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
   }
 </style>
 
 <script>
   function initLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
-    const line1 = document.getElementById('line1');
-    const line2 = document.getElementById('line2');
-
-    if (!loadingScreen || !line1 || !line2) return;
+    if (!loadingScreen) return;
 
     // Faqat birinchi kirishda ko'rsatish
     const hasVisited = sessionStorage.getItem('yuzinchi_visited');
@@ -73,20 +136,25 @@
       return;
     }
 
-    // Animatsiyani boshlash - birinchi qator
-    setTimeout(() => {
-      line1.classList.add('visible');
-    }, 100);
+    // Scroll ni bloklash
+    document.body.classList.add('no-scroll');
 
-    // Ikkinchi qator - biroz kechroq
-    setTimeout(() => {
-      line2.classList.add('visible');
-    }, 400);
+    const lines = loadingScreen.querySelectorAll('.text-line');
 
-    // Fade out va yashirish
+    // Har bir qatorni ketma-ket animate qilish
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        line.classList.add('visible');
+      }, 100 + (index * 150));
+    });
+
+    // Fade out va scroll ni qaytarish
     setTimeout(() => {
       loadingScreen.classList.add('fade-out');
       sessionStorage.setItem('yuzinchi_visited', 'true');
+
+      // Scroll ni qaytarish
+      document.body.classList.remove('no-scroll');
 
       setTimeout(() => {
         loadingScreen.style.display = 'none';
