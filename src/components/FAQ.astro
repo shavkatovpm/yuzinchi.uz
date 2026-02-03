@@ -21,24 +21,20 @@ const faqs = [
     </div>
 
     <div class="mx-auto mt-12 max-w-3xl">
-      <div class="space-y-4">
-        {faqs.map((faq, index) => (
-          <div
-            class="group rounded-2xl border border-light/5 bg-dark transition-all duration-300 hover:border-accent/20"
+      <div class="space-y-4" data-faq-container>
+        {faqs.map((faq) => (
+          <details
+            class="group rounded-2xl border border-light/5 bg-dark transition-colors duration-200 open:border-accent/20"
             data-faq-item
           >
-            <button
-              type="button"
-              class="flex w-full items-center justify-between gap-4 p-6 text-left"
-              aria-expanded="false"
-              data-faq-trigger
+            <summary
+              class="flex w-full cursor-pointer list-none items-center justify-between gap-4 p-6 text-left [&::-webkit-details-marker]:hidden"
             >
               <span class="text-lg font-medium text-light">
                 {faq.question}
               </span>
               <svg
-                class="h-5 w-5 shrink-0 text-accent transition-transform duration-300 ease-out"
-                data-faq-icon
+                class="h-5 w-5 shrink-0 text-accent transition-transform duration-200 ease-out group-open:rotate-45"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -46,18 +42,13 @@ const faqs = [
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-            </button>
-            <div
-              class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out will-change-[grid-template-rows]"
-              data-faq-content
-            >
-              <div class="overflow-hidden">
-                <p class="px-6 pb-6 text-light/60">
-                  {faq.answer}
-                </p>
-              </div>
+            </summary>
+            <div class="px-6 pb-6">
+              <p class="text-light/60">
+                {faq.answer}
+              </p>
             </div>
-          </div>
+          </details>
         ))}
       </div>
     </div>
@@ -66,67 +57,26 @@ const faqs = [
 
 <script>
   function initFAQ() {
-    const items = document.querySelectorAll('[data-faq-item]');
+    const container = document.querySelector('[data-faq-container]');
+    if (!container) return;
 
-    // Track which item is currently open
-    let currentlyOpen: Element | null = null;
+    // Close other details when one opens (accordion behavior)
+    container.addEventListener('click', (e) => {
+      const summary = (e.target as HTMLElement).closest('summary');
+      if (!summary) return;
 
-    // Close a specific FAQ item
-    const closeItem = (item: Element) => {
-      const trigger = item.querySelector('[data-faq-trigger]');
-      const content = item.querySelector('[data-faq-content]') as HTMLElement;
-      const icon = item.querySelector('[data-faq-icon]') as HTMLElement;
+      const currentDetails = summary.parentElement as HTMLDetailsElement;
+      if (!currentDetails) return;
 
-      if (!trigger || !content || !icon) return;
-
-      trigger.setAttribute('aria-expanded', 'false');
-      requestAnimationFrame(() => {
-        content.style.gridTemplateRows = '0fr';
-        icon.style.transform = 'rotate(0deg)';
-      });
-      item.classList.remove('border-accent/20');
-      item.classList.add('border-light/5');
-    };
-
-    // Open a specific FAQ item
-    const openItem = (item: Element) => {
-      const trigger = item.querySelector('[data-faq-trigger]');
-      const content = item.querySelector('[data-faq-content]') as HTMLElement;
-      const icon = item.querySelector('[data-faq-icon]') as HTMLElement;
-
-      if (!trigger || !content || !icon) return;
-
-      trigger.setAttribute('aria-expanded', 'true');
-      requestAnimationFrame(() => {
-        content.style.gridTemplateRows = '1fr';
-        icon.style.transform = 'rotate(45deg)';
-      });
-      item.classList.remove('border-light/5');
-      item.classList.add('border-accent/20');
-    };
-
-    items.forEach((item) => {
-      const trigger = item.querySelector('[data-faq-trigger]');
-
-      if (!trigger) return;
-
-      trigger.addEventListener('click', () => {
-        const isCurrentlyOpen = currentlyOpen === item;
-
-        // Close the currently open item (if any)
-        if (currentlyOpen) {
-          closeItem(currentlyOpen);
-        }
-
-        // If clicking on a different item, open it
-        if (!isCurrentlyOpen) {
-          openItem(item);
-          currentlyOpen = item;
-        } else {
-          // Clicking on the same item that's open - just close it
-          currentlyOpen = null;
-        }
-      });
+      // If opening this one, close others
+      if (!currentDetails.open) {
+        const allDetails = container.querySelectorAll('details[open]');
+        allDetails.forEach((details) => {
+          if (details !== currentDetails) {
+            (details as HTMLDetailsElement).open = false;
+          }
+        });
+      }
     });
   }
 
