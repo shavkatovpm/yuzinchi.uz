@@ -22,7 +22,7 @@ const faqs = [
 
     <div class="mx-auto mt-12 max-w-3xl">
       <div class="space-y-4" data-faq-container>
-        {faqs.map((faq, index) => (
+        {faqs.map((faq) => (
           <div
             class="faq-item rounded-2xl border border-light/5 bg-dark"
             data-faq-item
@@ -46,12 +46,10 @@ const faqs = [
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </button>
-            <div class="faq-content" data-faq-content>
-              <div class="faq-content-inner">
-                <p class="px-6 pb-6 text-light/60">
-                  {faq.answer}
-                </p>
-              </div>
+            <div class="faq-answer" data-faq-answer>
+              <p class="px-6 pb-6 text-light/60">
+                {faq.answer}
+              </p>
             </div>
           </div>
         ))}
@@ -62,7 +60,8 @@ const faqs = [
 
 <style>
   .faq-item {
-    transition: border-color 0.3s ease;
+    transition: border-color 0.25s ease;
+    will-change: border-color;
   }
 
   .faq-item.is-open {
@@ -70,25 +69,24 @@ const faqs = [
   }
 
   .faq-icon {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.25s ease;
+    will-change: transform;
   }
 
   .faq-item.is-open .faq-icon {
     transform: rotate(45deg);
   }
 
-  .faq-content {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .faq-item.is-open .faq-content {
-    grid-template-rows: 1fr;
-  }
-
-  .faq-content-inner {
+  .faq-answer {
+    height: 0;
     overflow: hidden;
+    opacity: 0;
+    transition: height 0.25s ease, opacity 0.2s ease;
+    will-change: height, opacity;
+  }
+
+  .faq-item.is-open .faq-answer {
+    opacity: 1;
   }
 </style>
 
@@ -101,28 +99,34 @@ const faqs = [
 
     items.forEach((item) => {
       const trigger = item.querySelector('[data-faq-trigger]');
-      if (!trigger) return;
+      const answer = item.querySelector('[data-faq-answer]') as HTMLElement;
+      if (!trigger || !answer) return;
+
+      // Store the natural height
+      const content = answer.firstElementChild as HTMLElement;
 
       trigger.addEventListener('click', () => {
         const isOpen = item.classList.contains('is-open');
 
-        // Close all other items
+        // Close all items first
         items.forEach((otherItem) => {
-          if (otherItem !== item) {
+          const otherAnswer = otherItem.querySelector('[data-faq-answer]') as HTMLElement;
+          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+          if (otherItem !== item && otherItem.classList.contains('is-open')) {
             otherItem.classList.remove('is-open');
-            const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-            if (otherTrigger) {
-              otherTrigger.setAttribute('aria-expanded', 'false');
-            }
+            if (otherAnswer) otherAnswer.style.height = '0';
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
           }
         });
 
-        // Toggle current item
+        // Toggle current
         if (isOpen) {
           item.classList.remove('is-open');
+          answer.style.height = '0';
           trigger.setAttribute('aria-expanded', 'false');
         } else {
           item.classList.add('is-open');
+          answer.style.height = content.offsetHeight + 'px';
           trigger.setAttribute('aria-expanded', 'true');
         }
       });
