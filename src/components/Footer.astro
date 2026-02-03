@@ -57,45 +57,48 @@ const socialLinks = [
         </div>
       </div>
 
-      <!-- Company -->
-      <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-light">
-          {t('footer.company')}
-        </h3>
-        <ul class="mt-4 space-y-3">
-          {footerLinks.company.map((link) => (
+      <!-- Links - 2 columns on mobile, separate on desktop -->
+      <div class="col-span-1 md:col-span-2 grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-8">
+        <!-- Company -->
+        <div>
+          <h3 class="hidden text-sm font-semibold uppercase tracking-wider text-light md:block">
+            {t('footer.company')}
+          </h3>
+          <ul class="space-y-3 md:mt-4">
+            {footerLinks.company.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-light/60 transition-colors hover:text-accent"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="hidden text-sm font-semibold uppercase tracking-wider text-light md:block">
+            {t('footer.contact')}
+          </h3>
+          <ul class="space-y-3 md:mt-4">
             <li>
               <a
-                href={link.href}
+                href="tel:+998773009928"
                 class="text-sm text-light/60 transition-colors hover:text-accent"
               >
-                {link.name}
+                +998 77 300 99 28
               </a>
             </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-light">
-          {t('footer.contact')}
-        </h3>
-        <ul class="mt-4 space-y-3">
-          <li>
-            <a
-              href="tel:+998773009928"
-              class="text-sm text-light/60 transition-colors hover:text-accent"
-            >
-              +998 77 300 99 28
-            </a>
-          </li>
-          <li>
-            <span class="text-sm text-light/60">
-              Toshkent, O'zbekiston
-            </span>
-          </li>
-        </ul>
+            <li>
+              <span class="text-sm text-light/60">
+                Toshkent, O'zbekiston
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 

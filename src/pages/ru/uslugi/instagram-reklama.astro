@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+
+const features = [
+  {
+    title: "Точный таргетинг",
+    description: "Точный выбор аудитории по возрасту, полу, местоположению, интересам и поведению"
+  },
+  {
+    title: "Креативный контент",
+    description: "Рекламные креативы, которые привлекают внимание и повышают конверсию"
+  },
+  {
+    title: "A/B тестирование",
+    description: "Тестирование разных реклам для нахождения самой эффективной"
+  },
+  {
+    title: "Ретаргетинг",
+    description: "Повторная реклама для тех, кто посещал ваш сайт или интересовался вашими продуктами"
+  },
+  {
+    title: "Реклама в Stories и Reels",
+    description: "Размещение рекламы в самых просматриваемых форматах"
+  },
+  {
+    title: "Еженедельный отчёт",
+    description: "Прозрачный отчёт с результатами и аналитикой"
+  }
+];
+---
+
+<BaseLayout
+  title="Услуга таргетированной рекламы в Instagram"
+  description="Через таргетированную рекламу в Instagram мы напрямую достигаем ваших потенциальных клиентов. Профессиональные услуги Instagram маркетинга."
+>
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-4xl">
+        <!-- Header -->
+        <div class="text-center">
+          <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-light/10 bg-light/5">
+            <svg class="h-8 w-8 text-light/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <h1 class="text-4xl font-bold text-light md:text-5xl">
+            Реклама в Instagram
+          </h1>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-light/60 leading-relaxed">
+            Через таргетированную рекламу мы напрямую достигаем ваших потенциальных клиентов. Развивайте свой бизнес в самой популярной социальной сети Узбекистана.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-12 grid grid-cols-3 gap-4">
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">10M+</div>
+            <div class="mt-1 text-xs text-light/60">Пользователей</div>
+          </div>
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">2-5x</div>
+            <div class="mt-1 text-xs text-light/60">ROI</div>
+          </div>
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">18-45</div>
+            <div class="mt-1 text-xs text-light/60">Возраст</div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Что мы делаем?
+          </h2>
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            {features.map((feature) => (
+              <div class="rounded-xl border border-light/5 bg-dark p-6">
+                <h3 class="font-semibold text-light">{feature.title}</h3>
+                <p class="mt-2 text-sm text-light/60">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Процесс работы
+          </h2>
+          <div class="mt-8 space-y-4">
+            <div class="flex gap-4 rounded-xl border border-light/5 bg-dark p-6">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">1</div>
+              <div>
+                <h3 class="font-semibold text-light">Разработка стратегии</h3>
+                <p class="mt-1 text-sm text-light/60">Изучаем ваш бизнес и определяем целевую аудиторию</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-xl border border-light/5 bg-dark p-6">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">2</div>
+              <div>
+                <h3 class="font-semibold text-light">Подготовка креативов</h3>
+                <p class="mt-1 text-sm text-light/60">Создаём рекламные материалы, привлекающие внимание</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-xl border border-light/5 bg-dark p-6">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">3</div>
+              <div>
+                <h3 class="font-semibold text-light">Тестирование и оптимизация</h3>
+                <p class="mt-1 text-sm text-light/60">Тестируем разные аудитории и креативы, находим самые эффективные</p>
+              </div>
+            </div>
+            <div class="flex gap-4 rounded-xl border border-light/5 bg-dark p-6">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-light">4</div>
+              <div>
+                <h3 class="font-semibold text-light">Масштабирование</h3>
+                <p class="mt-1 text-sm text-light/60">Расширяем успешные кампании и увеличиваем результаты</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+
+const features = [
+  {
+    title: "Поисковая реклама",
+    description: "Будьте первыми для клиентов, которые ищут в Google"
+  },
+  {
+    title: "Display реклама",
+    description: "Показ баннерной рекламы на миллионах сайтов"
+  },
+  {
+    title: "Реклама на YouTube",
+    description: "Охват широкой аудитории через видеорекламу"
+  },
+  {
+    title: "Shopping реклама",
+    description: "Показ ваших товаров в Google Shopping"
+  },
+  {
+    title: "Ремаркетинг",
+    description: "Повторная реклама для посетителей вашего сайта"
+  },
+  {
+    title: "Отслеживание конверсий",
+    description: "Измерение эффективности каждого сума"
+  }
+];
+---
+
+<BaseLayout
+  title="Услуга рекламы в Google"
+  description="Найдите клиентов, которые ищут ваш продукт или услугу через Google Ads. Профессиональные услуги Google рекламы."
+>
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-4xl">
+        <!-- Header -->
+        <div class="text-center">
+          <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-light/10 bg-light/5">
+            <svg class="h-8 w-8 text-light/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21L16.65 16.65"/>
+            </svg>
+          </div>
+          <h1 class="text-4xl font-bold text-light md:text-5xl">
+            Реклама в Google
+          </h1>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-light/60 leading-relaxed">
+            Находим клиентов, которые ищут ваш продукт или услугу. Google - крупнейшая поисковая система в мире, и мы показываем вас именно нужным людям.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-12 grid grid-cols-3 gap-4">
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">90%</div>
+            <div class="mt-1 text-xs text-light/60">Доля рынка</div>
+          </div>
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">5-10x</div>
+            <div class="mt-1 text-xs text-light/60">ROI</div>
+          </div>
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">24/7</div>
+            <div class="mt-1 text-xs text-light/60">Работа</div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Виды Google Ads
+          </h2>
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            {features.map((feature) => (
+              <div class="rounded-xl border border-light/5 bg-dark p-6">
+                <h3 class="font-semibold text-light">{feature.title}</h3>
+                <p class="mt-2 text-sm text-light/60">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Advantage -->
+        <div class="mt-16 rounded-2xl border border-light/5 bg-light/[0.02] p-8">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Преимущества Google Ads
+          </h2>
+          <div class="mt-6 space-y-4 text-light/70">
+            <p>Google Ads отличается от другой рекламы:</p>
+            <ul class="ml-4 list-disc space-y-2">
+              <li><strong>Intent-based:</strong> Пользователь сам ищет, поэтому готов к покупке</li>
+              <li><strong>Точное измерение:</strong> Можно отслеживать каждый клик, конверсию и продажу</li>
+              <li><strong>Гибкий бюджет:</strong> Увеличивайте или уменьшайте бюджет в любое время</li>
+              <li><strong>Быстрый результат:</strong> Трафик приходит сразу после запуска рекламы</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

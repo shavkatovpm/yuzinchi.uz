@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+
+const features = [
+  {
+    title: "Реклама в каналах",
+    description: "Размещение рекламы в популярных каналах, соответствующих целевой аудитории"
+  },
+  {
+    title: "Telegram Ads",
+    description: "Охват широкой аудитории через официальную рекламную платформу Telegram"
+  },
+  {
+    title: "Бот-маркетинг",
+    description: "Автоматизированное обслуживание клиентов через Telegram боты"
+  },
+  {
+    title: "Управление каналом",
+    description: "Профессиональная контент-стратегия и развитие канала"
+  },
+  {
+    title: "Инфлюенсер маркетинг",
+    description: "Сотрудничество с Telegram блогерами и владельцами каналов"
+  },
+  {
+    title: "Аналитика",
+    description: "Подробная статистика и анализ результатов"
+  }
+];
+---
+
+<BaseLayout
+  title="Услуга рекламы в Telegram"
+  description="Через Telegram Ads достигайте самой активной аудитории в Узбекистане. Профессиональные услуги Telegram маркетинга."
+>
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-4xl">
+        <!-- Header -->
+        <div class="text-center">
+          <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-light/10 bg-light/5">
+            <svg class="h-8 w-8 text-light/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 2L11 13"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+            </svg>
+          </div>
+          <h1 class="text-4xl font-bold text-light md:text-5xl">
+            Реклама в Telegram
+          </h1>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-light/60 leading-relaxed">
+            Реклама на платформе с самой активной аудиторией в Узбекистане. Представьте свой бизнес миллионам потенциальных клиентов через Telegram.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-12 grid grid-cols-3 gap-4">
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">15M+</div>
+            <div class="mt-1 text-xs text-light/60">Пользователей</div>
+          </div>
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">80%</div>
+            <div class="mt-1 text-xs text-light/60">Прочтение</div>
+          </div>
+          <div class="rounded-xl border border-light/5 bg-light/[0.02] p-4 text-center">
+            <div class="text-2xl font-bold text-accent md:text-3xl">3-8x</div>
+            <div class="mt-1 text-xs text-light/60">ROI</div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Что мы делаем?
+          </h2>
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            {features.map((feature) => (
+              <div class="rounded-xl border border-light/5 bg-dark p-6">
+                <h3 class="font-semibold text-light">{feature.title}</h3>
+                <p class="mt-2 text-sm text-light/60">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Why Telegram -->
+        <div class="mt-16 rounded-2xl border border-light/5 bg-light/[0.02] p-8">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Почему Telegram?
+          </h2>
+          <div class="mt-6 space-y-4 text-light/70">
+            <p>Telegram - самый популярный мессенджер в Узбекистане с более чем 15 миллионами активных пользователей. На этой платформе:</p>
+            <ul class="ml-4 list-disc space-y-2">
+              <li>Сообщения читаются на 80% (в email - 20%)</li>
+              <li>Пользователь проводит в среднем 3-4 часа в день</li>
+              <li>Самый эффективный канал для бизнеса</li>
+              <li>Стоимость рекламы ниже, чем на других платформах</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

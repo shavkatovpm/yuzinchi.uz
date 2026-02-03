@@ -1,6 +1,5 @@
 export const languages = {
   uz: "O'zbekcha",
-  en: 'English',
   ru: 'Русский'
 };
 
@@ -36,7 +35,7 @@ export const ui = {
     'services.label.forWhom': 'Kimlar uchun?',
     'services.label.result': 'Qanday natija?',
     'services.label.price': 'Xizmat narxi',
-    'services.price': '$250+ / oyiga',
+    'services.price': '$200+ / oyiga',
     'services.instagram.what': 'Reklamangizni aniq auditoriyaga ko\'rsatamiz - yoshi, joyi, qiziqishlari bo\'yicha.',
     'services.instagram.forWhom': 'Onlayn savdo (shop, xizmat, kurs) qilayotganlar. Brendini tezroq tanitmoqchi bo\'lganlar. Yangi biznes boshlaganlar va savdoni oshirmoqchi bo\'lganlar.',
     'services.instagram.result': 'Aniq maqsadli auditoriyadan murojaatlar keladi. Profilga real qiziqish va trafik oshadi. Lead va sotuvlar ko\'payadi. Reklama byudjeti bekorga ketmaydi, natija o\'lchanadi.',
@@ -126,125 +125,6 @@ export const ui = {
     'meta.description': 'Instagram Target, Telegram Ads va Google Ads bo\'yicha marketing xizmatlari. Yuzinchi bosqichga birgalikda chiqamiz.'
   },
 
-  en: {
-    // Navigation
-    'nav.home': 'Home',
-    'nav.services': 'Services',
-    'nav.blog': 'Blog',
-    'nav.contact': 'Contact',
-
-    // Hero Section
-    'hero.title': 'Advertising that works for business',
-    'hero.subtitle': 'We bring new customers to your business through Instagram, Telegram and Google Ads',
-    'hero.cta': 'Get Free Consultation',
-    'hero.cta.secondary': 'View Services',
-
-    // Problem Section
-    'problem.title': 'Solutions to problems',
-    'problem.item1.title': 'Spending on ads, no results',
-    'problem.item1.desc': 'We work only for results',
-    'problem.item2.title': 'Don\'t know which ad type works',
-    'problem.item2.desc': 'We test ads and find the right approach',
-    'problem.item3.title': 'No time or experience',
-    'problem.item3.desc': 'We take full responsibility for marketing',
-
-    // Services Section
-    'services.title': 'Our Services',
-    'services.subtitle': 'We choose the most effective advertising channels for your business',
-    'services.label.what': 'What we do?',
-    'services.label.forWhom': 'Who is it for?',
-    'services.label.result': 'What results?',
-    'services.label.price': 'Service price',
-    'services.price': '$250+ / month',
-    'services.instagram.what': 'Show ads to exact audience - by age, location, interests.',
-    'services.instagram.forWhom': 'Online sellers (shops, services, courses). Those who want to promote their brand faster. New businesses looking to increase sales.',
-    'services.instagram.result': 'Leads from targeted audience. Real interest and profile traffic increases. More leads and sales. Ad budget is not wasted, results are measurable.',
-    'services.telegram.what': 'Telegram Ads and popular channels. Lead collection bots.',
-    'services.telegram.forWhom': 'Those selling via Telegram channel or bot. Those who want to reach audience quickly. Brands building their audience. Courses, services, local and online businesses.',
-    'services.telegram.result': 'Quality subscribers from relevant channels. Messages get more views and reads. Direct inquiries increase. Stable traffic within Telegram.',
-    'services.google.what': 'Ads for people searching for you. First in search results.',
-    'services.google.forWhom': 'Those who want to catch customers searching for their product. Those targeting "ready to buy" audience. Local or global service providers.',
-    'services.google.result': 'Ready customers via Google search. High-conversion traffic. Every click and result is tracked. Ads start delivering results quickly.',
-    'services.learnMore': 'Learn More',
-
-    // Process Section
-    'process.title': 'How we work?',
-    'process.step1.title': 'Analysis',
-    'process.step1.desc': 'We study your business and target audience',
-    'process.step2.title': 'Strategy',
-    'process.step2.desc': 'We create the most effective advertising strategy',
-    'process.step3.title': 'Launch',
-    'process.step3.desc': 'We test and optimize advertisements',
-    'process.step4.title': 'Results',
-    'process.step4.desc': 'We scale the ads that deliver the best results',
-
-    // Target Audience
-    'audience.title': 'Who we work with?',
-    'audience.item1': 'Small and medium business owners',
-    'audience.item2': 'Online store owners',
-
-    // Why Us
-    'whyus.title': 'Why choose us?',
-    'whyus.item1.title': 'Result-oriented',
-    'whyus.item1.desc': 'We work for real customers, not just clicks',
-    'whyus.item2.title': 'Transparent reporting',
-    'whyus.item2.desc': 'You get detailed reports every week',
-    'whyus.item3.title': 'Continuous optimization',
-    'whyus.item3.desc': 'We constantly analyze and improve ads',
-    'whyus.item4.title': 'Quick communication',
-    'whyus.item4.desc': 'We respond to your questions quickly',
-
-    // FAQ
-    'faq.title': 'Frequently Asked Questions',
-    'faq.q1': 'What is the minimum budget?',
-    'faq.a1': 'The minimum advertising budget should be $300/month. However, we can start with $100 for initial testing.',
-    'faq.q2': 'When will I see results?',
-    'faq.a2': 'Usually, the first results are visible within 2 weeks. Stable results take 2-3 months.',
-    'faq.q3': 'Which platform is better?',
-    'faq.a3': 'It depends on your business type. We analyze and recommend the most suitable platform for you.',
-    'faq.q4': 'How do we start?',
-    'faq.a4': 'First, we have an introductory meeting about your business and analyze it, then we sign a contract based on agreement and start working.',
-
-    // CTA Section
-    'cta.title': 'Ready for a flow of customers?',
-    'cta.subtitle': 'Leave a request and we\'ll determine the strategy',
-    'cta.button': 'Leave a Request',
-
-    // Contact
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Have questions? Get in touch with us',
-    'contact.name': 'Your Name',
-    'contact.phone': 'Phone Number',
-    'contact.business': 'Business Type',
-    'contact.message': 'Message',
-    'contact.submit': 'Submit',
-    'contact.business.ecommerce': 'E-commerce',
-    'contact.business.services': 'Services',
-    'contact.business.horeca': 'Restaurant/Cafe',
-    'contact.business.education': 'Education',
-    'contact.business.other': 'Other',
-
-    // Footer
-    'footer.description': 'Professional digital marketing services. Grow your business through Instagram, Telegram and Google Ads.',
-    'footer.services': 'Services',
-    'footer.company': 'Company',
-    'footer.contact': 'Contact',
-    'footer.rights': 'All rights reserved',
-
-    // About Page
-    'about.title': 'About Us',
-    'about.subtitle': 'Yuzinchi - Professional Digital Marketing Agency',
-
-    // Blog
-    'blog.title': 'Blog',
-    'blog.subtitle': 'Useful articles and news',
-    'blog.readMore': 'Read More',
-
-    // Meta
-    'meta.title': 'Instagram Target, Telegram Ads Services - Yuzinchi Marketing Agency',
-    'meta.description': 'Instagram Target, Telegram Ads and Google Ads marketing services. Let\'s reach the next level together.'
-  },
-
   ru: {
     // Navigation
     'nav.home': 'Главная',
@@ -274,7 +154,7 @@ export const ui = {
     'services.label.forWhom': 'Для кого?',
     'services.label.result': 'Какой результат?',
     'services.label.price': 'Стоимость услуги',
-    'services.price': '$250+ / месяц',
+    'services.price': '$200+ / месяц',
     'services.instagram.what': 'Реклама точной аудитории - по возрасту, локации, интересам.',
     'services.instagram.forWhom': 'Онлайн-продавцы (магазины, услуги, курсы). Те, кто хочет быстрее продвинуть бренд. Новые бизнесы, желающие увеличить продажи.',
     'services.instagram.result': 'Заявки от целевой аудитории. Реальный интерес и трафик на профиль растёт. Больше лидов и продаж. Рекламный бюджет не тратится впустую, результат измерим.',
@@ -373,12 +253,6 @@ export const serviceUrls = {
     google: '/uz/xizmatlar/google-reklama',
     all: '/uz/xizmatlar'
   },
-  en: {
-    instagram: '/en/services/instagram-advertising',
-    telegram: '/en/services/telegram-advertising',
-    google: '/en/services/google-advertising',
-    all: '/en/services'
-  },
   ru: {
     instagram: '/ru/uslugi/instagram-reklama',
     telegram: '/ru/uslugi/telegram-reklama',
@@ -394,12 +268,6 @@ export const pageUrls = {
     services: '/uz/xizmatlar',
     blog: '/uz/blog',
     contact: '/uz/aloqa'
-  },
-  en: {
-    home: '/en',
-    services: '/en/services',
-    blog: '/en/blog',
-    contact: '/en/contact'
   },
   ru: {
     home: '/ru',

@@ -25,29 +25,23 @@ export function getRouteFromUrl(url: URL): string {
 
 export function translatePath(path: string, targetLang: Lang): string {
   const pathMappings: Record<string, Record<Lang, string>> = {
-    '/xizmatlar': { uz: '/xizmatlar', en: '/services', ru: '/uslugi' },
-    '/services': { uz: '/xizmatlar', en: '/services', ru: '/uslugi' },
-    '/uslugi': { uz: '/xizmatlar', en: '/services', ru: '/uslugi' },
-    '/biz-haqimizda': { uz: '/biz-haqimizda', en: '/about', ru: '/o-nas' },
-    '/about': { uz: '/biz-haqimizda', en: '/about', ru: '/o-nas' },
-    '/o-nas': { uz: '/biz-haqimizda', en: '/about', ru: '/o-nas' },
-    '/aloqa': { uz: '/aloqa', en: '/contact', ru: '/kontakty' },
-    '/contact': { uz: '/aloqa', en: '/contact', ru: '/kontakty' },
-    '/kontakty': { uz: '/aloqa', en: '/contact', ru: '/kontakty' },
-    '/blog': { uz: '/blog', en: '/blog', ru: '/blog' },
+    '/xizmatlar': { uz: '/xizmatlar', ru: '/uslugi' },
+    '/uslugi': { uz: '/xizmatlar', ru: '/uslugi' },
+    '/biz-haqimizda': { uz: '/biz-haqimizda', ru: '/o-nas' },
+    '/o-nas': { uz: '/biz-haqimizda', ru: '/o-nas' },
+    '/aloqa': { uz: '/aloqa', ru: '/kontakty' },
+    '/kontakty': { uz: '/aloqa', ru: '/kontakty' },
+    '/blog': { uz: '/blog', ru: '/blog' },
   };
 
   // Service page mappings
   const servicePageMappings: Record<string, Record<Lang, string>> = {
-    '/xizmatlar/instagram-reklama': { uz: '/xizmatlar/instagram-reklama', en: '/services/instagram-advertising', ru: '/uslugi/instagram-reklama' },
-    '/services/instagram-advertising': { uz: '/xizmatlar/instagram-reklama', en: '/services/instagram-advertising', ru: '/uslugi/instagram-reklama' },
-    '/uslugi/instagram-reklama': { uz: '/xizmatlar/instagram-reklama', en: '/services/instagram-advertising', ru: '/uslugi/instagram-reklama' },
-    '/xizmatlar/telegram-reklama': { uz: '/xizmatlar/telegram-reklama', en: '/services/telegram-advertising', ru: '/uslugi/telegram-reklama' },
-    '/services/telegram-advertising': { uz: '/xizmatlar/telegram-reklama', en: '/services/telegram-advertising', ru: '/uslugi/telegram-reklama' },
-    '/uslugi/telegram-reklama': { uz: '/xizmatlar/telegram-reklama', en: '/services/telegram-advertising', ru: '/uslugi/telegram-reklama' },
-    '/xizmatlar/google-reklama': { uz: '/xizmatlar/google-reklama', en: '/services/google-advertising', ru: '/uslugi/google-reklama' },
-    '/services/google-advertising': { uz: '/xizmatlar/google-reklama', en: '/services/google-advertising', ru: '/uslugi/google-reklama' },
-    '/uslugi/google-reklama': { uz: '/xizmatlar/google-reklama', en: '/services/google-advertising', ru: '/uslugi/google-reklama' },
+    '/xizmatlar/instagram-reklama': { uz: '/xizmatlar/instagram-reklama', ru: '/uslugi/instagram-reklama' },
+    '/uslugi/instagram-reklama': { uz: '/xizmatlar/instagram-reklama', ru: '/uslugi/instagram-reklama' },
+    '/xizmatlar/telegram-reklama': { uz: '/xizmatlar/telegram-reklama', ru: '/uslugi/telegram-reklama' },
+    '/uslugi/telegram-reklama': { uz: '/xizmatlar/telegram-reklama', ru: '/uslugi/telegram-reklama' },
+    '/xizmatlar/google-reklama': { uz: '/xizmatlar/google-reklama', ru: '/uslugi/google-reklama' },
+    '/uslugi/google-reklama': { uz: '/xizmatlar/google-reklama', ru: '/uslugi/google-reklama' },
   };
 
   // First check service pages (more specific)
@@ -76,7 +70,6 @@ export function getAlternateLinks(currentUrl: URL): Array<{ lang: Lang; url: str
   if (pathname === '/' || pathname === '') {
     return [
       { lang: 'uz', url: '/' },
-      { lang: 'en', url: '/en' },
       { lang: 'ru', url: '/ru' }
     ];
   }
