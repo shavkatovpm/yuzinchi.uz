@@ -135,7 +135,7 @@ export const ui = {
     // Hero Section
     'hero.title': 'Реклама, которая работает для бизнеса',
     'hero.subtitle': 'Привлекаем новых клиентов для вашего бизнеса через Instagram, Telegram и Google Ads',
-    'hero.cta': 'Получить бесплатную консультацию',
+    'hero.cta': 'Бесплатная консультация',
     'hero.cta.secondary': 'Смотреть услуги',
 
     // Problem Section
