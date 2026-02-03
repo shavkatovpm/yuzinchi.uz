@@ -16,7 +16,6 @@ const footerLinks = {
   ],
   company: [
     { name: t('nav.about'), href: urls.about },
-    { name: t('nav.blog'), href: urls.blog },
     { name: t('nav.contact'), href: urls.contact },
   ]
 };
@@ -66,7 +65,10 @@ const socialLinks = [
 
       <!-- Services -->
       <div>
-        <ul class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-light">
+          {t('nav.services')}
+        </h3>
+        <ul class="mt-4 space-y-3">
           {footerLinks.services.map((link) => (
             <li>
               <a
