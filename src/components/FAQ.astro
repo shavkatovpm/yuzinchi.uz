@@ -22,19 +22,22 @@ const faqs = [
 
     <div class="mx-auto mt-12 max-w-3xl">
       <div class="space-y-4" data-faq-container>
-        {faqs.map((faq) => (
-          <details
-            class="faq-details group rounded-2xl border border-light/5 bg-dark transition-colors duration-200 open:border-accent/20"
+        {faqs.map((faq, index) => (
+          <div
+            class="faq-item rounded-2xl border border-light/5 bg-dark"
             data-faq-item
           >
-            <summary
-              class="flex w-full cursor-pointer list-none items-center justify-between gap-4 p-6 text-left [&::-webkit-details-marker]:hidden"
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-4 p-6 text-left"
+              data-faq-trigger
+              aria-expanded="false"
             >
               <span class="text-lg font-medium text-light">
                 {faq.question}
               </span>
               <svg
-                class="h-5 w-5 shrink-0 text-accent transition-transform duration-300 ease-out group-open:rotate-45"
+                class="faq-icon h-5 w-5 shrink-0 text-accent"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -42,64 +45,90 @@ const faqs = [
               >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-            </summary>
-            <div class="faq-content">
-              <p class="px-6 pb-6 text-light/60">
-                {faq.answer}
-              </p>
+            </button>
+            <div class="faq-content" data-faq-content>
+              <div class="faq-content-inner">
+                <p class="px-6 pb-6 text-light/60">
+                  {faq.answer}
+                </p>
+              </div>
             </div>
-          </details>
+          </div>
         ))}
       </div>
     </div>
   </div>
 </section>
 
+<style>
+  .faq-item {
+    transition: border-color 0.3s ease;
+  }
+
+  .faq-item.is-open {
+    border-color: rgba(98, 129, 65, 0.2);
+  }
+
+  .faq-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.is-open .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.is-open .faq-content {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-content-inner {
+    overflow: hidden;
+  }
+</style>
+
 <script>
   function initFAQ() {
     const container = document.querySelector('[data-faq-container]');
     if (!container) return;
 
-    // Close other details when one opens (accordion behavior)
-    container.addEventListener('click', (e) => {
-      const summary = (e.target as HTMLElement).closest('summary');
-      if (!summary) return;
+    const items = container.querySelectorAll('[data-faq-item]');
 
-      const currentDetails = summary.parentElement as HTMLDetailsElement;
-      if (!currentDetails) return;
+    items.forEach((item) => {
+      const trigger = item.querySelector('[data-faq-trigger]');
+      if (!trigger) return;
 
-      // If opening this one, close others
-      if (!currentDetails.open) {
-        const allDetails = container.querySelectorAll('details[open]');
-        allDetails.forEach((details) => {
-          if (details !== currentDetails) {
-            (details as HTMLDetailsElement).open = false;
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all other items
+        items.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('is-open');
+            const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+            if (otherTrigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+            }
           }
         });
-      }
+
+        // Toggle current item
+        if (isOpen) {
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
   }
 
   initFAQ();
   document.addEventListener('astro:after-swap', initFAQ);
 </script>
-
-<style>
-  .faq-details {
-    interpolate-size: allow-keywords;
-  }
-
-  .faq-content {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 300ms ease-out;
-  }
-
-  .faq-content > p {
-    overflow: hidden;
-  }
-
-  .faq-details[open] > .faq-content {
-    grid-template-rows: 1fr;
-  }
-</style>
