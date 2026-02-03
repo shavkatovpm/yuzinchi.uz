@@ -124,8 +124,8 @@ export const ui = {
     'blog.readMore': 'Davomini o\'qish',
 
     // Meta
-    'meta.title': 'Instagram Targeting, Telegram Ads va Google Ads bo\'yicha - Yuzinchi Marketing Agentligi',
-    'meta.description': 'Instagram target, Telegram Ads va Google Ads bilan biznesingizga yangi mijozlar olib kelamiz. Toshkent va O\'zbekiston bo\'ylab professional reklama xizmatlari.'
+    'meta.title': 'Instagram Target, Telegram Ads xizmati - Yuzinchi Marketing Agentligi',
+    'meta.description': 'Instagram Target, Telegram Ads va Google Ads bo\'yicha marketing xizmatlari. Yuzinchi bosqichga birgalikda chiqamiz.'
   },
 
   en: {
@@ -245,8 +245,8 @@ export const ui = {
     'blog.readMore': 'Read More',
 
     // Meta
-    'meta.title': 'Instagram Targeting, Telegram Ads and Google Ads - Yuzinchi Marketing Agency',
-    'meta.description': 'We bring new customers to your business with Instagram targeting, Telegram Ads and Google Ads. Professional advertising services in Tashkent and across Uzbekistan.'
+    'meta.title': 'Instagram Target, Telegram Ads Services - Yuzinchi Marketing Agency',
+    'meta.description': 'Instagram Target, Telegram Ads and Google Ads marketing services. Let\'s reach the next level together.'
   },
 
   ru: {
@@ -366,8 +366,8 @@ export const ui = {
     'blog.readMore': 'Читать далее',
 
     // Meta
-    'meta.title': 'Instagram Targeting, Telegram Ads и Google Ads - Yuzinchi Marketing Agency',
-    'meta.description': 'Привлекаем новых клиентов для вашего бизнеса через Instagram таргет, Telegram Ads и Google Ads. Профессиональные рекламные услуги в Ташкенте и по всему Узбекистану.'
+    'meta.title': 'Instagram Таргет, Telegram Ads услуги - Yuzinchi Marketing Agency',
+    'meta.description': 'Маркетинговые услуги Instagram Target, Telegram Ads и Google Ads. Выйдем на следующий уровень вместе.'
   }
 } as const;
 
