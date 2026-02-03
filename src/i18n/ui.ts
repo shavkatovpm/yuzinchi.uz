@@ -63,8 +63,6 @@ export const ui = {
     'audience.title': 'Kimlar bilan ishlaymiz?',
     'audience.item1': 'Kichik va o\'rta biznes egalari',
     'audience.item2': 'Onlayn do\'kon egalari',
-    'audience.item3': 'Xizmat ko\'rsatuvchi kompaniyalar',
-    'audience.item4': 'Startaplar va yangi loyihalar',
 
     // Why Us
     'whyus.title': 'Nega aynan biz?',
@@ -184,8 +182,6 @@ export const ui = {
     'audience.title': 'Who we work with?',
     'audience.item1': 'Small and medium business owners',
     'audience.item2': 'Online store owners',
-    'audience.item3': 'Service companies',
-    'audience.item4': 'Startups and new projects',
 
     // Why Us
     'whyus.title': 'Why choose us?',
@@ -305,8 +301,6 @@ export const ui = {
     'audience.title': 'С кем мы работаем?',
     'audience.item1': 'Владельцы малого и среднего бизнеса',
     'audience.item2': 'Владельцы интернет-магазинов',
-    'audience.item3': 'Сервисные компании',
-    'audience.item4': 'Стартапы и новые проекты',
 
     // Why Us
     'whyus.title': 'Почему именно мы?',
