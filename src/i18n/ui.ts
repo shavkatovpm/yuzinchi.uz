@@ -88,7 +88,7 @@ export const ui = {
 
     // CTA Section
     'cta.title': 'Mijozlar oqimiga tayyormisiz?',
-    'cta.subtitle': 'Ariza qoldiring va strategiyani aniqlaymiz',
+    'cta.subtitle': 'Strategiyani aniqlaymiz',
     'cta.button': 'Ariza qoldirish',
 
     // Contact
