@@ -34,14 +34,20 @@ const experienceYears = [
       <label for="phone" class="mb-2 block text-sm font-medium text-light">
         {t('contact.phone')} <span class="text-accent">*</span>
       </label>
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        required
-        class="w-full rounded-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-        placeholder="+998 90 123 45 67"
-      />
+      <div class="flex">
+        <span class="inline-flex items-center rounded-l-lg border border-r-0 border-light/10 bg-light/5 px-4 py-3 text-light/60">
+          +998
+        </span>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          maxlength="12"
+          class="w-full rounded-r-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
+          placeholder="90 123 45 67"
+        />
+      </div>
     </div>
   </div>
 
@@ -83,12 +89,13 @@ const experienceYears = [
   <!-- Message -->
   <div>
     <label for="message" class="mb-2 block text-sm font-medium text-light">
-      {t('contact.message')}
+      {t('contact.message')} <span class="text-accent">*</span>
     </label>
     <textarea
       id="message"
       name="message"
       rows="4"
+      required
       class="w-full resize-none rounded-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
       placeholder={lang === 'uz' ? 'Biznesingiz haqida qisqacha yozib keting' : lang === 'ru' ? 'Расскажите коротко о вашем бизнесе' : 'Tell us briefly about your business'}
     ></textarea>
@@ -123,12 +130,32 @@ const experienceYears = [
 
   function initContactForm() {
     const form = document.getElementById('contact-form');
+    const phoneInput = document.getElementById('phone') as HTMLInputElement;
     const submitText = document.getElementById('submit-text');
     const submitSpinner = document.getElementById('submit-spinner');
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
 
     if (!form) return;
+
+    // Phone number formatting
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        // Remove all non-digits
+        let value = target.value.replace(/\D/g, '');
+
+        // Format: XX XXX XX XX
+        if (value.length > 0) {
+          let formatted = '';
+          if (value.length > 0) formatted += value.substring(0, 2);
+          if (value.length > 2) formatted += ' ' + value.substring(2, 5);
+          if (value.length > 5) formatted += ' ' + value.substring(5, 7);
+          if (value.length > 7) formatted += ' ' + value.substring(7, 9);
+          target.value = formatted;
+        }
+      });
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -142,12 +169,13 @@ const experienceYears = [
       submitSpinner?.classList.remove('hidden');
 
       const formData = new FormData(form as HTMLFormElement);
+      const phoneValue = formData.get('phone') as string;
       const data = {
         name: formData.get('name'),
-        phone: formData.get('phone'),
+        phone: '+998 ' + phoneValue,
         businessName: formData.get('business-name'),
         experience: formData.get('experience'),
-        message: formData.get('message') || '',
+        message: formData.get('message'),
         timestamp: new Date().toISOString()
       };
 
