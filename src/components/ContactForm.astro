@@ -115,16 +115,20 @@ const experienceYears = [
     </svg>
   </button>
 
-  <!-- Success Message -->
-  <div id="success-message" class="hidden rounded-lg bg-green-900/30 p-4 text-green-400">
-    {lang === 'uz' ? '✓ Xabaringiz yuborildi! Tez orada siz bilan bog\'lanamiz.' : lang === 'ru' ? '✓ Сообщение отправлено! Мы скоро свяжемся с вами.' : '✓ Message sent! We will contact you soon.'}
-  </div>
-
-  <!-- Error Message -->
-  <div id="error-message" class="hidden rounded-lg bg-red-900/30 p-4 text-red-400">
-    {lang === 'uz' ? '✗ Xatolik yuz berdi. Iltimos, qaytadan urinib ko\'ring.' : lang === 'ru' ? '✗ Произошла ошибка. Пожалуйста, попробуйте снова.' : '✗ An error occurred. Please try again.'}
-  </div>
 </form>
+
+<!-- Toast Messages (Fixed at top) -->
+<div id="success-message" class="pointer-events-none fixed left-1/2 top-4 z-50 -translate-x-1/2 translate-y-[-100px] opacity-0 transition-all duration-300">
+  <div class="rounded-lg bg-green-600 px-6 py-3 text-white shadow-lg">
+    {lang === 'uz' ? '✓ Xabaringiz yuborildi!' : lang === 'ru' ? '✓ Сообщение отправлено!' : '✓ Message sent!'}
+  </div>
+</div>
+
+<div id="error-message" class="pointer-events-none fixed left-1/2 top-4 z-50 -translate-x-1/2 translate-y-[-100px] opacity-0 transition-all duration-300">
+  <div class="rounded-lg bg-red-600 px-6 py-3 text-white shadow-lg">
+    {lang === 'uz' ? '✗ Xatolik yuz berdi' : lang === 'ru' ? '✗ Произошла ошибка' : '✗ An error occurred'}
+  </div>
+</div>
 
 <script>
   // Google Apps Script Web App URL (to be replaced with actual URL)
@@ -169,9 +173,25 @@ const experienceYears = [
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Reset messages
-      successMessage?.classList.add('hidden');
-      errorMessage?.classList.add('hidden');
+      // Helper function to show toast
+      const showToast = (element: HTMLElement | null) => {
+        if (!element) return;
+        // Show toast
+        element.classList.remove('translate-y-[-100px]', 'opacity-0');
+        element.classList.add('translate-y-0', 'opacity-100');
+
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+          element.classList.remove('translate-y-0', 'opacity-100');
+          element.classList.add('translate-y-[-100px]', 'opacity-0');
+        }, 3000);
+      };
+
+      // Reset messages (hide them immediately)
+      successMessage?.classList.remove('translate-y-0', 'opacity-100');
+      successMessage?.classList.add('translate-y-[-100px]', 'opacity-0');
+      errorMessage?.classList.remove('translate-y-0', 'opacity-100');
+      errorMessage?.classList.add('translate-y-[-100px]', 'opacity-0');
 
       // Show loading state
       submitText?.classList.add('hidden');
@@ -193,7 +213,7 @@ const experienceYears = [
         if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
           // Demo mode - just show success
           await new Promise(resolve => setTimeout(resolve, 1000));
-          successMessage?.classList.remove('hidden');
+          showToast(successMessage);
           (form as HTMLFormElement).reset();
         } else {
           // Send to Google Apps Script
@@ -206,12 +226,12 @@ const experienceYears = [
             body: JSON.stringify(data)
           });
 
-          successMessage?.classList.remove('hidden');
+          showToast(successMessage);
           (form as HTMLFormElement).reset();
         }
       } catch (error) {
         console.error('Error:', error);
-        errorMessage?.classList.remove('hidden');
+        showToast(errorMessage);
       } finally {
         // Hide loading state
         submitText?.classList.remove('hidden');
