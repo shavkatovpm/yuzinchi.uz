@@ -24,7 +24,7 @@ const faqs = [
       <div class="space-y-4" data-faq-container>
         {faqs.map((faq) => (
           <details
-            class="group rounded-2xl border border-light/5 bg-dark transition-colors duration-200 open:border-accent/20"
+            class="faq-details group rounded-2xl border border-light/5 bg-dark transition-colors duration-200 open:border-accent/20"
             data-faq-item
           >
             <summary
@@ -34,7 +34,7 @@ const faqs = [
                 {faq.question}
               </span>
               <svg
-                class="h-5 w-5 shrink-0 text-accent transition-transform duration-200 ease-out group-open:rotate-45"
+                class="h-5 w-5 shrink-0 text-accent transition-transform duration-300 ease-out group-open:rotate-45"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -43,8 +43,8 @@ const faqs = [
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </summary>
-            <div class="px-6 pb-6">
-              <p class="text-light/60">
+            <div class="faq-content">
+              <p class="px-6 pb-6 text-light/60">
                 {faq.answer}
               </p>
             </div>
@@ -83,3 +83,23 @@ const faqs = [
   initFAQ();
   document.addEventListener('astro:after-swap', initFAQ);
 </script>
+
+<style>
+  .faq-details {
+    interpolate-size: allow-keywords;
+  }
+
+  .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease-out;
+  }
+
+  .faq-content > p {
+    overflow: hidden;
+  }
+
+  .faq-details[open] > .faq-content {
+    grid-template-rows: 1fr;
+  }
+</style>
