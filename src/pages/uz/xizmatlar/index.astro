@@ -2,6 +2,12 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Services from '../../../components/Services.astro';
 import CTA from '../../../components/CTA.astro';
+
+const servicesList = [
+  { name: 'Instagram Target', icon: 'instagram' },
+  { name: 'Telegram Ads', icon: 'telegram' },
+  { name: 'Google Ads', icon: 'google' }
+];
 ---
 
 <BaseLayout
@@ -10,11 +16,38 @@ import CTA from '../../../components/CTA.astro';
 >
   <section class="section-padding">
     <div class="container-custom">
-      <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto max-w-4xl text-center">
         <h1 class="text-4xl font-bold text-light md:text-5xl">
           Xizmatlarimiz
         </h1>
-        <p class="mt-4 text-lg text-light/60">
+
+        <!-- Service badges -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a href="/uz/xizmatlar/instagram-reklama" class="group flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 transition-all hover:bg-accent hover:border-accent">
+            <svg class="h-5 w-5 text-accent group-hover:text-light" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="font-medium text-light">Instagram Target</span>
+          </a>
+          <a href="/uz/xizmatlar/telegram-reklama" class="group flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 transition-all hover:bg-accent hover:border-accent">
+            <svg class="h-5 w-5 text-accent group-hover:text-light" viewBox="0 0 24 24">
+              <path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-medium text-light">Telegram Ads</span>
+          </a>
+          <a href="/uz/xizmatlar/google-reklama" class="group flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 transition-all hover:bg-accent hover:border-accent">
+            <svg class="h-5 w-5 text-accent group-hover:text-light" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M21 21L16.65 16.65" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-medium text-light">Google Ads</span>
+          </a>
+        </div>
+
+        <p class="mt-6 text-lg text-light/60">
           Biznesingiz uchun eng samarali reklama kanallarini tanlaymiz va professional tarzda boshqaramiz
         </p>
       </div>
