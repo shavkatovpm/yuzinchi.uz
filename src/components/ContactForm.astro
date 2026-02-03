@@ -44,6 +44,8 @@ const experienceYears = [
           name="phone"
           required
           maxlength="12"
+          inputmode="numeric"
+          pattern="[0-9 ]*"
           class="w-full rounded-r-lg border border-light/10 bg-dark px-4 py-3 text-light placeholder-light/40 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
           placeholder="90 123 45 67"
         />
@@ -138,8 +140,15 @@ const experienceYears = [
 
     if (!form) return;
 
-    // Phone number formatting
+    // Phone number formatting - only allow digits
     if (phoneInput) {
+      // Prevent non-numeric input
+      phoneInput.addEventListener('keypress', (e) => {
+        if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+          e.preventDefault();
+        }
+      });
+
       phoneInput.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement;
         // Remove all non-digits
