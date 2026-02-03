@@ -61,7 +61,7 @@ export const ui = {
 
     // Target Audience
     'audience.title': 'Kimlar bilan ishlaymiz?',
-    'audience.item1': 'Kichik va o\'rta biznes egalari',
+    'audience.item1': 'Kichik va o\'rta biznes',
     'audience.item2': 'Onlayn do\'kon egalari',
 
     // Why Us
