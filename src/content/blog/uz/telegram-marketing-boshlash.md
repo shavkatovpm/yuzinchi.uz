@@ -30,7 +30,7 @@ Haftalik kontent rejasi tuzing. Foydali va qiziqarli postlar yozing.
 
 ### 3. Auditoriya Yig'ing
 
-Boshqa kanallarda reklama qiling, Instagram'dan yo'naltiring.
+Boshqa kanallarda reklama qiling, saytingizdan yo'naltiring.
 
 ### 4. Sotuvni Boshlang
 

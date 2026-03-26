@@ -5,9 +5,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const urls = serviceUrls[lang];
 
-// Instagram icon - minimalistic camera
-const instagramIcon = `<rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>`;
-
 // Telegram icon - minimalistic paper plane
 const telegramIcon = `<path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
 
@@ -15,14 +12,6 @@ const telegramIcon = `<path d="M22 2L11 13" fill="none" stroke="currentColor" st
 const googleIcon = `<circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
 
 const services = [
-  {
-    icon: instagramIcon,
-    title: 'Instagram Target',
-    href: urls.instagram,
-    what: t('services.instagram.what'),
-    forWhom: t('services.instagram.forWhom'),
-    result: t('services.instagram.result')
-  },
   {
     icon: telegramIcon,
     title: 'Telegram Ads',
@@ -33,7 +22,7 @@ const services = [
   },
   {
     icon: googleIcon,
-    title: 'Google Ads',
+    title: 'Google SEO/Ads',
     href: urls.google,
     what: t('services.google.what'),
     forWhom: t('services.google.forWhom'),
@@ -144,7 +133,7 @@ const services = [
       </div>
 
       <!-- Desktop: Grid cards (unchanged) -->
-      <div class="hidden md:grid mx-auto max-w-5xl gap-5 md:grid-cols-3">
+      <div class="hidden md:grid mx-auto max-w-4xl gap-5 md:grid-cols-2">
         {services.map((service) => (
           <a
             href={service.href}

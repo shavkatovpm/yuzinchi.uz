@@ -1,0 +1,210 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles', ({ id }) => id.startsWith('uz/'));
+  return posts.map((post) => ({
+    params: { slug: post.slug.replace('uz/', '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const formattedDate = post.data.pubDate.toLocaleDateString('uz-UZ', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const categoryKey = `articles.category.${post.data.category.toLowerCase()}` as any;
+const categoryLabel = t(categoryKey) || post.data.category;
+
+// Related articles
+const allArticles = await getCollection('articles', ({ id, data }) => {
+  return id.startsWith('uz/') && !data.draft && id !== post.id;
+});
+const relatedArticles = allArticles
+  .filter(a => a.data.category === post.data.category || a.data.tags.some(tag => post.data.tags.includes(tag)))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+// JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": post.data.heroImage ? `https://yuzinchi.uz${post.data.heroImage}` : undefined,
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": (post.data.updatedDate || post.data.pubDate).toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": post.data.author,
+    "url": "https://yuzinchi.uz"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yuzinchi Marketing",
+    "url": "https://yuzinchi.uz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://yuzinchi.uz/uz/maqolalar/${post.slug.replace('uz/', '')}`
+  }
+};
+
+// FAQ structured data
+const faqLd = post.data.faq ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": post.data.faq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+} : null;
+
+---
+
+<BaseLayout
+  title={`${post.data.title} | Yuzinchi`}
+  description={post.data.description}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
+
+  <article class="section-padding" itemscope itemtype="https://schema.org/Article">
+    <div class="container-custom">
+      <div class="mx-auto max-w-4xl">
+        <!-- Header -->
+        <header class="text-center">
+          <div class="flex items-center justify-center gap-3">
+            <span class="rounded-full bg-accent/15 px-4 py-1.5 text-sm font-semibold text-accent">
+              {categoryLabel}
+            </span>
+            {post.data.readingTime && (
+              <span class="text-sm text-light/40">
+                {post.data.readingTime} {t('articles.readingTime')}
+              </span>
+            )}
+          </div>
+          <time class="mt-4 block text-sm text-light/50" itemprop="datePublished" datetime={post.data.pubDate.toISOString()}>
+            {formattedDate}
+          </time>
+          <h1 class="mt-4 text-3xl font-bold text-light md:text-4xl lg:text-5xl" itemprop="headline">
+            {post.data.title}
+          </h1>
+          <p class="mt-4 text-lg text-light/60" itemprop="description">
+            {post.data.description}
+          </p>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+              {post.data.tags.map((tag: string) => (
+                <span class="rounded-full bg-light/5 px-4 py-1.5 text-sm text-light/50">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <!-- Hero Image -->
+        {post.data.heroImage && (
+          <div class="mt-8 overflow-hidden rounded-2xl">
+            <img
+              src={post.data.heroImage}
+              alt={post.data.title}
+              class="w-full"
+              itemprop="image"
+            />
+          </div>
+        )}
+
+        <!-- Content -->
+        <div class="prose prose-lg prose-invert mx-auto mt-12 max-w-none prose-headings:text-light prose-a:text-accent prose-strong:text-light" itemprop="articleBody">
+          <Content />
+        </div>
+
+        <!-- FAQ Section -->
+        {post.data.faq && post.data.faq.length > 0 && (
+          <div class="mt-12 rounded-2xl border border-light/5 bg-light/[0.02] p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-light">Ko'p beriladigan savollar</h2>
+            <div class="mt-6 space-y-4">
+              {post.data.faq.map((item) => (
+                <details class="group rounded-xl border border-light/5 bg-dark p-4">
+                  <summary class="flex cursor-pointer items-center justify-between font-medium text-light">
+                    {item.question}
+                    <svg class="h-5 w-5 shrink-0 text-light/40 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p class="mt-3 text-light/60">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Author -->
+        <div class="mt-12 flex items-center justify-center gap-4 rounded-2xl border border-light/5 bg-light/[0.02] p-6">
+          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-light">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-semibold text-light" itemprop="author">{post.data.author}</p>
+            <p class="text-sm text-light/60">Yuzinchi Marketing</p>
+          </div>
+        </div>
+
+        <!-- Back -->
+        <div class="mt-8 text-center">
+          <a href="/uz/maqolalar" class="inline-flex items-center gap-2 text-accent hover:underline">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            {t('articles.backToAll')}
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      {relatedArticles.length > 0 && (
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light">{t('articles.relatedArticles')}</h2>
+          <div class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {relatedArticles.map((article) => (
+              <ArticleCard
+                title={article.data.title}
+                description={article.data.description}
+                pubDate={article.data.pubDate}
+                slug={article.slug.replace('uz/', '')}
+
+                tags={article.data.tags}
+                category={article.data.category}
+                readingTime={article.data.readingTime}
+                lang="uz"
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <CTA />
+</BaseLayout>

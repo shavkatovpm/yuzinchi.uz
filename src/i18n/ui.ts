@@ -15,7 +15,7 @@ export const ui = {
 
     // Hero Section
     'hero.title': 'Biznes uchun ishlaydigan reklama',
-    'hero.subtitle': 'Instagram, Telegram va Google Ads orqali biznesingizga yangi mijozlar olib kelamiz',
+    'hero.subtitle': 'Telegram Ads va Google SEO/Ads orqali biznesingizga yangi mijozlar olib kelamiz',
     'hero.cta': "Bepul maslahat olish",
     'hero.cta.secondary': 'Xizmatlarni ko\'rish',
 
@@ -36,15 +36,12 @@ export const ui = {
     'services.label.result': 'Qanday natija?',
     'services.label.price': 'Xizmat narxi',
     'services.price': '$200+ / oyiga',
-    'services.instagram.what': 'Reklamangizni aniq auditoriyaga ko\'rsatamiz - yoshi, joyi, qiziqishlari bo\'yicha.',
-    'services.instagram.forWhom': 'Onlayn savdo (shop, xizmat, kurs) qilayotganlar. Brendini tezroq tanitmoqchi bo\'lganlar. Yangi biznes boshlaganlar va savdoni oshirmoqchi bo\'lganlar.',
-    'services.instagram.result': 'Aniq maqsadli auditoriyadan murojaatlar keladi. Profilga real qiziqish va trafik oshadi. Lead va sotuvlar ko\'payadi. Reklama byudjeti bekorga ketmaydi, natija o\'lchanadi.',
     'services.telegram.what': 'Telegram Ads va mashhur kanallarda reklama. Bot orqali mijoz yig\'ish.',
     'services.telegram.forWhom': 'Telegram kanali yoki bot orqali sotuv qiladiganlar. Xizmatini tez ommaga chiqarishni xohlaganlar. O\'z auditoriyasini yig\'moqchi bo\'lgan brendlar. Kurslar, servislar, lokal va online bizneslar.',
     'services.telegram.result': 'Kerakli kanallardan sifatli obunachilar keladi. Xabarlar ko\'proq ko\'riladi va o\'qiladi. To\'g\'ridan-to\'g\'ri murojaatlar oshadi. Telegram ichida barqaror trafik shakllanadi.',
-    'services.google.what': 'Sizni qidirayotganlarga reklama. Qidiruvda birinchi o\'rinda.',
-    'services.google.forWhom': 'Mahsulot yoki xizmatini qidirayotgan mijozlarni ushlamoqchi bo\'lganlar. "Hoziroq sotib olish" bosqichidagi auditoriyaga chiqmoqchi bo\'lganlar. Lokal yoki global xizmat ko\'rsatuvchi bizneslar.',
-    'services.google.result': 'Google qidiruvi orqali tayyor mijozlar keladi. Sotuv ehtimoli yuqori bo\'lgan trafik olinadi. Har bir klik va natija nazorat qilinadi. Reklama tez natija bera boshlaydi.',
+    'services.google.what': 'Google qidiruvida birinchi o\'ringa chiqish. SEO optimizatsiya va Google Ads reklama.',
+    'services.google.forWhom': 'Saytini Google\'da yuqoriga chiqarmoqchi bo\'lganlar. Mahsulot yoki xizmatini qidirayotgan mijozlarni ushlamoqchi bo\'lganlar. Lokal yoki global xizmat ko\'rsatuvchi bizneslar.',
+    'services.google.result': 'Google qidiruvi orqali tayyor mijozlar keladi. Sayt organik trafik oladi va uzoq muddatga ishlaydi. Har bir klik va natija nazorat qilinadi. SEO + Ads kombinatsiyasi barqaror o\'sish beradi.',
     'services.learnMore': 'Batafsil ko\'rish',
 
     // Process Section
@@ -105,7 +102,7 @@ export const ui = {
     'contact.business.other': 'Boshqa',
 
     // Footer
-    'footer.description': 'Professional raqamli marketing xizmatlari. Instagram, Telegram va Google Ads orqali biznesingizni o\'stiring.',
+    'footer.description': 'Professional raqamli marketing xizmatlari. Telegram Ads va Google SEO/Ads orqali biznesingizni o\'stiring.',
     'footer.services': 'Xizmatlar',
     'footer.company': 'Kompaniya',
     'footer.contact': 'Aloqa',
@@ -120,9 +117,25 @@ export const ui = {
     'blog.subtitle': 'Foydali maqolalar va yangiliklar',
     'blog.readMore': 'Davomini o\'qish',
 
+    // Articles
+    'nav.articles': 'Maqolalar',
+    'articles.title': 'Maqolalar',
+    'articles.subtitle': 'Raqamli marketing bo\'yicha chuqur maqolalar va qo\'llanmalar',
+    'articles.readMore': 'To\'liq o\'qish',
+    'articles.readingTime': 'daqiqa o\'qish',
+    'articles.backToAll': 'Barcha maqolalar',
+    'articles.relatedArticles': 'O\'xshash maqolalar',
+    'articles.tableOfContents': 'Mundarija',
+    'articles.category.marketing': 'Marketing',
+    'articles.category.telegram': 'Telegram',
+    'articles.category.google': 'Google SEO/Ads',
+    'articles.category.seo': 'SEO',
+    'articles.category.smm': 'SMM',
+    'articles.empty': 'Hozircha maqolalar yo\'q. Tez orada qo\'shiladi!',
+
     // Meta
-    'meta.title': 'Instagram Target, Telegram Ads xizmati - Yuzinchi Marketing Agentligi',
-    'meta.description': 'Instagram Target, Telegram Ads va Google Ads bo\'yicha marketing xizmatlari. Yuzinchi bosqichga birgalikda chiqamiz.'
+    'meta.title': 'Telegram Ads, Google SEO/Ads xizmati - Yuzinchi Marketing Agentligi',
+    'meta.description': 'Telegram Ads va Google SEO/Ads bo\'yicha marketing xizmatlari. Yuzinchi bosqichga birgalikda chiqamiz.'
   },
 
   ru: {
@@ -134,7 +147,7 @@ export const ui = {
 
     // Hero Section
     'hero.title': 'Реклама, которая работает для бизнеса',
-    'hero.subtitle': 'Привлекаем новых клиентов для вашего бизнеса через Instagram, Telegram и Google Ads',
+    'hero.subtitle': 'Привлекаем новых клиентов для вашего бизнеса через Telegram Ads и Google SEO/Ads',
     'hero.cta': 'Бесплатная консультация',
     'hero.cta.secondary': 'Смотреть услуги',
 
@@ -155,15 +168,12 @@ export const ui = {
     'services.label.result': 'Какой результат?',
     'services.label.price': 'Стоимость услуги',
     'services.price': '$200+ / месяц',
-    'services.instagram.what': 'Реклама точной аудитории - по возрасту, локации, интересам.',
-    'services.instagram.forWhom': 'Онлайн-продавцы (магазины, услуги, курсы). Те, кто хочет быстрее продвинуть бренд. Новые бизнесы, желающие увеличить продажи.',
-    'services.instagram.result': 'Заявки от целевой аудитории. Реальный интерес и трафик на профиль растёт. Больше лидов и продаж. Рекламный бюджет не тратится впустую, результат измерим.',
     'services.telegram.what': 'Telegram Ads и популярные каналы. Боты для сбора заявок.',
     'services.telegram.forWhom': 'Те, кто продаёт через Telegram канал или бот. Те, кто хочет быстро выйти на аудиторию. Бренды, собирающие свою аудиторию. Курсы, сервисы, локальный и онлайн бизнес.',
     'services.telegram.result': 'Качественные подписчики из нужных каналов. Сообщения получают больше просмотров и прочтений. Прямые обращения растут. Стабильный трафик внутри Telegram.',
-    'services.google.what': 'Реклама для тех, кто вас ищет. Первые в поиске.',
-    'services.google.forWhom': 'Те, кто хочет поймать клиентов, ищущих их продукт. Те, кто нацелен на аудиторию "готов купить". Локальные или глобальные поставщики услуг.',
-    'services.google.result': 'Готовые клиенты через поиск Google. Трафик с высокой конверсией. Каждый клик и результат отслеживается. Реклама быстро начинает давать результаты.',
+    'services.google.what': 'Выход на первые позиции в Google. SEO-оптимизация и Google Ads реклама.',
+    'services.google.forWhom': 'Те, кто хочет вывести сайт в топ Google. Те, кто хочет поймать клиентов, ищущих их продукт. Локальные или глобальные поставщики услуг.',
+    'services.google.result': 'Готовые клиенты через поиск Google. Сайт получает органический трафик и работает долгосрочно. Каждый клик и результат отслеживается. Комбинация SEO + Ads даёт стабильный рост.',
     'services.learnMore': 'Подробнее',
 
     // Process Section
@@ -224,7 +234,7 @@ export const ui = {
     'contact.business.other': 'Другое',
 
     // Footer
-    'footer.description': 'Профессиональные услуги цифрового маркетинга. Развивайте свой бизнес через Instagram, Telegram и Google Ads.',
+    'footer.description': 'Профессиональные услуги цифрового маркетинга. Развивайте свой бизнес через Telegram Ads и Google SEO/Ads.',
     'footer.services': 'Услуги',
     'footer.company': 'Компания',
     'footer.contact': 'Контакты',
@@ -239,22 +249,36 @@ export const ui = {
     'blog.subtitle': 'Полезные статьи и новости',
     'blog.readMore': 'Читать далее',
 
+    // Articles
+    'nav.articles': 'Статьи',
+    'articles.title': 'Статьи',
+    'articles.subtitle': 'Подробные статьи и руководства по цифровому маркетингу',
+    'articles.readMore': 'Читать полностью',
+    'articles.readingTime': 'мин чтения',
+    'articles.backToAll': 'Все статьи',
+    'articles.relatedArticles': 'Похожие статьи',
+    'articles.tableOfContents': 'Содержание',
+    'articles.category.marketing': 'Маркетинг',
+    'articles.category.telegram': 'Telegram',
+    'articles.category.google': 'Google SEO/Ads',
+    'articles.category.seo': 'SEO',
+    'articles.category.smm': 'SMM',
+    'articles.empty': 'Статей пока нет. Скоро появятся!',
+
     // Meta
-    'meta.title': 'Instagram Таргет, Telegram Ads услуги - Yuzinchi Marketing Agency',
-    'meta.description': 'Маркетинговые услуги Instagram Target, Telegram Ads и Google Ads. Выйдем на следующий уровень вместе.'
+    'meta.title': 'Telegram Ads, Google SEO/Ads услуги - Yuzinchi Marketing Agency',
+    'meta.description': 'Маркетинговые услуги Telegram Ads и Google SEO/Ads. Выйдем на следующий уровень вместе.'
   }
 } as const;
 
 // Service pages URLs per language
 export const serviceUrls = {
   uz: {
-    instagram: '/uz/xizmatlar/instagram-reklama',
     telegram: '/uz/xizmatlar/telegram-reklama',
     google: '/uz/xizmatlar/google-reklama',
     all: '/uz/xizmatlar'
   },
   ru: {
-    instagram: '/ru/uslugi/instagram-reklama',
     telegram: '/ru/uslugi/telegram-reklama',
     google: '/ru/uslugi/google-reklama',
     all: '/ru/uslugi'
@@ -267,12 +291,14 @@ export const pageUrls = {
     home: '/',
     services: '/uz/xizmatlar',
     blog: '/uz/blog',
+    articles: '/uz/maqolalar',
     contact: '/uz/aloqa'
   },
   ru: {
     home: '/ru',
     services: '/ru/uslugi',
     blog: '/ru/blog',
+    articles: '/ru/stati',
     contact: '/ru/kontakty'
   }
 };

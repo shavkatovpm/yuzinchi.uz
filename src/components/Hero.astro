@@ -17,23 +17,18 @@ const urls = pageUrls[lang];
     <div class="mx-auto max-w-4xl text-center">
       <!-- Badge -->
       <div class="mb-8 inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent md:mb-12 md:gap-3 md:px-6 md:py-2.5 md:text-lg">
-        <span>Instagram Target</span>
-        <span class="relative flex h-1 w-1 md:h-2 md:w-2">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
-          <span class="relative inline-flex h-1 w-1 rounded-full bg-accent md:h-2 md:w-2"></span>
-        </span>
         <span>Telegram Ads</span>
         <span class="relative flex h-1 w-1 md:h-2 md:w-2">
           <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
           <span class="relative inline-flex h-1 w-1 rounded-full bg-accent md:h-2 md:w-2"></span>
         </span>
-        <span>Google Ads</span>
+        <span>Google SEO/Ads</span>
       </div>
 
       <!-- Heading - Animated text -->
       <h1 class="text-3xl font-bold tracking-tight text-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
         <span id="animated-heading" class="inline-block transition-all duration-500" style="filter: blur(0px);">
-          {lang === 'uz' ? "Instagram target orqali sotib oladigan mijozlarni olib kelamiz" : lang === 'ru' ? "Привлекаем покупающих клиентов через Instagram таргет" : "We bring buying customers through Instagram targeting"}
+          {lang === 'uz' ? "Telegram Ads bilan o'lchanadigan natija ko'rsatamiz" : lang === 'ru' ? "Telegram Ads — надёжный трафик и измеримые результаты" : "Telegram Ads for reliable traffic and measurable results"}
         </span>
       </h1>
 
@@ -84,18 +79,18 @@ const urls = pageUrls[lang];
 <script define:vars={{ lang }}>
   const headingTexts = {
     uz: [
-      "Instagram target orqali sotib oladigan mijozlarni olib kelamiz",
-      "Telegram ads bilan o'lchanadigan natija ko'rsatamiz",
-      "Google ads orqali sizni izlayotgan mijozlarni ushlab qolamiz"
+      "Telegram Ads bilan o'lchanadigan natija ko'rsatamiz",
+      "Google SEO orqali saytingizni birinchi o'ringa chiqaramiz",
+      "Google Ads orqali sizni izlayotgan mijozlarni ushlab qolamiz"
     ],
     ru: [
-      "Привлекаем покупающих клиентов через Instagram таргет",
       "Telegram Ads — надёжный трафик и измеримые результаты",
+      "Google SEO — выводим ваш сайт на первые позиции",
       "Google Ads — ловим клиентов, которые ищут вас"
     ],
     en: [
-      "We bring buying customers through Instagram targeting",
       "Telegram Ads for reliable traffic and measurable results",
+      "Google SEO to bring your site to the top",
       "Google Ads to catch customers searching for you"
     ]
   };

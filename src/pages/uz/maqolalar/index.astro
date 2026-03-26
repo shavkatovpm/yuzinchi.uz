@@ -1,0 +1,119 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const allArticles = await getCollection('articles', ({ id, data }) => {
+  return id.startsWith('uz/') && !data.draft;
+});
+
+const articles = allArticles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [...new Set(articles.map(a => a.data.category))];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": t('articles.title'),
+  "description": t('articles.subtitle'),
+  "url": "https://yuzinchi.uz/uz/maqolalar",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yuzinchi Marketing",
+    "url": "https://yuzinchi.uz"
+  }
+};
+---
+
+<BaseLayout
+  title={`${t('articles.title')} - Raqamli Marketing Qo'llanmalari | Yuzinchi`}
+  description="Telegram Ads, Google SEO/Ads bo'yicha chuqur maqolalar. Biznesingizni onlayn o'stirish uchun foydali qo'llanmalar."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-light md:text-5xl">
+          {t('articles.title')}
+        </h1>
+        <p class="mt-4 text-lg text-light/60">
+          {t('articles.subtitle')}
+        </p>
+      </div>
+
+      {/* Category filters */}
+      {categories.length > 1 && (
+        <div class="mt-8 flex flex-wrap justify-center gap-2">
+          <button class="category-btn active rounded-full border border-accent bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-colors" data-category="all">
+            Barchasi
+          </button>
+          {categories.map((cat) => (
+            <button class="category-btn rounded-full border border-light/10 px-4 py-2 text-sm font-medium text-light/60 transition-colors hover:border-accent hover:text-accent" data-category={cat}>
+              {t(`articles.category.${cat.toLowerCase()}` as any) || cat}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {articles.length > 0 ? (
+        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="articles-grid">
+          {articles.map((article) => (
+            <div data-category={article.data.category}>
+              <ArticleCard
+                title={article.data.title}
+                description={article.data.description}
+                pubDate={article.data.pubDate}
+                slug={article.slug.replace('uz/', '')}
+
+                tags={article.data.tags}
+                category={article.data.category}
+                readingTime={article.data.readingTime}
+                lang={lang}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="mt-12 text-center">
+          <p class="text-light/60">{t('articles.empty')}</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function initCategoryFilter() {
+    const buttons = document.querySelectorAll('.category-btn');
+    const items = document.querySelectorAll('#articles-grid > div[data-category]');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        buttons.forEach(b => {
+          b.classList.remove('active', 'border-accent', 'bg-accent/10', 'text-accent');
+          b.classList.add('border-light/10', 'text-light/60');
+        });
+        btn.classList.add('active', 'border-accent', 'bg-accent/10', 'text-accent');
+        btn.classList.remove('border-light/10', 'text-light/60');
+
+        items.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            (item as HTMLElement).style.display = '';
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  initCategoryFilter();
+  document.addEventListener('astro:after-swap', initCategoryFilter);
+</script>
