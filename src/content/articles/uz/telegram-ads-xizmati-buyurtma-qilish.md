@@ -238,11 +238,56 @@ Eng kuchli natija — bir nechta kanalni birgalikda ishlatish:
 
 Amalda bir nechta kanalni birgalikda ishlatish natijani sezilarli darajada yaxshilaydi.
 
+## Yuzinchi agentligi bilan Telegram Ads: nima qilamiz?
+
+Yuzinchi — O'zbekiston bozorida Telegram Ads va [Google SEO/Ads](/uz/xizmatlar/google-reklama) bo'yicha ixtisoslashgan marketing agentligi. Biz faqat "reklama joylashtirib qo'yish" emas — to'liq jarayonni boshqaramiz.
+
+### Yuzinchi aniq nima hal qiladi?
+
+**1. Rasmiy platformaga kirishni hal qilamiz.**
+Telegram Ads uchun xalqaro karta, €1,000+ byudjet va texnik sozlash kerak. Siz bu bilan shug'ullanmaysiz — biz platformaga kirishni o'z zimmamizga olamiz.
+
+**2. O'zbekiston bozoriga moslashtirilgan strategiya tuzamiz.**
+Biz mahalliy auditoriyani bilamiz — qaysi kanallar ishlaydi, qanday kreativ O'zbekiston foydalanuvchisini jalb qiladi, qaysi vaqtda reklama berish samarali. Umumiy shablondan emas, sizning biznesingizga mos strategiya tayyorlaymiz.
+
+**3. Kreativ yozamiz va test qilamiz.**
+160 belgigacha matn — bu oson ko'rinadi, lekin samarali reklama matni yozish tajriba talab qiladi. Har bir kampaniya uchun kamida 3-5 ta kreativ variant tayyorlaymiz va test qilamiz.
+
+**4. Kanallarni tahlil qilib, byudjetni tejab beramiz.**
+[TGStat](https://tgstat.com/) va boshqa vositalar orqali har bir kanalni tekshiramiz — shishirilgan obunachilar, haqiqiy ko'rishlar, auditoriya sifati. Natija: byudjetingiz soxta ko'rishlarga emas, haqiqiy auditoriyaga ketadi.
+
+**5. Har hafta shaffof hisobot beramiz.**
+Qancha sarflandi, qancha odam ko'rdi, qancha bosdi, qancha murojaat keldi — aniq raqamlar. "Yaxshi ketmoqda" degan gap bizda yo'q.
+
+### Yuzinchi xizmati qanday ishlaydi?
+
+| Bosqich | Nima bo'ladi | Muddat |
+|---|---|---|
+| Bepul konsultatsiya | Biznesingiz va maqsadingizni tushunib olamiz | 1 kun |
+| Strategiya | Reklama rejasi tayyorlanadi, siz tasdiqlaysiz | 2-3 kun |
+| Ishga tushirish | Kreativlar yoziladi, kampaniya boshlanadi | 3-5 kun |
+| Monitoring | Har hafta hisobot, optimizatsiya | Doimiy |
+
+### Narx
+
+| Xizmat | Narx |
+|---|---|
+| Telegram Ads boshqaruv | **$200+ / oyiga** (reklama byudjeti alohida) |
+| Kanal reklamasi boshqaruv | **$150+ / oyiga** |
+| Bepul konsultatsiya | **$0** — hech qanday majburiyat yo'q |
+
+**Muhim:** Agentlik haqqi va reklama byudjeti bizda alohida ko'rsatiladi. Siz qancha pul reklamaga, qancha xizmatga ketishini har doim bilasiz.
+
+### Nega aynan Yuzinchi?
+
+- **Faqat Telegram va Google** — biz hamma narsani qilamiz demaymiz. Ikki platformaga ixtisoslashganmiz va shu sohani chuqur bilamiz
+- **O'zbekiston bozori** — biz mahalliy agentlikmiz, mahalliy auditoriyani va bozorni bilamiz
+- **Shaffoflik** — har bir so'm qayerga ketganini ko'rasiz
+- **Byudjetingizni tejash** — kanallarni sinchiklab tahlil qilib, samarasiz sarflarni oldini olamiz
+
 ## Xulosa
 
 O'zbekistonda Telegram Ads xizmatini buyurtma qilish uchun eng ishonchli yo'l — mahalliy bozorni biladigan agentlik bilan ishlash. Platformaning texnik murakkabligini agentlik hal qiladi, siz esa natijaga e'tibor qaratilasiz.
-
-Yuzinchi agentligi O'zbekistonda Telegram Ads va [Google SEO/Ads](/uz/xizmatlar/google-reklama) xizmatlarini ko'rsatadi.
 
 **Telegram reklama kampaniyasini boshlash uchun:**
 
