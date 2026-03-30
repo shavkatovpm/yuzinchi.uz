@@ -21,7 +21,7 @@ const formattedDate = pubDate.toLocaleDateString(lang === 'uz' ? 'uz-UZ' : 'ru-R
   day: 'numeric'
 });
 
-const articleUrl = lang === 'uz' ? `/uz/maqolalar/${slug}` : `/ru/stati/${slug}`;
+const articleUrl = `/${lang}/maqolalar/${slug}`;
 const categoryKey = `articles.category.${category.toLowerCase()}` as any;
 const categoryLabel = t(categoryKey) || category;
 ---

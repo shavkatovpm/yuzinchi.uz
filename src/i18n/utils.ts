@@ -32,8 +32,7 @@ export function translatePath(path: string, targetLang: Lang): string {
     '/aloqa': { uz: '/aloqa', ru: '/kontakty' },
     '/kontakty': { uz: '/aloqa', ru: '/kontakty' },
     '/blog': { uz: '/blog', ru: '/blog' },
-    '/maqolalar': { uz: '/maqolalar', ru: '/stati' },
-    '/stati': { uz: '/maqolalar', ru: '/stati' },
+    '/maqolalar': { uz: '/maqolalar', ru: '/maqolalar' },
   };
 
   // Service page mappings
@@ -44,22 +43,7 @@ export function translatePath(path: string, targetLang: Lang): string {
     '/uslugi/google-reklama': { uz: '/xizmatlar/google-reklama', ru: '/uslugi/google-reklama' },
   };
 
-  // Article slug mappings
-  const articleMappings: Record<string, Record<Lang, string>> = {
-    '/maqolalar/telegramda-reklama-narxi-ozbekiston': { uz: '/maqolalar/telegramda-reklama-narxi-ozbekiston', ru: '/stati/reklama-v-telegram-uzbekistan' },
-    '/stati/reklama-v-telegram-uzbekistan': { uz: '/maqolalar/telegramda-reklama-narxi-ozbekiston', ru: '/stati/reklama-v-telegram-uzbekistan' },
-    '/maqolalar/google-seo-ads-ozbekistonda': { uz: '/maqolalar/google-seo-ads-ozbekistonda', ru: '/stati/google-seo-ads-v-uzbekistane' },
-    '/stati/google-seo-ads-v-uzbekistane': { uz: '/maqolalar/google-seo-ads-ozbekistonda', ru: '/stati/google-seo-ads-v-uzbekistane' },
-  };
-
-  // First check article pages (most specific)
-  for (const [pattern, translations] of Object.entries(articleMappings)) {
-    if (path === pattern) {
-      return translations[targetLang];
-    }
-  }
-
-  // Then check service pages
+  // First check service pages (more specific)
   for (const [pattern, translations] of Object.entries(servicePageMappings)) {
     if (path === pattern || path.startsWith(pattern)) {
       return translations[targetLang];

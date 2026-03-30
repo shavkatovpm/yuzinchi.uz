@@ -298,7 +298,7 @@ export const pageUrls = {
     home: '/ru',
     services: '/ru/uslugi',
     blog: '/ru/blog',
-    articles: '/ru/stati',
+    articles: '/ru/maqolalar',
     contact: '/ru/kontakty'
   }
 };
