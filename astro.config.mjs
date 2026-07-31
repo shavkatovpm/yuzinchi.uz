@@ -2,7 +2,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +21,6 @@ export default defineConfig({
   },
 
   integrations: [
-    react(),
     sitemap({
       i18n: {
         defaultLocale: 'uz',

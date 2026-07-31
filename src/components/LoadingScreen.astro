@@ -69,7 +69,7 @@
 
   /* Boshlang'ich holat - yashirin */
   .text-line {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Unbounded', system-ui, sans-serif;
     font-weight: 700;
     color: #628141;
     letter-spacing: -0.02em;
@@ -86,18 +86,20 @@
     width: 100%;
   }
 
-  .mobile-text .text-line:nth-child(1) { font-size: 20vw; }
-  .mobile-text .text-line:nth-child(2) { font-size: 17vw; }
-  .mobile-text .text-line:nth-child(3) { font-size: 17vw; }
-  .mobile-text .text-line:nth-child(4) { font-size: 13vw; }
+  /* Unbounded Space Grotesk'dan ~31% kengroq — o'lchamlar shunga moslangan,
+     asl vizual proporsiya saqlangan (white-space: nowrap + overflow: hidden) */
+  .mobile-text .text-line:nth-child(1) { font-size: 15.2vw; }
+  .mobile-text .text-line:nth-child(2) { font-size: 12.9vw; }
+  .mobile-text .text-line:nth-child(3) { font-size: 13vw; }
+  .mobile-text .text-line:nth-child(4) { font-size: 9.8vw; }
 
   .desktop-text .text-line {
-    font-size: 8vw;
+    font-size: 6.1vw;
   }
 
   @media (min-width: 1400px) {
     .desktop-text .text-line {
-      font-size: 7rem;
+      font-size: 5.3rem;
     }
   }
 

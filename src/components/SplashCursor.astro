@@ -12,6 +12,19 @@
     const canvas = document.getElementById('fluid-canvas') as HTMLCanvasElement;
     if (!canvas) return;
 
+    // Bu kursor effekti. Sichqoncha yo'q qurilmada (telefon, planshet) u ko'rinmaydi,
+    // lekin WebGL rAF loop protsessorni baribir to'liq band qiladi — PageSpeed'da
+    // TBT ni soniyalarga uzaytiradi. Shuning uchun faqat "fine pointer" da ishlaydi.
+    const container = document.getElementById('splash-cursor-container');
+    const wantsEffect =
+      window.matchMedia('(pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!wantsEffect) {
+      container?.remove();
+      return;
+    }
+
     // Config - 50% larger effect
     const config = {
       SIM_RESOLUTION: 128,
