@@ -3,7 +3,6 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import LoadingScreen from '../components/LoadingScreen.astro';
 import SplashCursor from '../components/SplashCursor.astro';
 import { getLangFromUrl, useTranslations, type Lang } from '../i18n/utils';
 
@@ -90,7 +89,6 @@ const langCodes: Record<Lang, string> = {
 
   <body class="flex min-h-screen flex-col bg-dark text-light antialiased">
     <SplashCursor />
-    <LoadingScreen />
     <Header />
 
     <main class="flex-1">

@@ -16,6 +16,14 @@ export default defineConfig({
     }
   },
 
+  build: {
+    // CSS'ni HTML ichiga joylashtiramiz. Tashqi stylesheet renderni bloklaydi:
+    // brauzer uni yuklab bo'lmaguncha hech nima chizmaydi, bu esa kritik
+    // zanjirga qo'shimcha yo'l-qaytish (round trip) qo'shadi va FCP/LCP ni kechiktiradi.
+    // Gzipdan keyin ~10 KiB, ya'ni HTML ichiga sig'adigan hajm.
+    inlineStylesheets: 'always'
+  },
+
   vite: {
     plugins: [tailwindcss()]
   },

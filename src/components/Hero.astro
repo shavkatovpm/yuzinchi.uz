@@ -32,7 +32,7 @@ const urls = pageUrls[lang];
 
       <!-- Heading - Animated text -->
       <h1 class="text-3xl font-bold tracking-tight text-light sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-        <span id="animated-heading" class="inline-block transition-all duration-500" style="filter: blur(0px);">
+        <span id="animated-heading" class="inline-block transition-opacity duration-500" style="opacity: 1;">
           {lang === 'uz' ? "Telegram Ads bilan o'lchanadigan natija ko'rsatamiz" : lang === 'ru' ? "Telegram Ads — надёжный трафик и измеримые результаты" : "Telegram Ads for reliable traffic and measurable results"}
         </span>
       </h1>
@@ -113,14 +113,12 @@ const urls = pageUrls[lang];
     setInterval(() => {
       // Blur out
       heading.style.opacity = '0';
-      heading.style.filter = 'blur(10px)';
 
       setTimeout(() => {
         currentIndex = (currentIndex + 1) % texts.length;
         heading.textContent = texts[currentIndex];
         // Blur in
         heading.style.opacity = '1';
-        heading.style.filter = 'blur(0px)';
       }, 300);
     }, 6000);
   }
