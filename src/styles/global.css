@@ -3,13 +3,13 @@
 
 /* Yuzinchi Brand Colors */
 @theme {
-  --color-dark: #262626;
+  --color-dark: #000000;
   --color-accent: #628141;
   --color-light: #ececec;
 
   /* Font families */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Unbounded', system-ui, sans-serif;
+  --font-display: 'Geologica', system-ui, sans-serif;
 }
 
 /* Base styles */
