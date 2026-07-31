@@ -41,6 +41,8 @@ export function translatePath(path: string, targetLang: Lang): string {
     '/uslugi/telegram-reklama': { uz: '/xizmatlar/telegram-reklama', ru: '/uslugi/telegram-reklama' },
     '/xizmatlar/google-reklama': { uz: '/xizmatlar/google-reklama', ru: '/uslugi/google-reklama' },
     '/uslugi/google-reklama': { uz: '/xizmatlar/google-reklama', ru: '/uslugi/google-reklama' },
+    '/xizmatlar/instagram-target': { uz: '/xizmatlar/instagram-target', ru: '/uslugi/instagram-target' },
+    '/uslugi/instagram-target': { uz: '/xizmatlar/instagram-target', ru: '/uslugi/instagram-target' },
   };
 
   // First check service pages (more specific)

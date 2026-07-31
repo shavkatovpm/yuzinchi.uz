@@ -11,6 +11,9 @@ const telegramIcon = `<path d="M22 2L11 13" fill="none" stroke="currentColor" st
 // Google icon - minimalistic search/target
 const googleIcon = `<circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
 
+// Instagram icon - minimalistic camera outline
+const instagramIcon = `<rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>`;
+
 const services = [
   {
     icon: telegramIcon,
@@ -27,6 +30,14 @@ const services = [
     what: t('services.google.what'),
     forWhom: t('services.google.forWhom'),
     result: t('services.google.result')
+  },
+  {
+    icon: instagramIcon,
+    title: 'Instagram Target',
+    href: urls.instagram,
+    what: t('services.instagram.what'),
+    forWhom: t('services.instagram.forWhom'),
+    result: t('services.instagram.result')
   }
 ];
 ---
@@ -133,7 +144,7 @@ const services = [
       </div>
 
       <!-- Desktop: Grid cards (unchanged) -->
-      <div class="hidden md:grid mx-auto max-w-4xl gap-5 md:grid-cols-2">
+      <div class="hidden md:grid mx-auto max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <a
             href={service.href}
