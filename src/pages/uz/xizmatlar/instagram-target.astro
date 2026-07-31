@@ -37,8 +37,31 @@ const steps = [
   { n: 4, title: "Kengaytirish", text: "Ishlagan kampaniyaga budjetni oshirib, natijani barqarorlashtiramiz" }
 ];
 
-const title = "Instagram target reklama xizmati O'zbekistonda | Yuzinchi";
-const description = "Instagram target reklama xizmati: auditoriyani aniq tanlash, kreativ tayyorlash, A/B test va retargeting. O'zbekiston bo'ylab, oyiga $200 dan. Bepul maslahat oling.";
+const faq = [
+  {
+    question: "Instagram target xizmati qancha turadi?",
+    answer: "Xizmat narxi oyiga $200 dan boshlanadi. Bunga auditoriya sozlash, kreativ tayyorlash, kampaniyani boshqarish va haftalik hisobot kiradi. Reklama budjeti alohida hisoblanadi va to'g'ridan-to'g'ri Instagram'ga to'lanadi."
+  },
+  {
+    question: "Instagram target xizmatini qanday buyurtma qilaman?",
+    answer: "Saytdagi ariza shaklini to'ldirasiz yoki Telegram orqali yozasiz. Biznesingizni va mijoz profilini o'rganib chiqamiz, keyin qaysi auditoriya va qanday budjet mos kelishini aytamiz. Birinchi suhbat bepul."
+  },
+  {
+    question: "Natija qancha vaqtda ko'rinadi?",
+    answer: "Birinchi murojaatlar odatda 3-7 kun ichida keladi. Barqaror natija uchun 1-2 oy kerak: shu vaqt ichida bir nechta auditoriya va kreativ sinaladi, eng arzon murojaat beradigani topiladi."
+  },
+  {
+    question: "Instagram target reklama har qanday biznesga mos keladimi?",
+    answer: "Mahsulot yoki xizmatni vizual ko'rsatish mumkin bo'lgan bizneslarga eng yaxshi ishlaydi: kiyim, kosmetika, restoran, klinika, ta'lim kurslari. Agar mijoz sizni Google'da qidirib topadigan bo'lsa, Google Ads samaraliroq bo'lishi mumkin — buni tahlil bosqichida aytamiz."
+  },
+  {
+    question: "Reklama kabineti kimning nomida bo'ladi?",
+    answer: "Kabinet sizning nomingizda bo'ladi va barcha ma'lumotlar sizda qoladi. Biz unga kirish huquqi bilan ishlaymiz, hamkorlik tugasa kabinet sizda saqlanib qoladi."
+  }
+];
+
+const title = "Instagram target xizmati O'zbekistonda | Yuzinchi";
+const description = "Instagram target xizmati: auditoriyani aniq tanlash, kreativ tayyorlash, A/B test va retargeting. O'zbekiston bo'ylab targeting xizmati, oyiga $200 dan. Bepul maslahat oling.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -49,10 +72,11 @@ const description = "Instagram target reklama xizmati: auditoriyani aniq tanlash
       { name: 'Instagram target', url: '/uz/xizmatlar/instagram-target' }
     ]}
     service={{
-      name: 'Instagram target reklama',
+      name: 'Instagram target xizmati',
       description: "Instagram va Facebook reklama kabinetida targetlangan reklama kampaniyalarini sozlash va boshqarish",
       serviceType: 'Instagram Targeted Advertising'
     }}
+    faq={faq}
   />
 
   <section class="section-padding">
@@ -68,10 +92,10 @@ const description = "Instagram target reklama xizmati: auditoriyani aniq tanlash
             </svg>
           </div>
           <h1 class="text-4xl font-bold text-light md:text-5xl">
-            Instagram target reklama
+            Instagram target xizmati
           </h1>
           <p class="mx-auto mt-4 max-w-2xl text-lg text-light/60 leading-relaxed">
-            Targetlangan reklama orqali mahsulotingizga qiziqishi mumkin bo'lgan odamlarga to'g'ridan-to'g'ri chiqamiz.
+            Instagram target xizmati orqali mahsulotingizga qiziqishi mumkin bo'lgan odamlarga to'g'ridan-to'g'ri chiqamiz.
             Auditoriyani tasodifan emas, ma'lumotga asoslanib tanlaymiz.
           </p>
         </div>
@@ -95,7 +119,7 @@ const description = "Instagram target reklama xizmati: auditoriyani aniq tanlash
         <!-- Features -->
         <div class="mt-16">
           <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
-            Instagram target reklamada nima qilamiz?
+            Instagram target xizmati nimalarni o'z ichiga oladi?
           </h2>
           <div class="mt-8 grid gap-6 md:grid-cols-2">
             {features.map((feature) => (
@@ -121,6 +145,25 @@ const description = "Instagram target reklama xizmati: auditoriyani aniq tanlash
                   <p class="mt-1 text-sm text-light/60">{s.text}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+        <!-- FAQ -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Instagram target xizmati bo'yicha savollar
+          </h2>
+          <div class="mt-8 space-y-3">
+            {faq.map((item) => (
+              <details class="group rounded-xl border border-light/5 bg-dark p-6">
+                <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-light marker:content-none">
+                  {item.question}
+                  <svg class="h-5 w-5 shrink-0 text-accent transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                  </svg>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-light/60">{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>

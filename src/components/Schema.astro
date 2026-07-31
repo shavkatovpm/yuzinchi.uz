@@ -16,9 +16,10 @@ interface Props {
   };
   itemList?: { name: string; url: string }[];
   itemListName?: string;
+  faq?: { question: string; answer: string }[];
 }
 
-const { breadcrumbs, service, itemList, itemListName } = Astro.props;
+const { breadcrumbs, service, itemList, itemListName, faq } = Astro.props;
 
 const abs = (u: string) => new URL(u, Astro.site).toString();
 
@@ -55,6 +56,21 @@ const serviceLd = service
     }
   : null;
 
+const faqLd = faq?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+    }
+  : null;
+
 const itemListLd = itemList?.length
   ? {
       '@context': 'https://schema.org',
@@ -70,6 +86,7 @@ const itemListLd = itemList?.length
   : null;
 ---
 
+{faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
 {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
 {serviceLd && <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />}
 {itemListLd && <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />}

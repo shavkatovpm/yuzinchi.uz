@@ -8,11 +8,23 @@ import Audience from '../components/Audience.astro';
 import WhyUs from '../components/WhyUs.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
+import Schema from '../components/Schema.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// FAQ matnlari i18n dan olinadi, ya'ni ko'rinadigan matn bilan schema bir xil bo'ladi
+const faq = [1, 2, 3, 4].map((n) => ({
+  question: t(`faq.q${n}`),
+  answer: t(`faq.a${n}`)
+}));
 ---
 
 <!-- Bu sahifa /uz bilan bir xil kontent. Qidiruv tizimlari uchun
      asosiy nusxa /uz deb belgilanadi. -->
 <BaseLayout canonical="/uz">
+  <Schema faq={faq} />
   <Hero />
   <Problems />
   <Services />

@@ -30,7 +30,7 @@ export const ui = {
 
     // Services Section
     'services.title': 'Xizmatlarimiz',
-    'services.subtitle': 'Biznesingiz uchun eng samarali reklama kanallarini tanlaymiz',
+    'services.subtitle': 'Targeting agentligi sifatida biznesingiz uchun eng samarali reklama kanallarini tanlaymiz',
     'services.label.what': 'Nima qilamiz?',
     'services.label.forWhom': 'Kimlar uchun?',
     'services.label.result': 'Qanday natija?',
@@ -137,8 +137,8 @@ export const ui = {
     'articles.empty': 'Hozircha maqolalar yo\'q. Tez orada qo\'shiladi!',
 
     // Meta
-    'meta.title': 'Reklama agentligi Toshkentda — Telegram, Google, Instagram',
-    'meta.description': 'Yuzinchi — O\'zbekistondagi raqamli marketing agentligi. Telegram Ads, Google SEO/Ads va Instagram target orqali mijoz oqimini yo\'lga qo\'yamiz. Bepul maslahat oling.'
+    'meta.title': 'Targeting agentligi Toshkentda — Telegram, Google, Instagram',
+    'meta.description': 'Yuzinchi — O\'zbekistondagi targeting agentligi. Telegram Ads, Google SEO/Ads va Instagram target xizmati orqali mijoz oqimini yo\'lga qo\'yamiz. Bepul maslahat oling.'
   },
 
   ru: {
@@ -165,7 +165,7 @@ export const ui = {
 
     // Services Section
     'services.title': 'Наши услуги',
-    'services.subtitle': 'Выбираем самые эффективные рекламные каналы для вашего бизнеса',
+    'services.subtitle': 'Как агентство таргетированной рекламы выбираем самые эффективные каналы для вашего бизнеса',
     'services.label.what': 'Что делаем?',
     'services.label.forWhom': 'Для кого?',
     'services.label.result': 'Какой результат?',
@@ -272,8 +272,8 @@ export const ui = {
     'articles.empty': 'Статей пока нет. Скоро появятся!',
 
     // Meta
-    'meta.title': 'Рекламное агентство в Ташкенте — Telegram, Google, Instagram',
-    'meta.description': 'Yuzinchi — агентство digital-маркетинга в Узбекистане. Telegram Ads, Google SEO/Ads и таргет в Instagram. Настраиваем поток заявок. Бесплатная консультация.'
+    'meta.title': 'Агентство таргетированной рекламы в Ташкенте — Telegram, Google',
+    'meta.description': 'Yuzinchi — агентство таргетированной рекламы в Узбекистане. Telegram Ads, Google SEO/Ads и услуга таргета в Instagram. Настраиваем поток заявок. Бесплатная консультация.'
   }
 } as const;
 

@@ -37,8 +37,31 @@ const steps = [
   { n: 4, title: "Масштабирование", text: "Увеличиваем бюджет на связку, которая сработала, и стабилизируем результат" }
 ];
 
-const title = "Таргетированная реклама в Instagram в Узбекистане | Yuzinchi";
-const description = "Instagram таргет: подбор аудитории, подготовка креативов, A/B тесты и ретаргетинг. Работаем по Узбекистану, от $200 в месяц. Бесплатная консультация.";
+const faq = [
+  {
+    question: "Сколько стоит услуга таргета в Instagram?",
+    answer: "Услуга начинается от $200 в месяц. Сюда входит настройка аудиторий, подготовка креативов, ведение кампании и еженедельный отчёт. Рекламный бюджет считается отдельно и оплачивается напрямую в Instagram."
+  },
+  {
+    question: "Как заказать услугу таргетированной рекламы?",
+    answer: "Оставьте заявку на сайте или напишите в Telegram. Мы разберём ваш бизнес и профиль клиента, после чего скажем, какая аудитория и какой бюджет подойдут. Первая консультация бесплатная."
+  },
+  {
+    question: "Через сколько будет результат?",
+    answer: "Первые заявки обычно приходят за 3-7 дней. На стабильный результат нужно 1-2 месяца: за это время тестируются несколько аудиторий и креативов и находится связка с самой низкой ценой заявки."
+  },
+  {
+    question: "Таргет в Instagram подходит любому бизнесу?",
+    answer: "Лучше всего работает там, где продукт можно показать визуально: одежда, косметика, рестораны, клиники, образовательные курсы. Если клиент ищет вас через поиск, эффективнее может оказаться Google Ads — мы скажем об этом на этапе анализа."
+  },
+  {
+    question: "На кого оформляется рекламный кабинет?",
+    answer: "Кабинет оформляется на вас, все данные остаются у вас. Мы работаем с доступом, и после окончания сотрудничества кабинет остаётся вашим."
+  }
+];
+
+const title = "Услуга таргета в Instagram в Узбекистане | Yuzinchi";
+const description = "Услуга таргетированной рекламы в Instagram: подбор аудитории, креативы, A/B тесты и ретаргетинг. Работаем по Узбекистану, от $200 в месяц. Бесплатная консультация.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -53,6 +76,7 @@ const description = "Instagram таргет: подбор аудитории, п
       description: "Настройка и ведение таргетированных рекламных кампаний в рекламном кабинете Instagram и Facebook",
       serviceType: 'Instagram Targeted Advertising'
     }}
+    faq={faq}
   />
 
   <section class="section-padding">
@@ -71,7 +95,7 @@ const description = "Instagram таргет: подбор аудитории, п
             Таргетированная реклама в Instagram
           </h1>
           <p class="mx-auto mt-4 max-w-2xl text-lg text-light/60 leading-relaxed">
-            Через таргет выходим напрямую на людей, которым может быть интересен ваш продукт.
+            Услуга таргета в Instagram выводит вас напрямую на людей, которым может быть интересен ваш продукт.
             Аудиторию подбираем не наугад, а на основе данных.
           </p>
         </div>
@@ -95,7 +119,7 @@ const description = "Instagram таргет: подбор аудитории, п
         <!-- Features -->
         <div class="mt-16">
           <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
-            Что входит в Instagram таргет?
+            Что входит в услугу таргета в Instagram?
           </h2>
           <div class="mt-8 grid gap-6 md:grid-cols-2">
             {features.map((feature) => (
@@ -121,6 +145,25 @@ const description = "Instagram таргет: подбор аудитории, п
                   <p class="mt-1 text-sm text-light/60">{s.text}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+        <!-- FAQ -->
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-bold text-light md:text-3xl">
+            Вопросы об услуге таргета в Instagram
+          </h2>
+          <div class="mt-8 space-y-3">
+            {faq.map((item) => (
+              <details class="group rounded-xl border border-light/5 bg-dark p-6">
+                <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold text-light marker:content-none">
+                  {item.question}
+                  <svg class="h-5 w-5 shrink-0 text-accent transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                  </svg>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-light/60">{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>
