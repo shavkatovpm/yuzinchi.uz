@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import Schema from '../../../components/Schema.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -31,8 +32,14 @@ const jsonLd = {
 
 <BaseLayout
   title={`${t('articles.title')} - Руководства по цифровому маркетингу | Yuzinchi`}
-  description="Подробные статьи по Telegram Ads, Google SEO/Ads. Полезные руководства для развития вашего бизнеса онлайн."
+  description="Подробные статьи по Telegram Ads, Google SEO/Ads и таргету в Instagram. Цены, этапы и реальные результаты в виде руководств."
 >
+  <Schema
+    breadcrumbs={[
+      { name: 'Главная', url: '/ru' },
+      { name: 'Статьи', url: '/ru/maqolalar' }
+    ]}
+  />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <section class="section-padding">

@@ -9,6 +9,8 @@ interface Props {
   type?: 'website' | 'article';
   publishedTime?: string;
   noindex?: boolean;
+  /** Boshqa sahifaga canonical berish uchun (masalan / dan /uz ga) */
+  canonical?: string;
 }
 
 const {
@@ -18,10 +20,11 @@ const {
   lang,
   type = 'website',
   publishedTime,
-  noindex = false
+  noindex = false,
+  canonical
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(canonical ?? Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
 const alternateLinks = getAlternateLinks(Astro.url);
 
@@ -61,7 +64,7 @@ const schemaOrgOrganization = {
     'https://t.me/yuzinchi_uz'
   ],
   priceRange: '$$',
-  serviceType: ['Telegram Advertising', 'Google SEO', 'Google Ads']
+  serviceType: ['Telegram Advertising', 'Google SEO', 'Google Ads', 'Instagram Targeted Advertising']
 };
 ---
 

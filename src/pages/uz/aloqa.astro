@@ -2,15 +2,22 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import Schema from '../../components/Schema.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <BaseLayout
-  title="Marketing xizmatlaridan foydalanish"
-  description="Biz bilan bog'laning. Biznesingiz uchun professional reklama xizmatlarini muhokama qilish uchun bepul maslahat oling."
+  title="Aloqa — bepul marketing maslahati | Yuzinchi"
+  description="Yuzinchi bilan bog'laning: Telegram, telefon yoki ariza orqali. Biznesingizni tahlil qilib, qaysi reklama kanali mos kelishini bepul aytamiz."
 >
+  <Schema
+    breadcrumbs={[
+      { name: 'Asosiy', url: '/uz' },
+      { name: 'Aloqa', url: '/uz/aloqa' }
+    ]}
+  />
   <section class="py-12 md:py-16">
     <div class="container-custom">
       <div class="mx-auto max-w-3xl text-center">

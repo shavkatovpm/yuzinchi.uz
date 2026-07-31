@@ -14,6 +14,7 @@ interface Props {
   type?: 'website' | 'article';
   publishedTime?: string;
   noindex?: boolean;
+  canonical?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -25,7 +26,8 @@ const {
   image,
   type = 'website',
   publishedTime,
-  noindex = false
+  noindex = false,
+  canonical
 } = Astro.props;
 
 const langCodes: Record<Lang, string> = {
@@ -57,18 +59,18 @@ const langCodes: Record<Lang, string> = {
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geologica:wght@600;700&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geologica:wght@600;700&display=swap"
       media="print"
       onload="this.media='all'; this.onload=null;"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geologica:wght@600;700&display=swap"
       />
     </noscript>
 
@@ -81,6 +83,7 @@ const langCodes: Record<Lang, string> = {
       type={type}
       publishedTime={publishedTime}
       noindex={noindex}
+      canonical={canonical}
     />
 
   </head>

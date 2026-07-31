@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTA from '../../../components/CTA.astro';
+import Schema from '../../../components/Schema.astro';
 
 const features = [
   {
@@ -31,9 +32,21 @@ const features = [
 ---
 
 <BaseLayout
-  title="Google SEO/Ads услуги - Yuzinchi"
-  description="SEO-оптимизация и Google Ads для вашего сайта. Выведите сайт на первые позиции в Google. Профессиональные услуги Google SEO/Ads."
+  title="Google SEO и Google Ads в Узбекистане | Yuzinchi"
+  description="SEO-оптимизация и кампании Google Ads. Выводим сайт в топ поиска и приводим клиентов, готовых к покупке. От $200 в месяц."
 >
+  <Schema
+    breadcrumbs={[
+      { name: 'Главная', url: '/ru' },
+      { name: 'Услуги', url: '/ru/uslugi' },
+      { name: 'Google SEO/Ads', url: '/ru/uslugi/google-reklama' }
+    ]}
+    service={{
+      name: 'Google SEO и Google Ads',
+      description: "SEO-оптимизация сайта и рекламные кампании Google Ads для вывода в топ поиска",
+      serviceType: 'Search Engine Marketing'
+    }}
+  />
   <section class="section-padding">
     <div class="container-custom">
       <div class="mx-auto max-w-4xl">

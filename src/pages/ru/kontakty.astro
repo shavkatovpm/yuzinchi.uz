@@ -2,15 +2,22 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import Schema from '../../components/Schema.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <BaseLayout
-  title="Воспользоваться маркетинговыми услугами"
-  description="Получите бесплатную консультацию. Разработаем персональную рекламную стратегию для вашего бизнеса."
+  title="Контакты — бесплатная консультация | Yuzinchi"
+  description="Свяжитесь с Yuzinchi: Telegram, телефон или заявка на сайте. Разберём ваш бизнес и бесплатно подскажем, какой рекламный канал подойдёт."
 >
+  <Schema
+    breadcrumbs={[
+      { name: 'Главная', url: '/ru' },
+      { name: 'Контакты', url: '/ru/kontakty' }
+    ]}
+  />
   <section class="py-12 md:py-16">
     <div class="container-custom">
       <div class="mx-auto max-w-3xl text-center">

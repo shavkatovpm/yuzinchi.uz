@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTA from '../../../components/CTA.astro';
+import Schema from '../../../components/Schema.astro';
 
 const features = [
   {
@@ -31,9 +32,21 @@ const features = [
 ---
 
 <BaseLayout
-  title="Услуга рекламы в Telegram"
-  description="Через Telegram Ads достигайте самой активной аудитории в Узбекистане. Профессиональные услуги Telegram маркетинга."
+  title="Реклама в Telegram Ads в Узбекистане | Yuzinchi"
+  description="Реклама через Telegram Ads и популярные каналы. Подбор каналов, креативы, сбор заявок через бота и еженедельный отчёт. От $200 в месяц."
 >
+  <Schema
+    breadcrumbs={[
+      { name: 'Главная', url: '/ru' },
+      { name: 'Услуги', url: '/ru/uslugi' },
+      { name: 'Telegram Ads', url: '/ru/uslugi/telegram-reklama' }
+    ]}
+    service={{
+      name: 'Реклама в Telegram Ads',
+      description: "Настройка и ведение рекламных кампаний в Telegram Ads и популярных каналах",
+      serviceType: 'Telegram Advertising'
+    }}
+  />
   <section class="section-padding">
     <div class="container-custom">
       <div class="mx-auto max-w-4xl">

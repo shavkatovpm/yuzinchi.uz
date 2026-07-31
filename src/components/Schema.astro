@@ -1,0 +1,75 @@
+---
+// Sahifa turiga mos JSON-LD chiqaradi.
+// SEO.astro har sahifada WebSite + LocalBusiness beradi; bu komponent esa
+// sahifaga xos qo'shimchalarni beradi: non ushoqlari, xizmat, ro'yxat.
+interface Crumb {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  breadcrumbs?: Crumb[];
+  service?: {
+    name: string;
+    description: string;
+    serviceType?: string;
+  };
+  itemList?: { name: string; url: string }[];
+  itemListName?: string;
+}
+
+const { breadcrumbs, service, itemList, itemListName } = Astro.props;
+
+const abs = (u: string) => new URL(u, Astro.site).toString();
+
+const breadcrumbLd = breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.name,
+        item: abs(c.url),
+      })),
+    }
+  : null;
+
+const serviceLd = service
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: service.name,
+      description: service.description,
+      serviceType: service.serviceType ?? service.name,
+      url: new URL(Astro.url.pathname, Astro.site).toString(),
+      provider: {
+        '@type': 'LocalBusiness',
+        '@id': Astro.site?.toString(),
+        name: 'Yuzinchi Marketing Agency',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Uzbekistan',
+      },
+    }
+  : null;
+
+const itemListLd = itemList?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: itemListName,
+      itemListElement: itemList.map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.name,
+        url: abs(it.url),
+      })),
+    }
+  : null;
+---
+
+{breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
+{serviceLd && <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />}
+{itemListLd && <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />}

@@ -2,12 +2,38 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Services from '../../../components/Services.astro';
 import CTA from '../../../components/CTA.astro';
+import Schema from '../../../components/Schema.astro';
+
+const title = "Reklama xizmatlari: Telegram, Google, Instagram | Yuzinchi";
+const description = "O'zbekistonda reklama xizmatlari: Telegram Ads, Google SEO va Ads, Instagram target reklama. Biznesingizga mos kanalni tanlab, mijoz oqimini yo'lga qo'yamiz.";
 ---
 
-<BaseLayout
-  title="Telegram Ads va Google SEO/Ads xizmatlari - Yuzinchi"
-  description="Telegram Ads va Google SEO/Ads orqali professional reklama xizmatlari. Biznesingiz uchun eng samarali reklama strategiyasini tanlaymiz."
->
+<BaseLayout title={title} description={description}>
+  <Schema
+    breadcrumbs={[
+      { name: 'Asosiy', url: '/uz' },
+      { name: 'Xizmatlar', url: '/uz/xizmatlar' }
+    ]}
+    itemListName="Yuzinchi reklama xizmatlari"
+    itemList={[
+      { name: 'Telegram Ads reklama', url: '/uz/xizmatlar/telegram-reklama' },
+      { name: 'Google SEO va Google Ads', url: '/uz/xizmatlar/google-reklama' },
+      { name: 'Instagram target reklama', url: '/uz/xizmatlar/instagram-target' }
+    ]}
+  />
+
+  <section class="pt-16 pb-0 md:pt-24">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-light md:text-5xl">Reklama xizmatlari</h1>
+        <p class="mt-4 text-lg text-light/60 leading-relaxed">
+          Telegram Ads, Google SEO/Ads va Instagram target — uchta yo'nalish bo'yicha ishlaymiz.
+          Biznesingizni o'rganib, qaysi biri sizga mijoz olib kelishini aniqlaymiz.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <Services />
   <CTA />
 </BaseLayout>

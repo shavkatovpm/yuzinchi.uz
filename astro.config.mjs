@@ -22,6 +22,9 @@ export default defineConfig({
 
   integrations: [
     sitemap({
+      // "/" sahifasi /uz bilan bir xil kontent va canonical'i /uz ga qaratilgan,
+      // shuning uchun sitemap'da faqat /uz qoladi
+      filter: (page) => page !== 'https://yuzinchi.uz/',
       i18n: {
         defaultLocale: 'uz',
         locales: {

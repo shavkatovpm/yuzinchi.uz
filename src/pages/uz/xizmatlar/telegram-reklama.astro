@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTA from '../../../components/CTA.astro';
+import Schema from '../../../components/Schema.astro';
 
 const features = [
   {
@@ -31,9 +32,21 @@ const features = [
 ---
 
 <BaseLayout
-  title="Telegramda reklama yoqish xizmati"
-  description="Telegram ads orqali O'zbekistondagi eng faol auditoriyaga yetib boring. Professional Telegram marketing xizmatlari."
+  title="Telegram Ads reklama xizmati O'zbekistonda | Yuzinchi"
+  description="Telegram Ads va mashhur kanallarda reklama xizmati. Kanal tanlash, kreativ, bot orqali mijoz yig'ish va haftalik hisobot. Oyiga $200 dan."
 >
+  <Schema
+    breadcrumbs={[
+      { name: 'Asosiy', url: '/uz' },
+      { name: 'Xizmatlar', url: '/uz/xizmatlar' },
+      { name: 'Telegram Ads', url: '/uz/xizmatlar/telegram-reklama' }
+    ]}
+    service={{
+      name: 'Telegram Ads reklama',
+      description: "Telegram Ads platformasi va mashhur kanallarda reklama kampaniyalarini sozlash va boshqarish",
+      serviceType: 'Telegram Advertising'
+    }}
+  />
   <section class="section-padding">
     <div class="container-custom">
       <div class="mx-auto max-w-4xl">

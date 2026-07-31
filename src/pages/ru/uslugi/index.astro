@@ -2,12 +2,38 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Services from '../../../components/Services.astro';
 import CTA from '../../../components/CTA.astro';
+import Schema from '../../../components/Schema.astro';
+
+const title = "Рекламные услуги: Telegram, Google, Instagram | Yuzinchi";
+const description = "Рекламные услуги в Узбекистане: Telegram Ads, Google SEO и Ads, таргетированная реклама в Instagram. Подбираем канал под ваш бизнес и запускаем поток заявок.";
 ---
 
-<BaseLayout
-  title="Услуги Telegram Ads и Google SEO/Ads - Yuzinchi"
-  description="Профессиональные услуги Telegram Ads и Google SEO/Ads для вашего бизнеса. Привлекайте клиентов и увеличивайте продажи."
->
+<BaseLayout title={title} description={description}>
+  <Schema
+    breadcrumbs={[
+      { name: 'Главная', url: '/ru' },
+      { name: 'Услуги', url: '/ru/uslugi' }
+    ]}
+    itemListName="Рекламные услуги Yuzinchi"
+    itemList={[
+      { name: 'Реклама в Telegram Ads', url: '/ru/uslugi/telegram-reklama' },
+      { name: 'Google SEO и Google Ads', url: '/ru/uslugi/google-reklama' },
+      { name: 'Таргетированная реклама в Instagram', url: '/ru/uslugi/instagram-target' }
+    ]}
+  />
+
+  <section class="pt-16 pb-0 md:pt-24">
+    <div class="container-custom">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-light md:text-5xl">Рекламные услуги</h1>
+        <p class="mt-4 text-lg text-light/60 leading-relaxed">
+          Работаем по трём направлениям: Telegram Ads, Google SEO/Ads и Instagram таргет.
+          Изучаем ваш бизнес и определяем, какой канал приведёт клиентов именно вам.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <Services />
   <CTA />
 </BaseLayout>

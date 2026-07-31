@@ -78,7 +78,7 @@ const faqLd = post.data.faq ? {
 ---
 
 <BaseLayout
-  title={`${post.data.title} | Yuzinchi`}
+  title={post.data.title.length > 55 ? post.data.title : `${post.data.title} | Yuzinchi`}
   description={post.data.description}
   type="article"
   publishedTime={post.data.pubDate.toISOString()}

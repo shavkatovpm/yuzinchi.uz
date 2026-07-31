@@ -7,8 +7,6 @@ author: "Yuzinchi"
 tags: ["telegram", "marketing", "kanal", "reklama"]
 ---
 
-# Telegram Marketingni Qanday Boshlash Kerak?
-
 O'zbekistonda Telegram eng mashhur messenjer. 15 milliondan ortiq foydalanuvchi har kuni bu platformada faol. Biznes uchun bu katta imkoniyat!
 
 ## Telegram Marketing Afzalliklari
